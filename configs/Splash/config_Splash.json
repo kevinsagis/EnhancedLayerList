@@ -1,0 +1,10 @@
+{
+  "splash": {
+    "splashContent": "<div style=\"text-align: center;\"><div style=\"font-family: &quot;Times New Roman&quot;; font-size: medium; text-align: left;\"><p style=\"text-align: center;\"><br /></p></div></div>",
+    "requireConfirm": false,
+    "confirmText": "",
+    "showOption": true,
+    "confirmEverytime": true,
+    "backgroundColor": "#28607a"
+  }
+}

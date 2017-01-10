@@ -1,0 +1,1899 @@
+{
+  "layerInfos": [
+    {
+      "name": "UZO",
+      "id": "UZO_Layer_2555_0",
+      "layer": {
+        "url": "http://sagisservices.thempc.org/saint/rest/services/UZO/UZO_Layer/MapServer/0",
+        "fields": [
+          {
+            "name": "OBJECTID",
+            "alias": "OBJECTID",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "PIN",
+            "alias": "PIN",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "NAME",
+            "alias": "NAME",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ADDRESS_1",
+            "alias": "ADDRESS_1",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ADDRESS_2",
+            "alias": "ADDRESS_2",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ADDRESS_3",
+            "alias": "ADDRESS_3",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "CITY",
+            "alias": "CITY",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STATE",
+            "alias": "STATE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZIP_CODE",
+            "alias": "ZIP_CODE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PROP_ADDRE",
+            "alias": "PROP_ADDRE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STREET_LIG",
+            "alias": "STREET_LIG",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "MUN_CODE",
+            "alias": "MUN_CODE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "NEIGHBORHO",
+            "alias": "NEIGHBORHO",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAND_UNITS",
+            "alias": "LAND_UNITS",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "LAND_FRONT",
+            "alias": "LAND_FRONT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAND_DEPTH",
+            "alias": "LAND_DEPTH",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAND_TYPE",
+            "alias": "LAND_TYPE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "REAL_ESTAT",
+            "alias": "REAL_ESTAT",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "LAND_VALUE",
+            "alias": "LAND_VALUE",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "BUILDING_V",
+            "alias": "BUILDING_V",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "PROP_CLASS",
+            "alias": "PROP_CLASS",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAND_USE_C",
+            "alias": "LAND_USE_C",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_PRICE",
+            "alias": "SALE_PRICE",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "SALE_YY",
+            "alias": "SALE_YY",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_MM",
+            "alias": "SALE_MM",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_DD",
+            "alias": "SALE_DD",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "TRANSIT_CO",
+            "alias": "TRANSIT_CO",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "APC_CODE",
+            "alias": "APC_CODE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "COMM_CAT",
+            "alias": "COMM_CAT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "AGENT",
+            "alias": "AGENT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "TOTAL_ASSE",
+            "alias": "TOTAL_ASSE",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "LEGAL_1",
+            "alias": "LEGAL_1",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LEGAL_2",
+            "alias": "LEGAL_2",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZONING",
+            "alias": "ZONING",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_OR_BO",
+            "alias": "SALE_OR_BO",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_OR_PA",
+            "alias": "SALE_OR_PA",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "BASE_YR_VA",
+            "alias": "BASE_YR_VA",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "BASE_YR__1",
+            "alias": "BASE_YR__1",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CAMA_LAND_",
+            "alias": "CAMA_LAND_",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CAMA_MISC_",
+            "alias": "CAMA_MISC_",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CAMA_BLDG_",
+            "alias": "CAMA_BLDG_",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CAMA_TOTAL",
+            "alias": "CAMA_TOTAL",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CHTXFER_FI",
+            "alias": "CHTXFER_FI",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ADTAB_TAD",
+            "alias": "ADTAB_TAD",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ADTAB_TAD_",
+            "alias": "ADTAB_TAD_",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "ADTAB_EZON",
+            "alias": "ADTAB_EZON",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "GDATA_EZ",
+            "alias": "GDATA_EZ",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "TCR_DATE",
+            "alias": "TCR_DATE",
+            "show": true,
+            "format": {
+              "dateFormat": "longMonthDayYear"
+            }
+          },
+          {
+            "name": "CALCAC",
+            "alias": "Calculated Acreage",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "ZIPCODE",
+            "alias": "Zipcode",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZONEID",
+            "alias": "Zoning Code",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZONE_DESC",
+            "alias": "Zoning Description",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALDERID",
+            "alias": "Alderman District",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "COMMID",
+            "alias": "Commissioner District",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "NBHD_DESC",
+            "alias": "Neighborhood Description",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LANDUSE_DESC",
+            "alias": "Landuse Description",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "FLOODID",
+            "alias": "Flood Zone",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ELEMENTARY",
+            "alias": "Elementary School",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "MIDDLE",
+            "alias": "Middle School",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "HIGH",
+            "alias": "High School",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "VOT_PRECINCT",
+            "alias": "Voting Precinct",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PROP_ADDRE2",
+            "alias": "PROP_ADDRE2",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STNUM",
+            "alias": "STNUM",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STSUFFIX",
+            "alias": "STSUFFIX",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STSHORTNAM",
+            "alias": "STSHORTNAM",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STPREFIX",
+            "alias": "STPREFIX",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STUNIT",
+            "alias": "STUNIT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STNAME",
+            "alias": "STNAME",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "OBJECTID_1",
+            "alias": "OBJECTID",
+            "show": false,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "FID_Parcel_Zoning3",
+            "alias": "FID_Parcel_Zoning3",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "Join_Count",
+            "alias": "Join_Count",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "TARGET_FID",
+            "alias": "TARGET_FID",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "Join_Count_1",
+            "alias": "Join_Count",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "TARGET_FID_1",
+            "alias": "TARGET_FID",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "PIN_1",
+            "alias": "PIN",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "NAME_1",
+            "alias": "NAME",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ADDRESS_12",
+            "alias": "ADDRESS_1",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ADDRESS_23",
+            "alias": "ADDRESS_2",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ADDRESS_34",
+            "alias": "ADDRESS_3",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "CITY_1",
+            "alias": "CITY",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STATE_1",
+            "alias": "STATE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZIP_CODE_1",
+            "alias": "ZIP_CODE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PROP_ADDRE_1",
+            "alias": "PROP_ADDRE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "MUN_CODE_1",
+            "alias": "MUN_CODE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "NEIGHBORHO_1",
+            "alias": "NEIGHBORHO",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAND_UNITS_1",
+            "alias": "LAND_UNITS",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "LAND_FRONT_1",
+            "alias": "LAND_FRONT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAND_DEPTH_1",
+            "alias": "LAND_DEPTH",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAND_TYPE_1",
+            "alias": "LAND_TYPE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "REAL_ESTAT_1",
+            "alias": "REAL_ESTAT",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "LAND_VALUE_1",
+            "alias": "LAND_VALUE",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "BUILDING_V_1",
+            "alias": "BUILDING_V",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "PROP_CLASS_1",
+            "alias": "PROP_CLASS",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAND_USE_C_1",
+            "alias": "LAND_USE_C",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_PRICE_1",
+            "alias": "SALE_PRICE",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "SALE_YY_1",
+            "alias": "SALE_YY",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_MM_1",
+            "alias": "SALE_MM",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_DD_1",
+            "alias": "SALE_DD",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "TOTAL_ASSE_1",
+            "alias": "TOTAL_ASSE",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "LEGAL_12",
+            "alias": "LEGAL_1",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LEGAL_23",
+            "alias": "LEGAL_2",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZONING_1",
+            "alias": "ZONING",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_OR_BO_1",
+            "alias": "SALE_OR_BO",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SALE_OR_PA_1",
+            "alias": "SALE_OR_PA",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "BASE_YR_VA_1",
+            "alias": "BASE_YR_VA",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "BASE_YR__12",
+            "alias": "BASE_YR__1",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CAMA_LAND1",
+            "alias": "CAMA_LAND_",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CAMA_MISC1",
+            "alias": "CAMA_MISC_",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CAMA_BLDG1",
+            "alias": "CAMA_BLDG_",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CAMA_TOTAL_1",
+            "alias": "CAMA_TOTAL",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "ORIG_FID",
+            "alias": "ORIG_FID",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "FLD_ZONE",
+            "alias": "FLD_ZONE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZONE",
+            "alias": "ZONE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZONING_DISTRICT",
+            "alias": "ZONING_DISTRICT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "FID_UZO",
+            "alias": "FID_UZO",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "ZONE_",
+            "alias": "ZONE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "CODE",
+            "alias": "CODE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "Comments",
+            "alias": "Comment Reason for Zoning District",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "GISArea",
+            "alias": "GIS AREA",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "Zoning_DI",
+            "alias": "ZONING DISTRICTS",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "OLD_ZONE",
+            "alias": "OLD_ZONE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "UZO_ZONE",
+            "alias": "UZO_ZONE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SHAPE",
+            "alias": "Shape",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "GlobalID",
+            "alias": "GlobalID",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "SHAPE.area",
+            "alias": "SHAPE.area",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "SHAPE.len",
+            "alias": "SHAPE.len",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          }
+        ]
+      },
+      "show": false
+    },
+    {
+      "name": "Existing Zoning",
+      "id": "UZO_Operational_2693_0",
+      "layer": {
+        "url": "http://sagisservices.thempc.org/saint/rest/services/UZO/UZO_Operational/MapServer/0",
+        "fields": [
+          {
+            "name": "OBJECTID",
+            "alias": "OBJECTID",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "ZONE",
+            "alias": "ZONE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "CODE",
+            "alias": "CODE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZONING_DISTRICT",
+            "alias": "ZONING_DISTRICT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "POLYGON_AREA",
+            "alias": "POLYGON_AREA",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "SHAPE",
+            "alias": "SHAPE",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "SHAPE.area",
+            "alias": "SHAPE.area",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "SHAPE.len",
+            "alias": "SHAPE.len",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          }
+        ]
+      },
+      "show": true
+    },
+    {
+      "name": "Proposed Zoning",
+      "id": "UZO_Operational_2693_1",
+      "layer": {
+        "url": "http://sagisservices.thempc.org/saint/rest/services/UZO/UZO_Operational/MapServer/1",
+        "fields": [
+          {
+            "name": "OBJECTID",
+            "alias": "OBJECTID",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "ZONE_",
+            "alias": "ZONE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "CODE",
+            "alias": "CODE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "Comments",
+            "alias": "Comment Reason for Zoning District",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "GISArea",
+            "alias": "GIS AREA",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "SHAPE",
+            "alias": "SHAPE",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "Zoning_DI",
+            "alias": "ZONING DISTRICTS",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SHAPE.area",
+            "alias": "SHAPE.area",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "SHAPE.len",
+            "alias": "SHAPE.len",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          }
+        ]
+      },
+      "show": true
+    },
+    {
+      "name": "Existing Overlays",
+      "id": "UZO_Operational_2693_2",
+      "layer": {
+        "url": "http://sagisservices.thempc.org/saint/rest/services/UZO/UZO_Operational/MapServer/2",
+        "fields": [
+          {
+            "name": "OBJECTID",
+            "alias": "OBJECTID",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "Ex_Over_1",
+            "alias": "Ex_Over_1",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "Ex_Over_2",
+            "alias": "Ex_Over_2",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "Shape",
+            "alias": "Shape",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "Shape.area",
+            "alias": "Shape.area",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "Shape.len",
+            "alias": "Shape.len",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "GlobalID",
+            "alias": "GlobalID",
+            "show": false,
+            "format": null
+          }
+        ]
+      },
+      "show": false
+    },
+    {
+      "name": "Proposed Overlays",
+      "id": "UZO_Operational_2693_3",
+      "layer": {
+        "url": "http://sagisservices.thempc.org/saint/rest/services/UZO/UZO_Operational/MapServer/3",
+        "fields": [
+          {
+            "name": "OBJECTID",
+            "alias": "OBJECTID",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "Pro_Over_1",
+            "alias": "Pro_Over_1",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "Shape_Leng",
+            "alias": "Shape_Leng",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "Shape",
+            "alias": "Shape",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "Shape.area",
+            "alias": "Shape.area",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "Shape.len",
+            "alias": "Shape.len",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "GlobalID",
+            "alias": "GlobalID",
+            "show": false,
+            "format": null
+          }
+        ]
+      },
+      "show": false
+    },
+    {
+      "name": "Street Classification",
+      "id": "UZO_Operational_2693_4",
+      "layer": {
+        "url": "http://sagisservices.thempc.org/saint/rest/services/UZO/UZO_Operational/MapServer/4",
+        "fields": [
+          {
+            "name": "OBJECTID",
+            "alias": "OBJECTID",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "PRE_DIR",
+            "alias": "PRE_DIR",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STR_NAME",
+            "alias": "STR_NAME",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STR_SUFFIX",
+            "alias": "STR_SUFFIX",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "POST_DIR",
+            "alias": "POST_DIR",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ONEWAY",
+            "alias": "ONEWAY",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "L_LOW",
+            "alias": "L_LOW",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "L_HIGH",
+            "alias": "L_HIGH",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "R_LOW",
+            "alias": "R_LOW",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "R_HIGH",
+            "alias": "R_HIGH",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "FULLNAME",
+            "alias": "FULLNAME",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME",
+            "alias": "ALT_NAME",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "flag1",
+            "alias": "flag1",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "flag2",
+            "alias": "flag2",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "Verified",
+            "alias": "Verified",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STREET_ID",
+            "alias": "STREET_ID",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "FIPS",
+            "alias": "FIPS",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "RD_CLASS",
+            "alias": "RD_CLASS",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "MSAG_COM_LT",
+            "alias": "MSAG_COM_LT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "MSAG_COM_RT",
+            "alias": "MSAG_COM_RT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "POL_LT",
+            "alias": "POL_LT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "POL_RT",
+            "alias": "POL_RT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "EMS_LT",
+            "alias": "EMS_LT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "EMS_RT",
+            "alias": "EMS_RT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZIP_LT",
+            "alias": "ZIP_LT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZIP_RT",
+            "alias": "ZIP_RT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SOURCE",
+            "alias": "SOURCE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SRC_DATE",
+            "alias": "SRC_DATE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAST_EDIT_DATE",
+            "alias": "LAST_EDIT_DATE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ATTRIBUTED",
+            "alias": "ATTRIBUTED",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "FEATURE_ID",
+            "alias": "FEATURE_ID",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "INV_ROUTE_ID",
+            "alias": "INV_ROUTE_ID",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "JoinID",
+            "alias": "JoinID",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "FIRE_LT",
+            "alias": "FIRE_LT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "FIRE_RT",
+            "alias": "FIRE_RT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "HWY_CLASS",
+            "alias": "Highway Classification",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "EVAC_RTE",
+            "alias": "EVAC_RTE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "REENTRY_RTE",
+            "alias": "REENTRY_RTE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SHAPE",
+            "alias": "SHAPE",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "SHAPE.len",
+            "alias": "SHAPE.len",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "ALT_NAME2",
+            "alias": "ALT_NAME2",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME3",
+            "alias": "ALT_NAME3",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME4",
+            "alias": "ALT_NAME4",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME5",
+            "alias": "ALT_NAME5",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME6",
+            "alias": "ALT_NAME6",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "LAR",
+            "alias": "LAR",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "T_LFROM",
+            "alias": "Theoretical - Left From",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "T_LTO",
+            "alias": "Theoretical - Left To",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "T_RFROM",
+            "alias": "Theoretical - Right From",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "T_RTO",
+            "alias": "Theoretical - Right To",
+            "show": true,
+            "format": {
+              "places": 0,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "LAD",
+            "alias": "LAD",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "RD_L",
+            "alias": "RD_L",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "RD_R",
+            "alias": "RD_R",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "CITY_L",
+            "alias": "CITY_L",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "CITY_R",
+            "alias": "CITY_R",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "RSTATUS",
+            "alias": "ROAD STATUS",
+            "show": true,
+            "format": null
+          }
+        ]
+      },
+      "show": false
+    },
+    {
+      "name": "Addressing Points",
+      "id": "UZO_Operational_2693_5",
+      "layer": {
+        "url": "http://sagisservices.thempc.org/saint/rest/services/UZO/UZO_Operational/MapServer/5",
+        "fields": [
+          {
+            "name": "OBJECTID",
+            "alias": "OBJECTID",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "ADD_ID",
+            "alias": "ADD_ID",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "VACANT",
+            "alias": "VACANT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "X",
+            "alias": "X",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "Y",
+            "alias": "Y",
+            "show": false,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "LATITUDE",
+            "alias": "LATITUDE",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "LONGITUDE",
+            "alias": "LONGITUDE",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "PIN",
+            "alias": "PIN",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STPRE_TYPE",
+            "alias": "STPRE_TYPE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STPRE_Q",
+            "alias": "STPRE_Q",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STNUM",
+            "alias": "STNUM",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "STDIR",
+            "alias": "STDIR",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STNAME",
+            "alias": "STNAME",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STSUFFIX",
+            "alias": "STSUFFIX",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STRENUMB",
+            "alias": "STRENUMB",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STSUF_DIR",
+            "alias": "STSUF_DIR",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "STSUF_Q",
+            "alias": "STSUF_Q",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "UNIT",
+            "alias": "UNIT NUMBER",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "RURALRTE",
+            "alias": "RURALRTE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "RR_ZIP",
+            "alias": "RR_ZIP",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PD_BEAT",
+            "alias": "PD BEAT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PD_NHOOD",
+            "alias": "PD NEIGHBORHOOD",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PD_PRE",
+            "alias": "PD PRECINCT",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PD_AGNC",
+            "alias": "PD AGENCY",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "FD_RD",
+            "alias": "FD_RD",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "FD_AREA",
+            "alias": "FD_AREA",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "FD_AGNC",
+            "alias": "FD_AGNC",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "EMS_RD",
+            "alias": "EMS_RD",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "EMS_AGNC",
+            "alias": "EMS_AGNC",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PD_RD",
+            "alias": "PD_RD",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "NEI_NUM",
+            "alias": "NEIGHBORHOOD NUMBER",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "NEI_NAME",
+            "alias": "NEIGHBORHOOD NAME",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "MUNICPLT",
+            "alias": "MUNICIPALITY",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALDER",
+            "alias": "ALDER",
+            "show": true,
+            "format": {
+              "places": 2,
+              "digitSeparator": true
+            }
+          },
+          {
+            "name": "CENSUS_TRACK",
+            "alias": "CENSUS TRACK",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "CENSUS_BLOCK",
+            "alias": "CENSUS BLOCK",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ZIP",
+            "alias": "ZIP",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "CITY_ADDRESS",
+            "alias": "CITY ADDRESS",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SOURCE",
+            "alias": "SOURCE",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "VERIFIED",
+            "alias": "VERIFIED",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "O_DATE",
+            "alias": "OVERLAY DATE",
+            "show": true,
+            "format": {
+              "dateFormat": "longMonthDayYear"
+            }
+          },
+          {
+            "name": "FULL_ADDRESS",
+            "alias": "FULL ADDRESS",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "SHAPE",
+            "alias": "SHAPE",
+            "show": false,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME",
+            "alias": "ALT_NAME",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME2",
+            "alias": "ALT_NAME2",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME3",
+            "alias": "ALT_NAME3",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME4",
+            "alias": "ALT_NAME4",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME5",
+            "alias": "ALT_NAME5",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "ALT_NAME6",
+            "alias": "ALT_NAME6",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PREVIOUSADDRESS",
+            "alias": "PREVIOUS ADDRESS",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "PADDCHANGEDATE",
+            "alias": "PREVIOUS ADDRESS CHANGE DATE",
+            "show": true,
+            "format": {
+              "dateFormat": "longMonthDayYear"
+            }
+          },
+          {
+            "name": "EDITOR",
+            "alias": "EDITOR",
+            "show": true,
+            "format": null
+          },
+          {
+            "name": "EDIT_DATE",
+            "alias": "EDIT DATE",
+            "show": true,
+            "format": {
+              "dateFormat": "longMonthDayYear"
+            }
+          }
+        ]
+      },
+      "show": false
+    }
+  ],
+  "table": {
+    "pageSizeOptions": [
+      25,
+      50,
+      100,
+      1000
+    ]
+  },
+  "hideExportButton": false,
+  "initiallyExpand": false,
+  "filterByMapExtent": true
+}

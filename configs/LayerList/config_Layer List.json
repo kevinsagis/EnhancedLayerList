@@ -1,0 +1,40 @@
+{
+  "showLegend": true,
+  "contextMenu": {
+    "ZoomTo": true,
+    "Transparency": true,
+    "EnableOrDisablePopup": false,
+    "MoveupOrMovedown": false,
+    "OpenAttributeTable": true,
+    "DescriptionOrShowItemDetailsOrDownload": true
+  },
+  "layerOptions": {
+    "UZO_Layer_2555": {
+      "display": false
+    },
+    "UZO_Layer_2555_0": {
+      "display": true
+    },
+    "UZO_Operational_2693": {
+      "display": true
+    },
+    "UZO_Operational_2693_0": {
+      "display": true
+    },
+    "UZO_Operational_2693_1": {
+      "display": true
+    },
+    "UZO_Operational_2693_2": {
+      "display": true
+    },
+    "UZO_Operational_2693_3": {
+      "display": true
+    },
+    "UZO_Operational_2693_4": {
+      "display": true
+    },
+    "UZO_Operational_2693_5": {
+      "display": true
+    }
+  }
+}
