@@ -276,10 +276,10 @@
     },
     "widgets": [
       {
-        "uri": "widgets/LayerList/Widget",
+        "uri": "widgets/eLayerList/Widget",
         "version": "2.1",
         "id": "widgets_LayerList_Widget_17",
-        "icon": "widgets/LayerList/images/icon.png?wab_dv=2.1",
+        "icon": "widgets/eLayerList/images/icon.png?wab_dv=2.1",
         "name": "LayerList",
         "label": "Layer List",
         "index": 2,

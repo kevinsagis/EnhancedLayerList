@@ -34,7 +34,7 @@ define([
     var clazz = declare([BaseWidget], {
       //these two properties is defined in the BaseWiget
       baseClass: 'jimu-widget-layerList',
-      name: 'layerList',
+      name: 'elayerList',
       _denyLayerInfosReorderResponseOneTime: null,
       //layerListView: Object{}
       //  A module is responsible for show layers list
