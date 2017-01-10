@@ -7,6 +7,8 @@ The widget is located in eLayerList folder of this WAB 2.1 site in the Widgets f
 Enhanced Layer List adds metadata Dojo dialogs to display the Description and Copyright text fields from the REST service. 
 This replaces the standard out-of-the-box function that opens a new tab or window to display the Esri REST Service page when a user clicks the "Description" item in the '...' menu on a layer in the Layer List widget, and displays these dialogs instead. This is more friendly to the end user.
 
+It only displays Copyright if it's present. Same for Description. It won't display a Dialog if there is no description, such as for Group layer IDs.
+
 Also includes modification to the LayerListView.js file to autoexpand layerlist based on posts from Robert Scheitlin et al in https://geonet.esri.com/thread/160914
 
 
