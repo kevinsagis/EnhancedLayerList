@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -209,6 +209,8 @@ define([
           imageShowLegendDiv,
           layerTrNode,
           tableNode)));
+
+
 
       this.own(on(imageShowLegendDiv,
         'click',
@@ -532,8 +534,7 @@ define([
       this.own(on(this.operationsDropMenu ,
         'onMenuClick',
         lang.hitch(this, this._onOperationsMenuItemClick)));
-  
-
+   
 
 /////autoexpand layerlist thx to Robert Scheitlin!!!
  this.own(on(this.operationsDropMenu ,
@@ -543,9 +544,8 @@ define([
          this.foldOrUnfoldAllRootLayers(false);
        }), 300);
 ////
+ },  //move this from line above to get this modification inside the initoperation routine
 
-
-  },
 
     _onLayerListOperationsClick: function() {
       this._hideCurrentPopupMenu();

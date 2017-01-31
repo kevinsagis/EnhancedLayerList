@@ -2,7 +2,7 @@ define({
   root: ({
     _widgetLabel: "Layer List",
     titleBasemap: "Basemaps",
-    titleLayers: "Operational Layers",
+    titleLayers: "",
     labelLayer: "Layer Name",
     itemZoomTo: "Zoom to",
     itemTransparency: "Transparency",

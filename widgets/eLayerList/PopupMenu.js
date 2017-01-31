@@ -167,7 +167,7 @@ define([
 
     selectItem: function(item, evt) {
       var found = false;
-      for (var i = 1; i < this._deniedItems.length; i++) {
+      for (var i = 0; i < this._deniedItems.length; i++) {
         if (this._deniedItems[i].key === item.key) {
           found = true;
           break;
@@ -175,11 +175,8 @@ define([
       }
       if (!found) {
 
+ ////////////// Dojo metadata dialogs
 
-
-
-
-//alert('test')
           if (item.key == 'url') {
               
               var LayerDescriptionInfo;
@@ -236,8 +233,10 @@ define([
 
               } //end test for if menu item is url (description)
 
-          
-          this.emit('onMenuClick', item);
+          ////////////// end   Dojo metadata dialogs
+
+
+        this.emit('onMenuClick', item);
       }
       evt.stopPropagation(evt);
     },

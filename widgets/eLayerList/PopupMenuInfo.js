@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -74,7 +74,12 @@ define([
         label = this.nls.itemDesc;
       }
 
-     return '<a class="menu-item-description" href="#">' + label + '</a>';
+     
+          ////////////// Dojo metadata dialogs code modification ... kill url opening in new tab or window
+      return '<a class="menu-item-description" href="#">' + label + '</a>';
+
+
+          ////////////// end Dojo metadata dialogs code mod
     },
 
 
@@ -126,6 +131,35 @@ define([
           }
         }, this);
       }, this);
+    },
+
+    _isSupportedByAT: function() {
+      return true;
+    },
+
+    _isSupportedByAT_bk: function(attributeTableWidget, supportTableInfo) {
+      var isSupportedByAT;
+      var isLayerHasBeenConfigedInAT;
+      var ATConfig = attributeTableWidget.config;
+
+      if(ATConfig.layerInfos.length === 0) {
+        isLayerHasBeenConfigedInAT = true;
+      } else {
+        isLayerHasBeenConfigedInAT = array.some(ATConfig.layerInfos, function(layerInfo) {
+          if(layerInfo.id === this._layerInfo.id && layerInfo.show) {
+            return true;
+          }
+        }, this);
+      }
+      if (!supportTableInfo.isSupportedLayer ||
+          !supportTableInfo.isSupportQuery ||
+          supportTableInfo.otherReasonCanNotSupport ||
+          !isLayerHasBeenConfigedInAT) {
+        isSupportedByAT = false;
+      } else {
+        isSupportedByAT = true;
+      }
+      return isSupportedByAT;
     },
 
     getDeniedItems: function() {
@@ -185,9 +219,7 @@ define([
             'key': 'table',
             'denyType': 'hidden'
           });
-        } else if (!supportTableInfo.isSupportedLayer ||
-                   !supportTableInfo.isSupportQuery ||
-                   supportTableInfo.otherReasonCanNotSupport) {
+        } else if (!this._isSupportedByAT(attributeTableWidget, supportTableInfo)) {
           if(this._layerInfo.parentLayerInfo &&
              this._layerInfo.parentLayerInfo.isMapNotesLayerInfo()) {
             dynamicDeniedItems.push({
@@ -208,6 +240,7 @@ define([
       });
 
       return defRet;
+
     },
 
     getDisplayItems: function() {
@@ -312,12 +345,10 @@ define([
     _onTableItemClick: function(evt) {
       this._layerInfo.getSupportTableInfo().then(lang.hitch(this, function(supportTableInfo) {
         var widgetManager;
-        if(supportTableInfo.isSupportedLayer &&
-           supportTableInfo.isSupportQuery) {
-          widgetManager = WidgetManager.getInstance();
-
-          var attributeTableWidgetEle =
+        var attributeTableWidgetEle =
                     this.layerListWidget.appConfig.getConfigElementsByName("AttributeTable")[0];
+        if(this._isSupportedByAT(attributeTableWidgetEle, supportTableInfo)) {
+          widgetManager = WidgetManager.getInstance();
           widgetManager.triggerWidgetOpen(attributeTableWidgetEle.id)
           .then(lang.hitch(this, function() {
             evt.layerListWidget.publishData({
