@@ -208,20 +208,28 @@ define([
               function requestSucceeded(response, io) {
       
                   if (response.hasOwnProperty("description")) {
-                      var descriptionTitle = '<b>Description: <br><br> </b>';
-                      var copyrightCombined = response.copyrightText;
-                      if (response.copyrightText.length > 0) {
-                          var copyrightTitle = '<b><br><br>Copyright: <br><br> </b>';
-                          copyrightCombined = copyrightTitle + response.copyrightText;
+                      if (response.description.length > 0) {
+                          var descriptionTitle = '<b>Description: <br><br> </b>';
+                          var copyrightCombined = response.copyrightText;
+                          if (response.copyrightText.length > 0) {
+                              var copyrightTitle = '<b><br><br>Copyright: <br><br> </b>';
+                              copyrightCombined = copyrightTitle + response.copyrightText;
+                          }
+
+
+                          var _layerText = descriptionTitle + response.description + ' ' + copyrightCombined + '<br><br><b>GIS Details:</b><br><br> ' + '<a href=' + layerUrl + ' target="_blank"' + '>' + 'REST Link</a> ';
+                          layerText = _layerText;
+                      } else {
+                          var _layerText = "No information available." + '<br><br><b>GIS Details:</b><br><br> ' + '<a href=' + layerUrl + ' target="_blank"' + '>' + 'REST Link</a> ';
+                          layerText = _layerText;
                       }
-
-
-                      var _layerText = descriptionTitle + response.description + ' ' + copyrightCombined + '<br><br><b>GIS Details:</b><br><br> ' + '<a href=' + layerUrl + ' target="_blank"' + '>' + 'REST Link</a> ' ;
-                      layerText = _layerText;
-                  } else {
-                      var _layerText = "No information available.";
+                  }
+                  else 
+                  {
+                      var _layerText = "No information available." + '<br><br><b>GIS Details:</b><br><br> ' + '<a href=' + layerUrl + ' target="_blank"' + '>' + 'REST Link</a> ';
                       layerText = _layerText;
                   }
+
                   layerText = _layerText;
                   myDialog = new Dialog({
                       title: "Data Description:  " + response.name,
@@ -232,9 +240,12 @@ define([
                   dom.byId('main-page').appendChild(myDialog.domNode);
                   myDialog.content = layerText;
 
-                  if (response.description.length > 0) {
-                      myDialog.show();
-                  };
+                  myDialog.show();   // note:  decide whether or not to show dialog if there is no Description info.  Uncomment the block bl
+                  //if (response.description.length > 0) {
+                  //    myDialog.show();
+                  //};
+
+
                   }
 
               function requestFailed(error, io) {
