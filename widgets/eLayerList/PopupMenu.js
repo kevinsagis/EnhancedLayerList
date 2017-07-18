@@ -3,10 +3,11 @@ define([
   'dojo/_base/array',
   'dojo/_base/html',
   'dojo/_base/lang',
-  "dojo/_base/json",
-  "dojo/string",
   'dojo/query',
-  "esri/request",
+    "esri/request",
+      "dijit/Dialog",
+    "dojo/dom",
+
   'dojo/Deferred',
   'jimu/dijit/DropMenu',
   'jimu/dijit/LoadingIndicator',
@@ -15,12 +16,10 @@ define([
   'dijit/form/HorizontalRuleLabels',
   'dojo/text!./PopupMenu.html',
   'dojo/dom-style',
-    "dojo/dom",
-  "dijit/Dialog",
   './NlsStrings',
   './PopupMenuInfo'
-], function(declare, array, html, lang, dojoJson, dojoString, query, esriRequest, Deferred, DropMenu, LoadingIndicator,
-  _TemplatedMixin, HorizSlider, HorzRuleLabels, template, domStyle, dom, Dialog, NlsStrings, PopupMenuInfo) {
+], function(declare, array, html, lang, query, esriRequest, Dialog, dom, Deferred, DropMenu, LoadingIndicator,
+  _TemplatedMixin, HorizSlider, HorzRuleLabels, template, domStyle, NlsStrings, PopupMenuInfo) {
   return declare([DropMenu, _TemplatedMixin], {
     templateString: template,
     popupMenuInfo: null,
@@ -163,6 +162,16 @@ define([
           html.setAttr(itemNode, 'innerHTML', this.nls.enablePopup);
         }
       }
+      //handle controlLabels item.
+      itemNode = query("[itemid=controlLabels]", this.dropMenuNode)[0];
+      if (itemNode && this._layerInfo.canShowLabel()) {
+        if (this._layerInfo.isShowLabels()) {
+          html.setAttr(itemNode, 'innerHTML', this.nls.hideLables);
+        } else {
+          html.setAttr(itemNode, 'innerHTML', this.nls.showLabels);
+        }
+      }
+
     },
 
     selectItem: function(item, evt) {
@@ -175,7 +184,8 @@ define([
       }
       if (!found) {
 
- ////////////// Dojo metadata dialogs
+
+ ////////////// Dojo metadata dialogs kevin m 
 
           if (item.key == 'url') {
               
@@ -206,7 +216,7 @@ define([
                       }
 
 
-                      var _layerText = descriptionTitle + response.description + ' ' + copyrightCombined;
+                      var _layerText = descriptionTitle + response.description + ' ' + copyrightCombined + '<br><br><b>GIS Details:</b><br><br> ' + '<a href=' + layerUrl + ' target="_blank"' + '>' + 'REST Link</a> ' ;
                       layerText = _layerText;
                   } else {
                       var _layerText = "No information available.";
@@ -234,6 +244,7 @@ define([
               } //end test for if menu item is url (description)
 
           ////////////// end   Dojo metadata dialogs
+
 
 
         this.emit('onMenuClick', item);
