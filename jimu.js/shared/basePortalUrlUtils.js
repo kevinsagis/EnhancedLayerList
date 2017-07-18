@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -101,6 +101,11 @@ define(function() {
         domain2 = mo.getDomain(url2);
 
       return domain1 !== '' && domain1 === domain2;
+    };
+
+    mo.isOrgOnline = function(_url){
+      var server = mo.getServerByUrl(_url).toLowerCase();
+      return server.indexOf('.maps.arcgis.com') >= 0;
     };
 
     mo.isOnline = function(_url){
@@ -312,11 +317,24 @@ define(function() {
       return itemDataUrl;
     };
 
+    mo.getItemGroupsUrl = function(_portalUrl, _itemId){
+      var itemDataUrl = '';
+      var itemUrl = mo.getItemUrl(_portalUrl, _itemId);
+      if(itemUrl){
+        itemDataUrl = itemUrl + '/groups';
+      }
+      return itemDataUrl;
+    };
+
     mo.getGenerateTokenUrl = function(_portalUrl){
       var tokenUrl = '';
       _portalUrl = mo.getStandardPortalUrl(_portalUrl);
       if(_portalUrl){
-        tokenUrl = _portalUrl + '/sharing/rest/generateToken';
+        // tokenUrl = _portalUrl + '/sharing/rest/generateToken';
+        // The url should not include 'rest' because portal 10.3 doesn't support GET method with 'rest' and
+        // get following error
+        // {"error":{"code":405,"messageCode":"GWM_0005","message":"Method not supported.","details":[]}}
+        tokenUrl = _portalUrl + '/sharing/generateToken';
       }
       return tokenUrl;
     };
@@ -601,6 +619,21 @@ define(function() {
       if(thePortalUrl){
         thePortalUrl = mo.setHttpProtocol(thePortalUrl);
         url = thePortalUrl + '/sharing/tools/newPrint';
+      }
+      return url;
+    };
+
+    mo.getSwitchAccoutnsUrl = function(_portalUrl, client_id, /*optional*/ redirect_uri){
+      var url = '';
+      var portalUrl = mo.getStandardPortalUrl(_portalUrl);
+      if(portalUrl){
+        url = portalUrl + "/home/pages/Account/manage_accounts.html#client_id=" + client_id;
+        if(redirect_uri){
+          url += "&redirect_uri=" + redirect_uri;
+        }
+      }
+      if(url){
+        url = mo.setHttpsProtocol(url);
       }
       return url;
     };

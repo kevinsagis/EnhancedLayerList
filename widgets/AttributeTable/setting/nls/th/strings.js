@@ -25,5 +25,6 @@ define({
   "fieldName": "ชื่อ",
   "fieldAlias": "นามแฝง",
   "fieldVisibility": "มองเห็นได้",
-  "fieldActions": "กระบวนการ"
+  "fieldActions": "กระบวนการ",
+  "showAttachments": "แสดงไฟล์แนบ"
 });

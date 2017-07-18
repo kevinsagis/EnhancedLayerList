@@ -6,6 +6,7 @@ define({
     "yes": "Da",
     "no": "Ne",
     "next": "Sledeće",
+    "previous": "Prethodno",
     "back": "Nazad",
     "selected": "izabrano",
     "name": "Naziv",
@@ -48,11 +49,19 @@ define({
     "scene": "Scena",
     "reset": "Poništi",
     "icon": "Ikona",
+    "folder": "Fascikla",
     "share": "Podeli",
     "view": "Prikaži",
     "newText": "Novo",
     "edit": "Izmeni",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabela",
+    "zoomIn": "Uvećanje",
+    "zoomOut": "Umanjenje",
+    "continue1": "Nastavi",
+    "longitude": "Geografska dužina",
+    "latitude": "Geografska širina",
+    "custom": "Prilagođeno"
   },
   "errorCode": "Kôd",
   "errorMessage": "Poruka",
@@ -96,7 +105,10 @@ define({
     "dash": "Crta",
     "dot": "Tačka",
     "dashDot": "Crta tačka",
-    "dashDotDot": "Crta tačka tačka"
+    "dashDotDot": "Crta tačka tačka",
+    "customImage": "Prilagođeni snimak",
+    "chooseFile": "Izaberite datoteku",
+    "noFileChoosen": "Nijedna datoteka nije odabrana."
   },
   "transparency": {
     "opaque": "Neprozirno",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Razlikuje velika i mala slova",
     "notSupportCaseSensitiveTip": "Hostovani servisi ne podržavaju upite koji razlikuju velika i mala slova.",
-    "setFilterTip": "Pravilno postavite filter."
+    "setFilterTip": "Pravilno postavite filter.",
+    "listValues": "Izlistaj vrednosti",
+    "cascadeFilterTip": "Prikažite samo vrednosti filtrirane po prethodnim izrazima.",
+    "noneCascadeFilterTip": "Sve jedinstvene vrednosti u ovom polju",
+    "previousCascadeFilterTip": "Vrednosti filtrirane po prethodnim izrazima.",
+    "allCascadeFilterTip": "Vrednosti filtrirane po svim drugim izrazima."
   },
   "featureLayerSource": {
     "layer": "Sloj",
@@ -293,7 +310,11 @@ define({
     "owner": "vlasnik",
     "signInTo": "Prijavite se na",
     "lastModified": "Poslednja izmena",
-    "moreDetails": "Više detalja"
+    "moreDetails": "Više detalja",
+    "mostRecent": "Najskorije",
+    "mostViewed": "Najviše pregledano",
+    "highestRated": "Najbolje ocenjeno",
+    "viewItemDetails": "Prikaži detalje stavke"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Servis ne podržava upit."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Nevažeći tip datoteke.",
     "cropImage": "Izreži snimak",
     "exceed": "Veličina datoteke ne može da premaši 1024 KB",
-    "enableFlash": "Zaduženja: aktivirajte flash.",
+    "enableFlash": "Omogućite Adobe Flash pre nego što potražite snimak.",
     "cropWaining": "Odaberite fotografiju čije su dimenzije najmanje ${width} x ${height} piksela.",
     "toolTip": "Za najbolje rezultate, snimak treba da bude ${width} piksela širok i ${height} piksela visok. Ostale veličine će biti prilagođene da se uklope. Prihvatljivi formati snimaka su: PNG, GIF i JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Kliknite da biste vratili obuhvat mape i vidljivost slojeva gde ste stali."
   },
   "featureActions": {
+    "featureActions": "Radnje sa geoobjektima",
     "ZoomTo": "Zumiraj na",
     "PanTo": "Pomeri do",
     "Flash": "Blic",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Izvezi u CSV datoteku",
     "ShowSelectedFeature": "Prikaži izabrane geoobjekte",
     "ExportToFeatureCollection": "Izvezi u kolekciju geoobjekata",
-    "ExportToGeoJSON": "Izvezi u GeoJSON"
+    "ExportToGeoJSON": "Izvezi u GeoJSON",
+    "EditAttributes": "Izmeni atribute",
+    "AddMarker": "Dodaj marker",
+    "RemoveMarker": "Ukloni marker",
+    "SaveToMyContent": "Sačuvaj u Mom sadržaju"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Povezani sloj",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Dodaj u izbor",
     "removeSelectionTip": "Ukloni iz izbora",
     "selectFromCurrentSelectionTip": "Izaberi iz trenutnog izbora",
-    "unselectAllSelectionTip": "Poništi sve trenutno izabrane geoobjekte"
+    "unselectAllSelectionTip": "Poništi sve trenutno izabrane geoobjekte",
+    "selectByPolygon": "Selektujte koristeći poligon",
+    "selectByCircle": "Selektujte koristeći krug",
+    "selectByLine": "Selektujte koristeći liniju",
+    "chooseSelectingTools": "Izaberi alate za selekciju",
+    "darw": "Nacrtaj",
+    "drawShap": "Nacrtajte oblik"
   },
   "widgetManager": {
     "createWidgetError": "Greška pri kreiranju vidžeta",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D veb aplikacije nisu podržane u vašem pregledaču."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Pozadinska mapa nije dostupna.",
+    "displayDefaultBasemap": "Prikazuje se podrazumevana pozadinska mapa.",
+    "layerLoadedError": "Sloj, ${layers} nije moguće dodati na mapu."
+  },
+  "popup": {
+    "relatedTables": "Povezane tabele:",
+    "relatedRecords": "Povezani zapisi:",
+    "noRelatedRecotds": "Nema pronađenih povezanih zapisa.",
+    "chooseFieldTip": "Odaberite atribut za prikaz liste",
+    "saveAsPopupTitle": "Isti kao naslov iskačućeg prozora"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Vaš izbor sadrži previše geoobjekata. Njihovo preuzimanje i prikazivanje na mapi može da potraje.",
+    "askForContinue": "Želite li da nastavite?"
+  },
+  "colorPalette": {
+    "transparent": "Prozirno",
+    "custom": "Prilagođeno"
+  },
+  "temperature": {
+    "celsius": "Celzijus",
+    "fahrenheit": "Farenhajt"
+  },
+  "report": {
+    "printButtonLabel": "Odštampaj",
+    "reportDimensionsMsg": "Ovaj izveštaj je dizajniran za štampanje na ${paperSize} papiru",
+    "unableToPrintMapMsg": "Došlo je do greške prilikom štampanja mape/mapa.",
+    "landscape": "Pejzaž",
+    "portrait": "Uspravno",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Pismo ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Pismo",
+    "legal": "Pravno",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Vaš nalog nema dozvolu za kreiranje ili izmenu podataka.",
+  "invalidConfiguration": "Vidžet nije konfigurisan ili slojevi u konfiguraciji više nisu na mapi. Otvorite aplikaciju u režimu za izradu i ponovo konfigurišite vidžet."
 });

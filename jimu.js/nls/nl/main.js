@@ -6,6 +6,7 @@ define({
     "yes": "Ja",
     "no": "Nee",
     "next": "Volgende",
+    "previous": "Vorige",
     "back": "Vorige",
     "selected": "geselecteerd",
     "name": "Naam",
@@ -48,11 +49,19 @@ define({
     "scene": "Scene",
     "reset": "Opnieuw instellen",
     "icon": "Pictogram",
+    "folder": "Folder",
     "share": "Delen",
     "view": "Weergeven",
     "newText": "Nieuw",
     "edit": "Bewerken",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabel",
+    "zoomIn": "Inzoomen",
+    "zoomOut": "Uitzoomen",
+    "continue1": "Doorgaan",
+    "longitude": "Lengte",
+    "latitude": "Breedte",
+    "custom": "Aangepast"
   },
   "errorCode": "Code",
   "errorMessage": "Bericht",
@@ -96,7 +105,10 @@ define({
     "dash": "Streep",
     "dot": "Punt",
     "dashDot": "Streep punt",
-    "dashDotDot": "Streep punt punt"
+    "dashDotDot": "Streep punt punt",
+    "customImage": "Aangepaste afbeelding",
+    "chooseFile": "Bestand kiezen",
+    "noFileChoosen": "Geen bestand gekozen."
   },
   "transparency": {
     "opaque": "Niet transparant",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Hoofdletter gevoelig",
     "notSupportCaseSensitiveTip": "Hosted services ondersteunen geen hoofdlettergevoelige query.",
-    "setFilterTip": "Stel het filter correct in."
+    "setFilterTip": "Stel het filter correct in.",
+    "listValues": "Waarden vermelden",
+    "cascadeFilterTip": "Alleen waarden tonen gefilterd door vorige expressies.",
+    "noneCascadeFilterTip": "Alle unieke waarden van dit veld",
+    "previousCascadeFilterTip": "Waarden gefilterd door vorige expressies",
+    "allCascadeFilterTip": "Waarden gefilterd door alle andere expressies"
   },
   "featureLayerSource": {
     "layer": "Kaartlaag",
@@ -293,7 +310,11 @@ define({
     "owner": "eigenaar",
     "signInTo": "Meld u aan bij",
     "lastModified": "Laatst gewijzigd",
-    "moreDetails": "Meer details"
+    "moreDetails": "Meer details",
+    "mostRecent": "Meest recent",
+    "mostViewed": "Meest bekeken",
+    "highestRated": "Hoogst beoordeeld",
+    "viewItemDetails": "Itemdetails weergeven"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "De service ondersteunt geen query's."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Ongeldig bestandstype.",
     "cropImage": "Afbeelding bijsnijden",
     "exceed": "Bestandsgrootte mag niet groter zijn dan 1024 KB",
-    "enableFlash": "TAAK: schakel Flash in.",
+    "enableFlash": "Schakel Adobe Flash in alvorens te bladeren naar een afbeelding.",
     "cropWaining": "Kies een foto die minstens ${breedte}x ${hoogte} pixels is.",
     "toolTip": "Voor de beste weergave moet de afbeelding ${width} pixels breed en ${height} pixels hoog zijn. Andere formaten worden passend gemaakt. Aanvaardbare afbeeldingsindelingen zijn: PNG, GIF en JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Klik om de extent van de kaart en de zichtbaarheid van de lagen te herstellen waar u bent gebleven."
   },
   "featureActions": {
+    "featureActions": "Objectacties",
     "ZoomTo": "Zoomen naar",
     "PanTo": "Pannen naar",
     "Flash": "Flash",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Exporteren naar CSV-bestand",
     "ShowSelectedFeature": "Geselecteerde objecten weergeven",
     "ExportToFeatureCollection": "Exporteren naar Feature Collection",
-    "ExportToGeoJSON": "Exporteren naar GeoJSON"
+    "ExportToGeoJSON": "Exporteren naar GeoJSON",
+    "EditAttributes": "Attributen bewerken",
+    "AddMarker": "Markering toevoegen",
+    "RemoveMarker": "Markering verwijderen",
+    "SaveToMyContent": "Opslaan naar Mijn content"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Gerelateerde laag",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Toevoegen aan selectie",
     "removeSelectionTip": "Remove from selection",
     "selectFromCurrentSelectionTip": "Selecteren uit de huidige selectie",
-    "unselectAllSelectionTip": "Deselecteer alle momenteel geselecteerde objecten"
+    "unselectAllSelectionTip": "Deselecteer alle momenteel geselecteerde objecten",
+    "selectByPolygon": "Selecteren op polygoon",
+    "selectByCircle": "Selecteren op cirkel",
+    "selectByLine": "Selecteren op lijn",
+    "chooseSelectingTools": "Selectiehulpmiddelen kiezen",
+    "darw": "Tekenen",
+    "drawShap": "Een vorm tekenen"
   },
   "widgetManager": {
     "createWidgetError": "Widgetfout maken",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D-webapps worden niet ondersteund door uw browser."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Basiskaart is niet beschikbaar.",
+    "displayDefaultBasemap": "In plaats daarvan wordt de standaard basiskaart weergegeven.",
+    "layerLoadedError": "De laag ${layers} kan niet worden toegevoegd aan de kaart."
+  },
+  "popup": {
+    "relatedTables": "Gerelateerde tabellen:",
+    "relatedRecords": "Gerelateerde records:",
+    "noRelatedRecotds": "Geen verwante records gevonden.",
+    "chooseFieldTip": "Kies een attribuut om de lijst weer te geven",
+    "saveAsPopupTitle": "Zelfde als Pop-uptitel"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Er zijn te veel objecten in uw selectie. Het kan lang duren om ze op te halen en weer te geven op de kaart.",
+    "askForContinue": "Wilt u doorgaan?"
+  },
+  "colorPalette": {
+    "transparent": "Transparant",
+    "custom": "Aangepast"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Afdrukken",
+    "reportDimensionsMsg": "Dit rapport is ontwikkeld om afgedrukt te worden op ${paperSize} papier",
+    "unableToPrintMapMsg": "Er is een fout opgetreden tijdens het afdrukken van de kaart(en).",
+    "landscape": "Liggend",
+    "portrait": "Staand",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Juridisch",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Uw account heeft geen machtigingen om gegevens te maken of te wijzigen.",
+  "invalidConfiguration": "Widget is niet geconfigureerd of de lagen in de configuratie zijn niet langer in de kaart. Open de app in de bouwmodus en configureer de widget opnieuw."
 });

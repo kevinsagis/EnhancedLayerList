@@ -30,7 +30,7 @@ define({
   "Default": "Standard",
   "Inches": "Zoll",
   "Foot": "Fuß",
-  "Yards": "Yards",
+  "Yards": "Yard",
   "Miles": "Meilen",
   "Nautical_Miles": "Seemeilen",
   "Millimeters": "Millimeter",
@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Dezimalgrad",
   "Degree_Minutes_Seconds": "Grad Minuten Sekunden",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Anzeigereihenfolge für Koordinaten:",
+  "lonLatTips": "Längengrad/Breitengrad (X, Y)",
+  "latLonTips": "Breitengrad/Längengrad (Y, X)"
 });

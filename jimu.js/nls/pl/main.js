@@ -6,6 +6,7 @@ define({
     "yes": "Tak",
     "no": "Nie",
     "next": "Dalej",
+    "previous": "Powrót",
     "back": "Wstecz",
     "selected": "wybrane",
     "name": "Nazwa",
@@ -48,11 +49,19 @@ define({
     "scene": "Scena",
     "reset": "Resetuj",
     "icon": "Ikona",
+    "folder": "Folder",
     "share": "Udostępnianie",
     "view": "Wyświetl",
     "newText": "Nowa",
     "edit": "Edytuj",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabela",
+    "zoomIn": "Powiększ",
+    "zoomOut": "Pomniejsz",
+    "continue1": "Kontynuuj",
+    "longitude": "Długość geograficzna",
+    "latitude": "Szerokość geograficzna",
+    "custom": "Niestandardowy"
   },
   "errorCode": "Kod",
   "errorMessage": "Komunikat",
@@ -96,7 +105,10 @@ define({
     "dash": "Przerywana",
     "dot": "Kropka",
     "dashDot": "Kreska-kropka",
-    "dashDotDot": "Kreska-kropka-kropka"
+    "dashDotDot": "Kreska-kropka-kropka",
+    "customImage": "Obraz niestandardowy",
+    "chooseFile": "Wybierz plik",
+    "noFileChoosen": "Nie wybrano pliku."
   },
   "transparency": {
     "opaque": "Nieprzezroczysty",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Uwzględnia wielkość liter",
     "notSupportCaseSensitiveTip": "Hostowane usługi nie obsługują zapytań rozróżniających wielkość liter.",
-    "setFilterTip": "Skonfiguruj poprawnie filtr."
+    "setFilterTip": "Skonfiguruj poprawnie filtr.",
+    "listValues": "Wyświetl listę wartości",
+    "cascadeFilterTip": "Wyświetlaj tylko wartości odfiltrowane przez poprzednie wyrażenia.",
+    "noneCascadeFilterTip": "Wszystkie unikalne wartości tego pola",
+    "previousCascadeFilterTip": "Wartości odfiltrowane przez poprzednie wyrażenia",
+    "allCascadeFilterTip": "Wartości odfiltrowane przez wszystkie inne wyrażenia"
   },
   "featureLayerSource": {
     "layer": "Warstwa",
@@ -293,7 +310,11 @@ define({
     "owner": "właściciel",
     "signInTo": "Zaloguj się do",
     "lastModified": "Ostatnia modyfikacja",
-    "moreDetails": "Więcej szczegółów"
+    "moreDetails": "Więcej szczegółów",
+    "mostRecent": "Najnowsze",
+    "mostViewed": "Najczęściej wyświetlane",
+    "highestRated": "Najwyżej ocenione",
+    "viewItemDetails": "Wyświetl szczegóły elementu"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Usługa nie obsługuje wykonywania zapytań."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Nieprawidłowy typ plików",
     "cropImage": "Przytnij obraz",
     "exceed": "Rozmiar pliku nie może przekraczać 1024 KB",
-    "enableFlash": "DO WYKONANIA: Włącz technologię Flash.",
+    "enableFlash": "Włącz aplikację Adobe Flash przed przejściem do obrazu.",
     "cropWaining": "Proszę wybrać zdjęcie o minimalnych wymiarach ${width} x ${height} pikseli.",
     "toolTip": "W celu uzyskania najlepszych wyników obraz powinien mieć szerokość ${width} pikseli i wysokość ${height} pikseli.  Inne wielkości zostaną dopasowane.  Akceptowane formaty obrazów:  PNG, GIF i JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Kliknij, aby przywrócić zasięg mapy i widoczność warstw takie, jak w chwili pozostawienia."
   },
   "featureActions": {
+    "featureActions": "Operacje na obiektach",
     "ZoomTo": "Powiększ do",
     "PanTo": "Przesuń do",
     "Flash": "Lampa błyskowa",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Eksport do pliku CSV",
     "ShowSelectedFeature": "Pokaż wybrane obiekty",
     "ExportToFeatureCollection": "Eksportuj do zbioru obiektów",
-    "ExportToGeoJSON": "Eksportuj do GeoJSON"
+    "ExportToGeoJSON": "Eksportuj do GeoJSON",
+    "EditAttributes": "Edytuj atrybuty",
+    "AddMarker": "Dodaj sygnaturę",
+    "RemoveMarker": "Usuń sygnaturę",
+    "SaveToMyContent": "Zapisz do Moich zasobów"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Powiązana warstwa",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Dodaj do selekcji",
     "removeSelectionTip": "Usuń z wyboru",
     "selectFromCurrentSelectionTip": "Wybierz z bieżącego wyboru",
-    "unselectAllSelectionTip": "Anuluj wybór wszystkich obecnie wybranych obiektów"
+    "unselectAllSelectionTip": "Anuluj wybór wszystkich obecnie wybranych obiektów",
+    "selectByPolygon": "Wybierz  wielokątem",
+    "selectByCircle": "Wybierz okręgiem",
+    "selectByLine": "Wybierz  linią",
+    "chooseSelectingTools": "Wybierz narzędzia do zaznaczania",
+    "darw": "Narysuj",
+    "drawShap": "Narysuj kształt"
   },
   "widgetManager": {
     "createWidgetError": "Błąd tworzenia widżetu",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Twoja przeglądarka nie obsługuje aplikacji internetowych 3D."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Mapa bazowa jest niedostępna.",
+    "displayDefaultBasemap": "Zamiast niej zostanie wyświetlona domyślna mapa bazowa.",
+    "layerLoadedError": "Do mapy nie można dodać warstwy ${layers}."
+  },
+  "popup": {
+    "relatedTables": "Powiązane tabele:",
+    "relatedRecords": "Powiązane rekordy:",
+    "noRelatedRecotds": "Nie znaleziono powiązanych rekordów.",
+    "chooseFieldTip": "Wybierz atrybut w celu wyświetlenia listy",
+    "saveAsPopupTitle": "Taki sam jak Tytuł okna podręcznego"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Wybrano zbyt wiele obiektów. Pobranie i wyświetlenie ich na mapie może zająć dużo czasu.",
+    "askForContinue": "Czy chcesz kontynuować?"
+  },
+  "colorPalette": {
+    "transparent": "Przezroczysty",
+    "custom": "Niestandardowy"
+  },
+  "temperature": {
+    "celsius": "Celsjusza",
+    "fahrenheit": "Fahrenheita"
+  },
+  "report": {
+    "printButtonLabel": "Drukuj",
+    "reportDimensionsMsg": "Ten raport jest zaprojektowany do wydrukowania na papierze w rozmiarze: ${paperSize}",
+    "unableToPrintMapMsg": "Wystąpił błąd podczas drukowania map.",
+    "landscape": "Krajobraz",
+    "portrait": "Pionowo",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Kwestie prawne",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Twoje konto nie ma uprawnień do tworzenia ani modyfikowania danych.",
+  "invalidConfiguration": "Widżet nie został skonfigurowany lub warstwy w tej konfiguracji nie znajdują się już na mapie. Otwórz aplikację w trybie kreatora i ponownie skonfiguruj widżet."
 });

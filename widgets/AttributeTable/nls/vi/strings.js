@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Hiện Tất cả Bản ghi",
   "showRelatedRecords": "Hiện các Bản ghi Liên quan",
   "noRelatedRecords": "Không tìm thấy hồ sơ liên quan",
+  "attachmentColumn": "Ảnh và Tệp",
   "refresh": "Làm mới",
   "features": "đối tượng",
   "records": "bản ghi",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Ẩn Bảng Thuộc tính",
   "sortAsc": "Sắp xếp Tăng dần",
   "sortDes": "Sắp xếp Giảm dần",
-  "statistics": "Thống kê"
+  "statistics": "Thống kê",
+  "attachments": "Tệp đính kèm",
+  "files": "tệp"
 });

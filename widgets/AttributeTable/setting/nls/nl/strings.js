@@ -25,5 +25,6 @@ define({
   "fieldName": "Naam",
   "fieldAlias": "Alias",
   "fieldVisibility": "Zichtbaarheid",
-  "fieldActions": "Acties"
+  "fieldActions": "Acties",
+  "showAttachments": "Bijlagen weergeven"
 });

@@ -6,6 +6,7 @@ define({
     "yes": "כן",
     "no": "לא",
     "next": "הבא",
+    "previous": "הקודם",
     "back": "חזור",
     "selected": "נבחר",
     "name": "שם",
@@ -48,16 +49,24 @@ define({
     "scene": "סצנה",
     "reset": "אפס",
     "icon": "סמל",
+    "folder": "תיקייה",
     "share": "שתף",
     "view": "מבט",
     "newText": "חדש",
     "edit": "עריכה",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "טבלה",
+    "zoomIn": "התמקד פנימה",
+    "zoomOut": "התמקד החוצה",
+    "continue1": "המשך",
+    "longitude": "קו אורך",
+    "latitude": "קו רוחב",
+    "custom": "מותאם"
   },
   "errorCode": "קוד",
   "errorMessage": "הודעה",
   "errorDetail": "פרט",
-  "widgetPlaceholderTooltip": "כדי להגדיר זאת, עבור ללשונית: \"וידג'ט\" ולחץ על מספר המיקום המתאים",
+  "widgetPlaceholderTooltip": "כדי להגדיר זאת, עבור ללשונית:\"ווידג'ט\" ולחץ על מספר המיקום המתאים",
   "fieldStatistics": {
     "selectField": "בחר שדה",
     "statistics": "סטטיסטיקה",
@@ -96,7 +105,10 @@ define({
     "dash": "מקווקו",
     "dot": "נקודה",
     "dashDot": "קו נקודה",
-    "dashDotDot": "קו נקודה נקודה"
+    "dashDotDot": "קו נקודה נקודה",
+    "customImage": "תמונה מותאמת אישית",
+    "chooseFile": "בחר קובץ",
+    "noFileChoosen": "לא נבחר קובץ."
   },
   "transparency": {
     "opaque": "אטום",
@@ -115,7 +127,7 @@ define({
     "symbolSize": "גודל סמל",
     "addValue": "הוסף ערך",
     "setDefaultSymbol": "הגדר סמל ברירת מחדל",
-    "defaultSymbol": "סימבול ברירת מחדל",
+    "defaultSymbol": "סמל ברירת מחדל",
     "selectedSymbol": "בחר סמל",
     "value": "ערך",
     "label": "תווית",
@@ -142,7 +154,7 @@ define({
     "noField": "אין שדה",
     "visibility": "ניראה",
     "name": "שם",
-    "alias": "כינוי לתצוגה",
+    "alias": "כינוי",
     "actions": "פעולות"
   },
   "includeButton": {
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "תלוי רישיות",
     "notSupportCaseSensitiveTip": "השירותים המתארחים אינם תומכים בשאילתא תלויית רישיות.",
-    "setFilterTip": "הגדר בבקשה סינון תקין."
+    "setFilterTip": "הגדר בבקשה סינון תקין.",
+    "listValues": "רשום ערכים",
+    "cascadeFilterTip": "הצג רק ערכים שסוננו לפי ביטויים קודמים.",
+    "noneCascadeFilterTip": "כל הערכים היחודיים של שדה זה",
+    "previousCascadeFilterTip": "ערכים שסוננו לפי ביטויים קודמים",
+    "allCascadeFilterTip": "ערכים שסוננו לפי כל הביטויים האחרים"
   },
   "featureLayerSource": {
     "layer": "שכבה",
@@ -293,7 +310,11 @@ define({
     "owner": "יוצר",
     "signInTo": "התחבר אל",
     "lastModified": "שונה לאחרונה",
-    "moreDetails": "פרטים נוספים"
+    "moreDetails": "פרטים נוספים",
+    "mostRecent": "הכי עדכני",
+    "mostViewed": "הכי נצפה",
+    "highestRated": "הדירוג הגבוה ביותר",
+    "viewItemDetails": "הצג תיאור פריט"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "השירות אינו תומך בשאילתה."
@@ -322,7 +343,7 @@ define({
     "invalidType": "סוג קובץ לא חוקי.",
     "cropImage": "חתוך תמונה",
     "exceed": "גודל הקובץ אינו יכול להיות יותר מ-‎1024 KB",
-    "enableFlash": "לביצוע: הפעל Flash.",
+    "enableFlash": "הפעל את Adobe Flash לפני דפדוף לתמונה.",
     "cropWaining": "בחר תמונה שגודלה לפחות ${width}‏ x‏ ${height} פיקסלים.",
     "toolTip": "לקבלת תוצאות מיטביות, הקובץ צריך להיות ברוחב של ${width} פיקסלים ובגובה של ${height} פיקסלים. גדלים אחרים יותאמו. פורמטים של תמונות שיתקבלו הם: PNG,‏ GIF ו-JPEG."
   },
@@ -347,17 +368,22 @@ define({
     "restoreMap": "לחץ כדי לשחזר את תיחום המפה וניראות השכבות היכן שהפסקת."
   },
   "featureActions": {
+    "featureActions": "פעולות על ישות",
     "ZoomTo": "התמקד אל",
     "PanTo": "עבור אל",
     "Flash": "הבהוב",
-    "ShowPopup": "הצג פריט מוקפץ",
+    "ShowPopup": "הצג חלון קופץ",
     "CreateLayer": "צור שכבה",
     "ShowStatistics": "סטטיסטיקה...",
     "ClearSelection": "נקה בחירה",
     "ExportToCSV": "ייצא לקובץ CSV",
     "ShowSelectedFeature": "הצג ישויות נבחרות",
     "ExportToFeatureCollection": "ייצא לאוסף ישויות",
-    "ExportToGeoJSON": "ייצא אל GeoJSON"
+    "ExportToGeoJSON": "ייצא אל GeoJSON",
+    "EditAttributes": "עריכת מאפיינים",
+    "AddMarker": "הוסף סימול",
+    "RemoveMarker": "הסר סימול",
+    "SaveToMyContent": "שמור בתכולה שלי"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "שכבה מקושרת",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "הוסף לנבחרים",
     "removeSelectionTip": "הסר מהבחירה",
     "selectFromCurrentSelectionTip": "בחר מתוך הרשומות הנבחרות",
-    "unselectAllSelectionTip": "בטל את הבחירה בכל הישויות הנבחרות הנוכחיות"
+    "unselectAllSelectionTip": "בטל את הבחירה בכל הישויות הנבחרות הנוכחיות",
+    "selectByPolygon": "בחירה לפי פוליגון",
+    "selectByCircle": "בחירה לפי מעגל",
+    "selectByLine": "בחירה לפי קו",
+    "chooseSelectingTools": "בחר כלי בחירה",
+    "darw": "שרטוט",
+    "drawShap": "שרטט צורה"
   },
   "widgetManager": {
     "createWidgetError": "שגיאה ביצירת ווידג'ט",
@@ -433,7 +465,7 @@ define({
     "findLocation_inputPlaceholder": "המקום או הישות שלך",
     "queryFeature": "שלח שאילתא לגבי ישות ובצע פעולת התמקדות",
     "addMarker": "הוסף סימול למפה",
-    "addMarker_titlePlaceholder": "כותרת חלון ה-Popup של הסמן",
+    "addMarker_titlePlaceholder": "כותרת חלון קופץ של הסמן",
     "addMarker_symbolURL": "כתובת ה-URL של סמל הסימול",
     "addMarker_label": "תווית סימול",
     "popupTitle": "כותרת חלון קופץ",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "אפליקציות אינטרנט בתלת-ממד אינו נתמכות בדפדפן שלך."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "מפת הבסיס לא זמינה.",
+    "displayDefaultBasemap": "מציג במקום זאת את מפת הבסיס שהוגדרה כברירת מחדל.",
+    "layerLoadedError": "לא ניתן להוסיף למפה את השכבה ${layers}."
+  },
+  "popup": {
+    "relatedTables": "טבלאות קשורות:",
+    "relatedRecords": "רשומות קשורות:",
+    "noRelatedRecotds": "לא נמצאו רשומות קשורות.",
+    "chooseFieldTip": "בחר מאפיין להצגת הרשימה",
+    "saveAsPopupTitle": "זהה לכותרת של פריט מוקפץ"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "יש יותר מדי ישויות בבחירה. ייתכן שאחזורם והצגתם על המפה יימשך זמן רב.",
+    "askForContinue": "האם ברצונך להמשיך?"
+  },
+  "colorPalette": {
+    "transparent": "שקוף",
+    "custom": "מותאם"
+  },
+  "temperature": {
+    "celsius": "צלזיוס",
+    "fahrenheit": "פרנהייט"
+  },
+  "report": {
+    "printButtonLabel": "הדפס",
+    "reportDimensionsMsg": "דוח זה תוכנן להדפסה על-גבי נייר ${paperSize}",
+    "unableToPrintMapMsg": "אירעה שגיאה בעת הדפסת המפה/ות.",
+    "landscape": "נוף",
+    "portrait": "לאורך",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Legal",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "לחשבונך אין הרשאות ליצור נתונים או לשנות אותם.",
+  "invalidConfiguration": "תצורת הווידג'ט לא הוגדרה או שהשכבות בתצורה אינן נמצאות עוד במפה. פתח את האפליקציה במצב עריכה והגדר מחדש את תצורת הווידג'ט."
 });

@@ -6,6 +6,7 @@ define({
     "yes": "Ναι",
     "no": "Όχι",
     "next": "Επόμενο",
+    "previous": "ΠΡΟΗΓΟΥΜΕΝΟ",
     "back": "Πίσω",
     "selected": "επιλέχθηκε",
     "name": "Όνομα",
@@ -48,11 +49,19 @@ define({
     "scene": "3D Προβολή",
     "reset": "Επαναφορά",
     "icon": "Εικονίδιο",
+    "folder": "Φάκελος",
     "share": "Κοινοποίηση",
     "view": "Προβολή",
     "newText": "Νέο",
     "edit": "Επεξεργασία",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Πίνακας",
+    "zoomIn": "Εστίαση σε μεγαλύτερη κλίμακα",
+    "zoomOut": "Απομάκρυνση σε μικρότερη κλίμακα",
+    "continue1": "Συνέχεια",
+    "longitude": "Γεωγραφικό μήκος",
+    "latitude": "Γεωγραφικό πλάτος",
+    "custom": "Προσαρμοσμένο"
   },
   "errorCode": "Κωδικός",
   "errorMessage": "Μήνυμα",
@@ -96,7 +105,10 @@ define({
     "dash": "Παύλα",
     "dot": "Τελεία",
     "dashDot": "Παύλα τελεία",
-    "dashDotDot": "Παύλα τελεία τελεία"
+    "dashDotDot": "Παύλα τελεία τελεία",
+    "customImage": "Προσαρμοσμένη εικόνα",
+    "chooseFile": "Επιλογή αρχείου",
+    "noFileChoosen": "Δεν επιλέχθηκε αρχείο."
   },
   "transparency": {
     "opaque": "Αδιαφανές",
@@ -236,10 +248,15 @@ define({
     },
     "caseSensitive": "Διάκριση πεζών-κεφαλαίων",
     "notSupportCaseSensitiveTip": "Οι hosted υπηρεσίες δεν υποστηρίζουν ερωτήματα με διάκριση πεζών-κεφαλαίων.",
-    "setFilterTip": "Ορίστε σωστά το φίλτρο."
+    "setFilterTip": "Ορίστε σωστά το φίλτρο.",
+    "listValues": "Τιμές λίστας",
+    "cascadeFilterTip": "Εμφανίστε μόνο τις τιμές που φιλτράρονται από προηγούμενες εκφράσεις.",
+    "noneCascadeFilterTip": "Όλες οι μοναδικές τιμές αυτού του πεδίου",
+    "previousCascadeFilterTip": "Οι τιμές φιλτράρονται από προηγούμενες εκφράσεις",
+    "allCascadeFilterTip": "Οι τιμές φιλτράρονται από όλες τις εκφράσεις"
   },
   "featureLayerSource": {
-    "layer": "Θεματικό επίπεδο",
+    "layer": "Θεματικό Επίπεδο",
     "browse": "Περιήγηση",
     "selectFromMap": "Επιλογή από το χάρτη",
     "selectFromPortal": "Προσθήκη από το Portal for ArcGIS",
@@ -293,7 +310,11 @@ define({
     "owner": "κάτοχος",
     "signInTo": "Είσοδος σε",
     "lastModified": "Τελευταία τροποποίηση",
-    "moreDetails": "Περισσότερες λεπτομέρειες"
+    "moreDetails": "Περισσότερες λεπτομέρειες",
+    "mostRecent": "Πιο πρόσφατα",
+    "mostViewed": "Πιο προβεβλημένα",
+    "highestRated": "Με την υψηλότερη αξιολόγηση",
+    "viewItemDetails": "Προβολή λεπτομερειών αντικειμένου"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Η υπηρεσία δεν υποστηρίζει ερωτήματα."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Μη έγκυρος τύπος αρχείου.",
     "cropImage": "Περικοπή εικόνας",
     "exceed": "Το μέγεθος αρχείου δεν μπορεί να υπερβαίνει τα 1024 KB",
-    "enableFlash": "TODO: ενεργοποιήστε το flash.",
+    "enableFlash": "Πριν από την αναζήτηση εικόνας, ενεργοποιήστε το Adobe Flash.",
     "cropWaining": "Διαλέξτε μια φωτογραφία με διαστάσεις τουλάχιστον ${πλάτος} x ${ύψος} pixel.",
     "toolTip": "Για το καλύτερο αποτέλεσμα, η εικόνα πρέπει να έχει πλάτος ${width} pixel και ύψος ${height} pixel. Τα άλλα μεγέθη θα προσαρμοστούν αναλόγως για σωστή εμφάνιση. Οι αποδεκτοι μορφότυποι εικόνας είναι οι εξής: PNG, GIF και JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Κάντε κλικ για να επαναφέρετε την έκταση του χάρτη και την ορατότητα των θεματικών επιπέδων στο σημείο που σταματήσατε."
   },
   "featureActions": {
+    "featureActions": "Ενέργειες στοιχείων",
     "ZoomTo": "Εστίαση",
     "PanTo": "Μετατόπιση",
     "Flash": "Φλας",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Εξαγωγή σε αρχείο CSV",
     "ShowSelectedFeature": "Εμφάνιση επιλεγμένων στοιχείων",
     "ExportToFeatureCollection": "Εξαγωγή σε Feature Collection",
-    "ExportToGeoJSON": "Εξαγωγή σε GeoJSON"
+    "ExportToGeoJSON": "Εξαγωγή σε GeoJSON",
+    "EditAttributes": "Επεξεργασία περιγραφικών στοιχείων",
+    "AddMarker": "Προσθήκη δείκτη",
+    "RemoveMarker": "Κατάργηση δείκτη",
+    "SaveToMyContent": "Αποθήκευση στο Περιεχόμενο"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Συσχετιζόμενο θεματικό επίπεδο",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Προσθήκη στην επιλογή",
     "removeSelectionTip": "Κατάργηση από την επιλογή",
     "selectFromCurrentSelectionTip": "Επιλέξτε από την τρέχουσα επιλογή",
-    "unselectAllSelectionTip": "Αποεπιλέξτε όλα τα τρέχοντα επιλεγμένα στοιχεία"
+    "unselectAllSelectionTip": "Αποεπιλέξτε όλα τα τρέχοντα επιλεγμένα στοιχεία",
+    "selectByPolygon": "Επιλογή με πολύγωνο",
+    "selectByCircle": "Επιλογή με κύκλο",
+    "selectByLine": "Επιλογή με γραμμή",
+    "chooseSelectingTools": "Ενεργοποίηση εργαλείων επιλογής",
+    "darw": "Σχεδίαση",
+    "drawShap": "Σχεδίαση σχήματος"
   },
   "widgetManager": {
     "createWidgetError": "Σφάλμα δημιουργίας του widget",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Δεν υποστηρίζονται 3D web εφαρμογές στο πρόγραμμα περιήγησης που χρησιμοποιείτε."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Το υπόβαθρο δεν είναι διαθέσιμο.",
+    "displayDefaultBasemap": "Γίνεται εμφάνιση του προεπιλεγμένου υπόβαθρου αντί αυτού.",
+    "layerLoadedError": "Δεν είναι δυνατή η προσθήκη του θεματικού επιπέδου ${layers} στο χάρτη."
+  },
+  "popup": {
+    "relatedTables": "Σχετικοί πίνακες:",
+    "relatedRecords": "Σχετικές εγγραφές:",
+    "noRelatedRecotds": "Δεν βρέθηκαν σχετικές εγγραφές.",
+    "chooseFieldTip": "Επιλέξτε ένα γνώρισμα για εμφάνιση της λίστας",
+    "saveAsPopupTitle": "Ίδιο με τον αναδυόμενο τίτλο"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Υπάρχουν υπερβολικά πολλά στοιχεία στην επιλογή σας. Ίσως χρειαστεί αρκετό διάστημα για την ανάκτηση και την εμφάνισή τους στο χάρτη.",
+    "askForContinue": "Θέλετε οπωσδήποτε να συνεχίσετε;"
+  },
+  "colorPalette": {
+    "transparent": "Διαφανές",
+    "custom": "Προσαρμοσμένο"
+  },
+  "temperature": {
+    "celsius": "Κελσίου",
+    "fahrenheit": "Φαρενάιτ"
+  },
+  "report": {
+    "printButtonLabel": "Εκτύπωση",
+    "reportDimensionsMsg": "Αυτή η αναφορά έχει σχεδιαστεί για εκτύπωση σε χαρτί μεγέθους ${paperSize}",
+    "unableToPrintMapMsg": "Προέκυψε κάποιο σφάλμα κατά την εκτύπωση των χαρτών.",
+    "landscape": "Οριζόντιος",
+    "portrait": "Κατακόρυφος",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Legal",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Ο λογαριασμός σας δεν έχει δικαίωμα δημιουργίας ή τροποποίησης δεδομένων.",
+  "invalidConfiguration": "To widget δεν είναι διαμορφωμένο ή τα θεματικά επίπεδα στη διαμόρφωση δεν βρίσκονται πλέον στο χάρτη. Ανοίξτε την εφαρμογή στη λειτουργία Εργαλείο δημιουργίας και αναδιαμορφώστε το widget."
 });

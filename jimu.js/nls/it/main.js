@@ -6,6 +6,7 @@ define({
     "yes": "Sì",
     "no": "No",
     "next": "Avanti",
+    "previous": "Precedente",
     "back": "Indietro",
     "selected": "selezionato",
     "name": "Nome",
@@ -48,11 +49,19 @@ define({
     "scene": "Scena",
     "reset": "Reimposta",
     "icon": "Icona",
+    "folder": "Cartella",
     "share": "Condividi",
     "view": "Visualizza",
     "newText": "Nuovo",
     "edit": "Modifica",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabella",
+    "zoomIn": "Zoom avanti",
+    "zoomOut": "Zoom indietro",
+    "continue1": "Continua",
+    "longitude": "Longitudine",
+    "latitude": "Latitudine",
+    "custom": "Personalizzata"
   },
   "errorCode": "Codice",
   "errorMessage": "Messaggio",
@@ -96,7 +105,10 @@ define({
     "dash": "Tratteggiata",
     "dot": "Punteggiata",
     "dashDot": "Linea punto",
-    "dashDotDot": "Linea punto punto"
+    "dashDotDot": "Linea punto punto",
+    "customImage": "Immagine personalizzata",
+    "chooseFile": "Seleziona file",
+    "noFileChoosen": "Nessun file selezionato."
   },
   "transparency": {
     "opaque": "Opaco",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Maiuscole/minuscole",
     "notSupportCaseSensitiveTip": "I servizi ospitati non supportano query con distinzione tra maiuscole e minuscole.",
-    "setFilterTip": "Impostare il filtro correttamente."
+    "setFilterTip": "Impostare il filtro correttamente.",
+    "listValues": "Valori elenco",
+    "cascadeFilterTip": "Mostrare solo valori filtrati in base a espressioni precedenti.",
+    "noneCascadeFilterTip": "Tutti i valori univoci di questo campo",
+    "previousCascadeFilterTip": "Valori filtrati in base a espressioni precedenti",
+    "allCascadeFilterTip": "Valori filtrati in base a tutte le altre espressioni"
   },
   "featureLayerSource": {
     "layer": "Layer",
@@ -293,7 +310,11 @@ define({
     "owner": "proprietario",
     "signInTo": "Accedi a",
     "lastModified": "Data ultima modifica",
-    "moreDetails": "Altri dettagli"
+    "moreDetails": "Altri dettagli",
+    "mostRecent": "Più recenti",
+    "mostViewed": "Più visualizzati",
+    "highestRated": "Valutazione massima",
+    "viewItemDetails": "Visualizza dettagli elemento"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Il servizio non supporta la query."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Tipo di file non valido.",
     "cropImage": "Ritaglia immagine",
     "exceed": "Le dimensioni del file non possono superare 1024 KB",
-    "enableFlash": "TODO: abilitare Flash.",
+    "enableFlash": "Abilitare Adobe Flash prima di passare a un'immagine.",
     "cropWaining": "Scegliere una foto di almeno ${width} x ${height} pixel.",
     "toolTip": "Per ottimizzare i risultati, l'immagine deve avere una larghezza pari a ${width} pixel e un'altezza pari a ${height} pixel. Dimensioni diverse verranno adattate. I formati di immagine supportati sono PNG, GIF e JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Fare clic per ripristinare l'estensione mappa e la visibilità dei layer dove si era rimasti."
   },
   "featureActions": {
+    "featureActions": "Azioni feature",
     "ZoomTo": "Zoom a",
     "PanTo": "Effettua Zoom A",
     "Flash": "Flash",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Esporta in file CSV",
     "ShowSelectedFeature": "Mostra feature selezionate",
     "ExportToFeatureCollection": "Esporta in raccolta feature",
-    "ExportToGeoJSON": "Esporta in GeoJSON"
+    "ExportToGeoJSON": "Esporta in GeoJSON",
+    "EditAttributes": "Modifica attributi",
+    "AddMarker": "Aggiungi un marcatore",
+    "RemoveMarker": "Rimuovi marcatore",
+    "SaveToMyContent": "Salva in I miei contenuti"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Layer correlato",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Aggiungi a selezione",
     "removeSelectionTip": "Rimuovi da selezione",
     "selectFromCurrentSelectionTip": "Seleziona dalla selezione corrente",
-    "unselectAllSelectionTip": "Deseleziona tutte le feature attualmente selezionate"
+    "unselectAllSelectionTip": "Deseleziona tutte le feature attualmente selezionate",
+    "selectByPolygon": "Seleziona per poligono",
+    "selectByCircle": "Seleziona per cerchio",
+    "selectByLine": "Seleziona per linea",
+    "chooseSelectingTools": "Scegli strumenti di selezione",
+    "darw": "Disegna",
+    "drawShap": "Disegnare una forma"
   },
   "widgetManager": {
     "createWidgetError": "Errore di creazione del widget",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Le app Web 3D non sono supportate nel browser."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "La mappa di base non è disponibile.",
+    "displayDefaultBasemap": "Visualizzare invece la mappa di base predefinita.",
+    "layerLoadedError": "Impossibile aggiungere il layer ${layer} alla mappa."
+  },
+  "popup": {
+    "relatedTables": "Tabelle correlate:",
+    "relatedRecords": "Record correlati:",
+    "noRelatedRecotds": "Nessun record correlato trovato.",
+    "chooseFieldTip": "Scegliere un attributo da visualizzare nell'elenco",
+    "saveAsPopupTitle": "Uguale a titolo pop-up"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "La selezione include troppe feature. Potrebbe essere necessario molto tempo per recuperarle e visualizzarle sulla mappa.",
+    "askForContinue": "Continuare?"
+  },
+  "colorPalette": {
+    "transparent": "Trasparente",
+    "custom": "Personalizzata"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Stampa",
+    "reportDimensionsMsg": "Questo report è concepito per la stampa su carta ${paperSize}",
+    "unableToPrintMapMsg": "Si è verificato un errore durante la stampa della/e mappa/e.",
+    "landscape": "Paesaggio",
+    "portrait": "Ritratto",
+    "mapOnly": "SOLO_MAPPA",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Lettera ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Lettera",
+    "legal": "Legale",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "L'account non dispone dell'autorizzazione per creare o modificare dati.",
+  "invalidConfiguration": "Il widget non è configurato o i layer nella configurazione non sono più presenti nella mappa. Aprire l'app nella modalità generatore e riconfigurare il widget."
 });

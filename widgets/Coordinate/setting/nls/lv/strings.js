@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Decimālie grādi",
   "Degree_Minutes_Seconds": "Grādi minūtes sekundes",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Koordinātu parādīšanas secība:",
+  "lonLatTips": "Garums/platums (X, Y)",
+  "latLonTips": "Platums/garums (Y, X)"
 });

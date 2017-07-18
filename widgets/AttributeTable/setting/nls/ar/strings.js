@@ -25,5 +25,6 @@ define({
   "fieldName": "الاسم",
   "fieldAlias": "اسم مستعار",
   "fieldVisibility": "رؤية",
-  "fieldActions": "الأفعال"
+  "fieldActions": "الأفعال",
+  "showAttachments": "إظهار المرفقات"
 });

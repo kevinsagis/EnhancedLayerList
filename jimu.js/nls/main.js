@@ -7,6 +7,7 @@ define({
       yes: "Yes",
       no: "No",
       next: "Next",
+      previous: "Previous",
       back: "Back",
       selected: "selected",
       name: "Name",
@@ -49,11 +50,19 @@ define({
       scene: "Scene",
       reset: "Reset",
       icon: "Icon",
+      folder: "Folder",
       share: "Share",
       view: "View",
       newText: "New",
       edit: "Edit",
-      wkid: "WKID"
+      wkid: "WKID",
+      table: "Table",
+      zoomIn: "Zoom in",
+      zoomOut: "Zoom out",
+      continue1: "Continue",
+      longitude:"Longitude",
+      latitude: "Latitude",
+      custom: "Custom"
     },
     errorCode: "Code",
     errorMessage: "Message",
@@ -97,7 +106,10 @@ define({
       dash: "Dash",
       dot: "Dot",
       dashDot: "Dash Dot",
-      dashDotDot: "Dash Dot Dot"
+      dashDotDot: "Dash Dot Dot",
+      customImage: "Custom Image",
+      chooseFile: "Choose file",
+      noFileChoosen: "No file chosen."
     },
     transparency: {
       opaque: "Opaque",
@@ -237,7 +249,12 @@ define({
       },
       caseSensitive: "Case Sensitive",
       notSupportCaseSensitiveTip: "Hosted services do not support case-sensitive query.",
-      setFilterTip: "Please set filter correctly."
+      setFilterTip: "Please set filter correctly.",
+      listValues: "List Values",
+      cascadeFilterTip: "Only show values filtered by previous expressions.",
+      noneCascadeFilterTip: "All unique values of this field",
+      previousCascadeFilterTip: "Values filtered by previous expressions",
+      allCascadeFilterTip: "Values filtered by all other expressions"
     },
 
     featureLayerSource: {
@@ -295,7 +312,11 @@ define({
       owner: "owner",
       signInTo: "Sign in to",
       lastModified: "Last Modified",
-      moreDetails: "More Details"
+      moreDetails: "More Details",
+      mostRecent: "Most Recent",
+      mostViewed: "Most Viewed",
+      highestRated: "Highest Rated",
+      viewItemDetails: "View item details"
     },
     featureLayerChooserFromPortal: {
       notSupportQuery: "The service doesn't support query."
@@ -324,7 +345,7 @@ define({
       invalidType: "Invalid file type.",
       cropImage: "Crop Image",
       exceed: "File size cannot exceed 1024 KB",
-      enableFlash: "TODO: please enable flash.",
+      enableFlash: "Please enable Adobe Flash before browsing to an image.",
       cropWaining: "Please choose a photo that's at least ${width} x ${height} pixels.",
       toolTip: "For the best result, the image should be ${width} pixels wide by ${height} pixels high. Other sizes will be adjusted to fit. Acceptable image formats are: PNG, GIF and JPEG."
     },
@@ -349,6 +370,7 @@ define({
       restoreMap: "Click to restore the map extent and layers visibility where you left off."
     },
     featureActions: {
+      featureActions: "Feature actions",
       ZoomTo: "Zoom to",
       PanTo: "Pan to",
       Flash : "Flash",
@@ -359,7 +381,11 @@ define({
       ExportToCSV: "Export to CSV file",
       ShowSelectedFeature: "Show Selected Features",
       ExportToFeatureCollection: "Export to Feature Collection",
-      ExportToGeoJSON: "Export to GeoJSON"
+      ExportToGeoJSON: "Export to GeoJSON",
+      EditAttributes: "Edit Attributes",
+      AddMarker:"Add a Marker",
+      RemoveMarker:"Remove Marker",
+      SaveToMyContent: "Save to My Content"
     },
     spatialFilterByFeatures: {
       relatedLayer: "Related layer",
@@ -391,7 +417,13 @@ define({
       addSelectionTip: "Add to selection",
       removeSelectionTip: "Remove from selection",
       selectFromCurrentSelectionTip: "Select from the current selection",
-      unselectAllSelectionTip: "Unselect all currently selected features"
+      unselectAllSelectionTip: "Unselect all currently selected features",
+      selectByPolygon: "Select By Polygon",
+      selectByCircle: "Select By Circle",
+      selectByLine: "Select By Line",
+      chooseSelectingTools: "Choose selecting tools",
+      darw: "Draw",
+      drawShap: "Draw a shape"
     },
     widgetManager: {
       createWidgetError: "Create widget error",
@@ -451,9 +483,61 @@ define({
     },
     webSceneLoader: {
       webglSupportTip: "3D web apps aren't supported in your browser."
-    }
+    },
+    map: {
+      basemapNotAvailable: "Basemap is not available.",
+      displayDefaultBasemap: "Displaying the default basemap instead.",
+      layerLoadedError: "The layer, ${layers} cannot be added to the map."
+    },
+    popup: {
+      relatedTables: "Related Tables:",
+      relatedRecords: "Related Records:",
+      noRelatedRecotds: "No related records found.",
+      chooseFieldTip: "Choose an attribute to show the list",
+      saveAsPopupTitle: "Same as Pop-up Title"
+    },
+    queryFeatures: {
+      tooManyFeaturesTip: "There are too many features in your selection. It may take long time to retrieve and display them on the map.",
+      askForContinue: "Do you want to continue?"
+    },
+    colorPalette: {
+      transparent: "Transparent",
+      custom: "Custom"
+    },
+    temperature: {
+      celsius: "Celsius",
+      fahrenheit: "Fahrenheit"
+    },
+    report: {
+      printButtonLabel: "Print",
+      reportDimensionsMsg: "This report is designed to be printed on ${paperSize} Paper",
+      unableToPrintMapMsg: "An error occurred while printing the map(s).",
+      landscape: "Landscape",
+      portrait: "Portrait",
+      mapOnly: "MAP_ONLY",
+      a0: "A0",
+      a1: "A1",
+      a2: "A2",
+      a3: "A3",
+      a4: "A4",
+      a5: "A5",
+      letterANSIA: "Letter ANSI A",
+      tabloidANSIB: "Tabloid ANSI B",
+      letter: "Letter",
+      legal: "Legal",
+      tabloid: "Tabloid",
+      ansi_a: "ANSI_A",
+      ansi_b: "ANSI_B",
+      ansi_c: "ANSI_C",
+      ansi_d: "ANSI_D",
+      ansi_e: "ANSI_E"
+    },
+    //we put these strings in here instead of in common because these strings are not translated.
+    noEditPrivileges: "Your account does not have permission to create or modify data.",
+    invalidConfiguration: "Widget is either not configured or the layers in the configuration are no longer in the map.  Please open the app in the builder mode and reconfigure the widget."
   }),
   "ar": 1,
+  "bs": 1,
   "cs": 1,
   "da": 1,
   "de": 1,
@@ -463,8 +547,10 @@ define({
   "fi": 1,
   "fr": 1,
   "he": 1,
+  "hi": 1,
   "hr": 1,
   "it": 1,
+  "id": 1,
   "ja": 1,
   "ko": 1,
   "lt": 1,

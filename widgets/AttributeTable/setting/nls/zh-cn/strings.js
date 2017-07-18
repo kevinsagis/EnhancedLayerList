@@ -10,7 +10,7 @@ define({
   "noLayers": "没有可用的要素图层",
   "back": "返回",
   "exportCSV": "允许导出为 CSV",
-  "expand": "最初展开的微件",
+  "expand": "初始展开微件",
   "filterByExtent": "默认启用按地图范围过滤",
   "restore": "恢复至默认值",
   "ok": "确定",
@@ -25,5 +25,6 @@ define({
   "fieldName": "名称",
   "fieldAlias": "别名",
   "fieldVisibility": "可见性",
-  "fieldActions": "操作"
+  "fieldActions": "操作",
+  "showAttachments": "显示附件"
 });

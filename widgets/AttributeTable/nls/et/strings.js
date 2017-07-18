@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Näita kõiki kirjeid",
   "showRelatedRecords": "Kuva seotud kirjed",
   "noRelatedRecords": "Seotud kirjeid ei leitud",
+  "attachmentColumn": "Fotod ja failid",
   "refresh": "Värskenda",
   "features": "objektid",
   "records": "kirjed",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Peida atribuutide tabel",
   "sortAsc": "Sorteeri kasvavalt",
   "sortDes": "Sorteeri kahanevalt",
-  "statistics": "Statistika"
+  "statistics": "Statistika",
+  "attachments": "Manused",
+  "files": "failid"
 });

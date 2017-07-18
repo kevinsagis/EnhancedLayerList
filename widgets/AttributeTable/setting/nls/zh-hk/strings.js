@@ -25,5 +25,6 @@ define({
   "fieldName": "名稱",
   "fieldAlias": "別名",
   "fieldVisibility": "能見度",
-  "fieldActions": "操作"
+  "fieldActions": "操作",
+  "showAttachments": "顯示附件"
 });

@@ -6,6 +6,7 @@ define({
     "yes": "ใช่",
     "no": "ไม่",
     "next": "ถัดไป",
+    "previous": "ก่อนหน้า",
     "back": "กลับ",
     "selected": "เลือก",
     "name": "ชื่อ",
@@ -48,11 +49,19 @@ define({
     "scene": "ซีน",
     "reset": "รีเซต",
     "icon": "ไอค่อน",
+    "folder": "โฟลเดอร์",
     "share": "แบ่งปัน",
     "view": "วิว",
     "newText": "ใหม่",
     "edit": "แก้ไข",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "ตาราง",
+    "zoomIn": "ขยายภาพ",
+    "zoomOut": "ย่อภาพ",
+    "continue1": "ต่อไป",
+    "longitude": "ลองจิจูด",
+    "latitude": "ละติจูด",
+    "custom": "แก้ไขเอง"
   },
   "errorCode": "รหัส",
   "errorMessage": "ข้อความ",
@@ -96,7 +105,10 @@ define({
     "dash": "-",
     "dot": ".",
     "dashDot": "-.",
-    "dashDotDot": "-.."
+    "dashDotDot": "-..",
+    "customImage": "ภาพที่กำหนดเอง",
+    "chooseFile": "เลือกไฟล์",
+    "noFileChoosen": "ไม่มีไฟล์ที่เลือก"
   },
   "transparency": {
     "opaque": "ความทึบแสง",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "ตัวอักษรใหญ่หรือเล็กมีความสำคัญ",
     "notSupportCaseSensitiveTip": "บริการโฮสต์ข้อมูลไม่สนับสนุนการสอบถามเป็นกรณี ๆ",
-    "setFilterTip": "โปรดตั้งค่าตัวกรองให้ถูกต้อง"
+    "setFilterTip": "โปรดตั้งค่าตัวกรองให้ถูกต้อง",
+    "listValues": "รายการค่า",
+    "cascadeFilterTip": "แสดงเฉพาะค่าที่กรอง ด้วยสมการก่อนหน้านี้",
+    "noneCascadeFilterTip": "ค่าที่ไม่ซ้ำทั้งหมดของข้อมูลนี้",
+    "previousCascadeFilterTip": "ค่ากรองโดยสมการก่อนหน้านี้",
+    "allCascadeFilterTip": "ค่ากรองโดยสมการอื่น ๆ ทั้งหมด"
   },
   "featureLayerSource": {
     "layer": "ชั้นข้อมูล",
@@ -293,7 +310,11 @@ define({
     "owner": "เจ้าของ",
     "signInTo": "ลงชื่อเข้าใช้สู่",
     "lastModified": "แก้ไขครั้งสุดท้ายเมื่อ",
-    "moreDetails": "รายละเอียดเพิ่มเติม"
+    "moreDetails": "รายละเอียดเพิ่มเติม",
+    "mostRecent": "ล่าสุด",
+    "mostViewed": "เข้าชมมากที่สุด",
+    "highestRated": "คะแนนสูงสุด",
+    "viewItemDetails": "ดูรายละเอียดของข้อมูล"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Service นี้ไม่รองรับการคัดกรองข้อมูล"
@@ -322,7 +343,7 @@ define({
     "invalidType": "ประเภทของไฟล์ไม่ถูกต้อง",
     "cropImage": "ตัดรูปภาพ",
     "exceed": "ขนาดไฟล์ห้ามเกิน 1024 KB",
-    "enableFlash": "TODO: กรุณาเปิดการใช้งานแฟลช",
+    "enableFlash": "โปรดเปิดใช้งาน Adobe Flash ก่อนที่จะเรียกดูภาพ",
     "cropWaining": "กรุณาเลือกภาพที่อย่างน้อย ${width} x ${height} พิเซล",
     "toolTip": "เพื่อให้ได้ผลลัพธ์ที่ดีที่สุดควรจะเป็นภาพ ${width} พิกเซลกว้างโดย ${height} พิกเซลสูง ขนาดอื่น ๆ จะได้รับการปรับเปลี่ยนให้เหมาะสม รูปแบบภาพที่ยอมรับได้คือ: PNG, GIF และ JPEG"
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "คลิกเพื่อเรียกขอบเขตแผนที่และชั้นข้อมูลในการมองเห็น เมื่อคุณไม่ได้อยู่ที่หน้าต่างการทำงาน"
   },
   "featureActions": {
+    "featureActions": "ฟีเจอร์ที่ใช้งาน",
     "ZoomTo": "ขยายไปยัง",
     "PanTo": "เลื่อนไปที่",
     "Flash": "แฟลช",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "นำออกเป็นไฟล์ CSV",
     "ShowSelectedFeature": "แสดงข้อมูลที่เลือกไว้",
     "ExportToFeatureCollection": "ส่งออกเป็น Feature Collection",
-    "ExportToGeoJSON": "ส่งออกเป็น GeoJSON"
+    "ExportToGeoJSON": "ส่งออกเป็น GeoJSON",
+    "EditAttributes": "แก้ไขลักษณะเชิงตาราง",
+    "AddMarker": "เพิ่มเครื่องหมาย",
+    "RemoveMarker": "ลบเครื่องหมาย",
+    "SaveToMyContent": "บันทึกไปที่เนื้อหาของฉัน"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "ชั้นข้อมูลที่มีความสัมพันธ์",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "เพิ่มการเลือก",
     "removeSelectionTip": "นำที่เลือกออก",
     "selectFromCurrentSelectionTip": "เลือกจากที่เลือกไว้แล้ว",
-    "unselectAllSelectionTip": "ยกเลิกการเลือกข้อมูลที่เลือกอยู่ในปัจจุบันทั้งหมด"
+    "unselectAllSelectionTip": "ยกเลิกการเลือกข้อมูลที่เลือกอยู่ในปัจจุบันทั้งหมด",
+    "selectByPolygon": "เลือกข้อมูลด้วยพื้นที่รูปปิด",
+    "selectByCircle": "เลือกข้อมูลด้วยวงกลม",
+    "selectByLine": "เลือกข้อมูลด้วยเส้น",
+    "chooseSelectingTools": "เลือกเครื่องมือที่ใช้เลือกข้อมูล",
+    "darw": "วาด",
+    "drawShap": "วาด"
   },
   "widgetManager": {
     "createWidgetError": "การสร้างวิดเจ็ตมีข้อผิดพลาด",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "เว็บแอป 3 มิติ ไม่ได้รับการสนับสนุนในเบราว์เซอร์ของคุณ"
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "ไม่มีแผนที่ฐานให้ใช้งาน",
+    "displayDefaultBasemap": "แสดงแผนที่ฐานเริ่มต้นแทน",
+    "layerLoadedError": "ชั้นข้อมูล, ${layers} ไม่สามารถเพิ่มเข้าแผนที่ได้"
+  },
+  "popup": {
+    "relatedTables": "ความสัมพันธ์ของตาราง :",
+    "relatedRecords": "ความสัมพันธ์ของแถวตาราง:",
+    "noRelatedRecotds": "ไม่พบความสัมพันธ์ของแถวตาราง",
+    "chooseFieldTip": "เลือกตารางเพื่อแสดงรายการ",
+    "saveAsPopupTitle": "เช่นเดียวกับชื่อเรื่องของป๊อปอัพ"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "มีฟีเจอร์มากเกินไปในการเลือกของคุณ อาจจะใช้เวลานานในการดึงข้อมูลและแสดงผลบนแผนที่",
+    "askForContinue": "คุณต้องการที่จะทำต่อหรือไม่?"
+  },
+  "colorPalette": {
+    "transparent": "โปร่งแสง",
+    "custom": "แก้ไขเอง"
+  },
+  "temperature": {
+    "celsius": "องศาเซลเซียส",
+    "fahrenheit": "องศาฟาร์เรนไฮน์"
+  },
+  "report": {
+    "printButtonLabel": "พิมพ์",
+    "reportDimensionsMsg": "รายงานชิ้นนี้ออกแบบเพื่อพิมพ์บน ${paperSize} กระดาษ",
+    "unableToPrintMapMsg": "เกิดข้อผิดพลาดในขณะที่พิมพ์แผนที่(s).",
+    "landscape": "แนวนอน",
+    "portrait": "แนวตั้ง",
+    "mapOnly": "แผนที่เท่านั้น",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "จดหมาย",
+    "legal": "ตามกฎหมาย",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "บัญชีของคุณไม่ได้รับอนุญาตให้สร้างหรือปรับเปลี่ยนข้อมูล",
+  "invalidConfiguration": "วิดเจ็ตอย่างใดอย่างหนึ่งไม่ได้กำหนดค่า หรือชั้นข้อมูลที่ใช้ในการกำหนดค่าที่ไม่ได้อยู่ในแผนที่ กรุณาเปิดแอปในโหมดผู้สร้างและกำหนดค่าวิดเจ็ต"
 });

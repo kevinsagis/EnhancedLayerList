@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Stopnie dziesiętne",
   "Degree_Minutes_Seconds": "Stopnie, minuty i sekundy",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Kolejność wyświetlania współrzędnych:",
+  "lonLatTips": "Długość geograficzna, szerokość geograficzna (X, Y)",
+  "latLonTips": "Szerokość geograficzna, długość geograficzna (Y, X)"
 });

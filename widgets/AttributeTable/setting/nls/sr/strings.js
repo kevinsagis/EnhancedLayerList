@@ -25,5 +25,6 @@ define({
   "fieldName": "Naziv",
   "fieldAlias": "Pseudonim",
   "fieldVisibility": "Vidljivost",
-  "fieldActions": "Radnje"
+  "fieldActions": "Radnje",
+  "showAttachments": "Prikaži priloge"
 });

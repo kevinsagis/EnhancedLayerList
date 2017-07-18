@@ -203,8 +203,8 @@
   position: absolute;
 /*  width: 08.92857142857143%;50/560
   height: 08.92857142857143%;*/
-  top: -04.46428571428571%;/**/
-  right: -04.46428571428571%;
+  top: -3.125%;/*1/32*/
+  right: -3.125%;
   border-radius: 50%;/*the context is the node itself*/
   background-color: #697a8c;
   cursor: pointer;

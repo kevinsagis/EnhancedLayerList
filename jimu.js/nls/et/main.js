@@ -6,6 +6,7 @@ define({
     "yes": "Jah",
     "no": "Ei",
     "next": "Järgmine",
+    "previous": "Eelmine",
     "back": "Tagasi",
     "selected": "valitud",
     "name": "Nimi",
@@ -48,11 +49,19 @@ define({
     "scene": "Stseen",
     "reset": "Lähtesta",
     "icon": "Ikoon",
+    "folder": "Kaust",
     "share": "Jaga",
     "view": "Vaatamine",
     "newText": "Uus",
     "edit": "Muuda",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabel",
+    "zoomIn": "Suurenda",
+    "zoomOut": "Vähenda",
+    "continue1": "Jätka",
+    "longitude": "Pikkuskraad",
+    "latitude": "Laiuskraad",
+    "custom": "Kohandatud"
   },
   "errorCode": "Kood",
   "errorMessage": "Sõnum",
@@ -96,7 +105,10 @@ define({
     "dash": "Katkendlik",
     "dot": "Punktiir",
     "dashDot": "Katkendlik punktiga",
-    "dashDotDot": "Katkendlik kahe punktiga"
+    "dashDotDot": "Katkendlik kahe punktiga",
+    "customImage": "Kohandatud pilt",
+    "chooseFile": "Vali fail",
+    "noFileChoosen": "Faili pole valitud."
   },
   "transparency": {
     "opaque": "Läbipaistmatu",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Tõstutundlik",
     "notSupportCaseSensitiveTip": "Majutatud teenused ei toeta tõstutundlikke päringuid.",
-    "setFilterTip": "Määrake filter õigesti."
+    "setFilterTip": "Määrake filter õigesti.",
+    "listValues": "Loendi väärtused",
+    "cascadeFilterTip": "Kuva ainult eelmiste avaldiste alusel filtreeritud väärtused.",
+    "noneCascadeFilterTip": "Sellel välja kõik kordumatud väärtused",
+    "previousCascadeFilterTip": "Eelmiste avaldiste alusel filtreeritud väärtused",
+    "allCascadeFilterTip": "Kõigi muude avaldiste alusel filtreeritud väärtused"
   },
   "featureLayerSource": {
     "layer": "Kiht",
@@ -293,7 +310,11 @@ define({
     "owner": "omanik",
     "signInTo": "Logi sisse",
     "lastModified": "Viimati muudetud",
-    "moreDetails": "Rohkem infot"
+    "moreDetails": "Rohkem infot",
+    "mostRecent": "Kõige hiljutisem",
+    "mostViewed": "Enim vaadatud",
+    "highestRated": "Kõrgeimini hinnatud",
+    "viewItemDetails": "Vaata üksuse detaile"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Teenus ei toeta päringut."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Sobimatut tüüpi fail",
     "cropImage": "Kärbi pilti",
     "exceed": "Faili maht võib olla kuni 1024 KB.",
-    "enableFlash": "Märkus. Lubage Flash.",
+    "enableFlash": "Enne pildini sirvimist lubage Adobe Flash.",
     "cropWaining": "Palun valige foto, mille mõõdud on vähemalt ${width} x ${height} pikslit.",
     "toolTip": "Parima tulemuse saamiseks peaks pildi laius olema ${width} pikslit ning kõrgus ${height} pikslit. Muud suurused kohandatakse parajaks. Sobivad pildiformaadid on PNG, GIF ja JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Klõpsake kaardi ulatuse ja kihtide nähtavuse taastamiseks poolelijäänud kohas."
   },
   "featureActions": {
+    "featureActions": "Objektide tegevused",
     "ZoomTo": "Suumi",
     "PanTo": "Liiguta",
     "Flash": "Välgutamine",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Ekspordi CSV failiks",
     "ShowSelectedFeature": "Kuva valitud objektid",
     "ExportToFeatureCollection": "Eksport objektide kogumisse",
-    "ExportToGeoJSON": "Eksport GeoJSON formaati"
+    "ExportToGeoJSON": "Eksport GeoJSON formaati",
+    "EditAttributes": "Muuda atribuute",
+    "AddMarker": "Lisa tähis",
+    "RemoveMarker": "Eemalda tähis",
+    "SaveToMyContent": "Salvesta jaotisse Minu Sisu"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Seotud kiht",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Lisa valikule",
     "removeSelectionTip": "Eemalda valikust",
     "selectFromCurrentSelectionTip": "Vali praegusest valikust",
-    "unselectAllSelectionTip": "Tühista kõigi praegu valitud objektide selekteering"
+    "unselectAllSelectionTip": "Tühista kõigi praegu valitud objektide selekteering",
+    "selectByPolygon": "Vali polügooni järgi",
+    "selectByCircle": "Vali ringi järgi",
+    "selectByLine": "Vali joone järgi",
+    "chooseSelectingTools": "Vali selekteerimise tööriistad",
+    "darw": "Joonista",
+    "drawShap": "Joonista kujund"
   },
   "widgetManager": {
     "createWidgetError": "Vidina loomise viga",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Teie brauser ei toeta 3D-veebirakendusi."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Aluskaart ei ole kättesaadav.",
+    "displayDefaultBasemap": "Selle asemel kuvatakse vaikimisi aluskaart.",
+    "layerLoadedError": "Kihti ${layers} ei saa lisada kaardile."
+  },
+  "popup": {
+    "relatedTables": "Seotud tabelid:",
+    "relatedRecords": "Seotud kirjed:",
+    "noRelatedRecotds": "Seotud kirjeid ei leitud.",
+    "chooseFieldTip": "Valige loendi kuvamiseks atribuut",
+    "saveAsPopupTitle": "Sama, mis hüpikakna nimi"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Valikus on liiga palju objekte. Nende toomine ja kaardil kuvamine võib kaua aega võtta.",
+    "askForContinue": "Kas soovite jätkata?"
+  },
+  "colorPalette": {
+    "transparent": "Läbipaistev",
+    "custom": "Kohandatud"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Prindi",
+    "reportDimensionsMsg": "See aruanne on ettenähtud printimiseks ${paperSize} formaadis paberile",
+    "unableToPrintMapMsg": "Kaardi või kaartide printimisel ilmnes tõrge.",
+    "landscape": "Horisontaalpaigutus",
+    "portrait": "Vertikaalpaigutus",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Kiri ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Kiri",
+    "legal": "Litsents",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Teie kontol puudub andmete loomise või muutmise õigus.",
+  "invalidConfiguration": "Vidin on konfigureerimata või pole konfiguratsioonis sisalduvad kihid enam kaardil. Avage rakendus koosturirežiimis ja konfigureerige vidin uuesti."
 });

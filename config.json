@@ -11,15 +11,15 @@
       "red",
       "purple"
     ],
-    "version": "2.1"
+    "version": "2.4"
   },
   "portalUrl": "http://sagis.maps.arcgis.com",
   "appId": "",
   "authorizedCrossOriginDomains": [],
-  "title": "Enhanced Layer List Example",
-  "subtitle": "<font color=\"#ffffff\" size=\"3\"><b>Metadata Dialogs</b></font>",
+  "title": "",
+  "subtitle": "<div class=\"attribute-custom-style\"><font color=\"#ffffff\" size=\"3\"><b>Enhanced Layer List with Metadata Popup Descriptions - Example</b></font></div>",
   "keepAppState": true,
-  "logo": "images\\logo.png",
+  "logo": "images\\logo.jpeg",
   "geometryService": "http://utility.arcgisonline.com/arcgis/rest/services/Geometry/GeometryServer",
   "links": [],
   "widgetOnScreen": {
@@ -33,11 +33,10 @@
           "height": 40,
           "relativeTo": "browser"
         },
-        "version": "2.1",
+        "version": "2.4",
         "id": "themes_FoldableTheme_widgets_HeaderController_Widget_27",
         "icon": "themes/FoldableTheme/widgets/HeaderController/images/icon.png?wab_dv=2.1",
-        "name": "HeaderController",
-        "label": "Header Controller"
+        "name": "HeaderController"
       },
       {
         "uri": "widgets/Scalebar/Widget",
@@ -46,12 +45,12 @@
           "bottom": 25,
           "relativeTo": "map"
         },
-        "version": "2.1",
+        "version": "2.4",
         "id": "widgets_Scalebar_Widget_28",
         "icon": "widgets/Scalebar/images/icon.png?wab_dv=2.1",
         "name": "Scalebar",
-        "label": "Scalebar",
-        "config": "configs/Scalebar/config_Scalebar.json"
+        "config": "configs/Scalebar/config_Scalebar.json",
+        "visible": false
       },
       {
         "uri": "widgets/MapProgress/Widget",
@@ -60,7 +59,6 @@
         "icon": "widgets/MapProgress/images/icon.png?wab_dv=2.1",
         "IsController": false,
         "name": "MapProgress",
-        "label": "MapProgress",
         "config": "configs/MapProgress/config_MapProgress.json",
         "position": {
           "relativeTo": "map"
@@ -73,12 +71,12 @@
           "top": 5,
           "relativeTo": "map"
         },
-        "version": "2.1",
+        "version": "2.4",
         "id": "widgets_Search_Widget_29",
         "icon": "widgets/Search/images/icon.png?wab_dv=2.1",
         "name": "Search",
-        "label": "Search",
-        "config": "configs/Search/config_Search.json"
+        "config": "configs/Search/config_Search.json",
+        "visible": false
       },
       {
         "uri": "widgets/Coordinate/Widget",
@@ -87,11 +85,12 @@
           "bottom": 5,
           "relativeTo": "map"
         },
-        "version": "2.1",
+        "version": "2.4",
         "id": "widgets_Coordinate_Widget_30",
         "icon": "widgets/Coordinate/images/icon.png?wab_dv=2.1",
         "name": "Coordinate",
-        "label": "Coordinate"
+        "config": "configs/Coordinate/config_Coordinate.json",
+        "visible": false
       },
       {
         "position": {
@@ -100,7 +99,10 @@
           "relativeTo": "map"
         },
         "placeholderIndex": 1,
-        "id": "_31"
+        "id": "_31",
+        "version": "2.4.2",
+        "closeable": true,
+        "uri": ""
       },
       {
         "position": {
@@ -145,12 +147,11 @@
           "top": 150,
           "relativeTo": "map"
         },
-        "version": "1.1.1",
         "id": "widgets_ZoomPrevNext_Widget_119",
         "name": "ZoomPrevNext",
-        "label": "Zoom Prev Next",
         "positionRelativeTo": "map",
-        "icon": "widgets/ZoomPrevNext/images/icon.png?wab_dv=2.1"
+        "version": "1.1.1",
+        "visible": false
       },
       {
         "uri": "widgets/OverviewMap/Widget",
@@ -160,12 +161,12 @@
           "zIndex": 1,
           "relativeTo": "map"
         },
-        "version": "2.1",
+        "version": "2.4",
         "id": "widgets_OverviewMap_Widget_36",
         "icon": "widgets/OverviewMap/images/icon.png?wab_dv=2.1",
         "name": "OverviewMap",
-        "label": "Overview Map",
-        "config": "configs/OverviewMap/config_Overview Map.json"
+        "config": "configs/OverviewMap/config_OverviewMap.json",
+        "visible": false
       },
       {
         "uri": "widgets/HomeButton/Widget",
@@ -174,11 +175,11 @@
           "top": 75,
           "relativeTo": "map"
         },
-        "version": "2.1",
+        "version": "2.4",
         "id": "widgets_HomeButton_Widget_37",
         "icon": "widgets/HomeButton/images/icon.png?wab_dv=2.1",
         "name": "HomeButton",
-        "label": "Home"
+        "visible": false
       },
       {
         "uri": "widgets/MyLocation/Widget",
@@ -187,44 +188,34 @@
           "top": 110,
           "relativeTo": "map"
         },
-        "version": "2.1",
+        "version": "2.4",
         "id": "widgets_MyLocation_Widget_38",
         "icon": "widgets/MyLocation/images/icon.png?wab_dv=2.1",
         "name": "MyLocation",
-        "label": "My Location",
-        "config": "configs/MyLocation/config_My Location.json"
+        "config": "configs/MyLocation/config_MyLocation.json",
+        "visible": false
       },
       {
         "uri": "widgets/AttributeTable/Widget",
-        "version": "2.1",
+        "version": "2.4",
         "position": {
           "relativeTo": "browser"
         },
         "id": "widgets_AttributeTable_Widget_39",
         "icon": "widgets/AttributeTable/images/icon.png?wab_dv=2.1",
         "name": "AttributeTable",
-        "label": "Attribute Table",
-        "featureActions": [
-          {
-            "name": "ShowRelatedRecords",
-            "uri": "actions/ShowRelatedRecordsFeatureAction"
-          },
-          {
-            "name": "ViewInTable",
-            "uri": "actions/ViewInAttributeTableFeatureAction"
-          }
-        ]
+        "config": "configs/AttributeTable/config_AttributeTable.json",
+        "visible": false
       },
       {
         "uri": "widgets/Splash/Widget",
         "position": {
           "relativeTo": "browser"
         },
-        "version": "2.1",
+        "version": "2.4",
         "id": "widgets_Splash_Widget_40",
         "icon": "widgets/Splash/images/icon.png?wab_dv=2.1",
         "name": "Splash",
-        "label": "Splash",
         "config": "configs/Splash/config_Splash.json",
         "visible": false
       },
@@ -235,11 +226,10 @@
           "left": 7,
           "relativeTo": "map"
         },
-        "version": "2.1",
+        "version": "2.4",
         "id": "widgets_ZoomSlider_Widget_41",
         "icon": "widgets/ZoomSlider/images/icon.png?wab_dv=2.1",
-        "name": "ZoomSlider",
-        "label": "Zoom Slider"
+        "name": "ZoomSlider"
       }
     ],
     "panel": {
@@ -259,7 +249,17 @@
       "bottom": 0
     },
     "itemId": "2e2d61fad5d44e0c96995c38feb7052d",
-    "mapOptions": {},
+    "mapOptions": {
+      "extent": {
+        "xmin": -9312677.166095836,
+        "ymin": 3525764.722452604,
+        "xmax": -8847940.03412219,
+        "ymax": 3792682.825224311,
+        "spatialReference": {
+          "wkid": 102100
+        }
+      }
+    },
     "id": "map",
     "portalUrl": "http://sagis.maps.arcgis.com"
   },
@@ -276,62 +276,21 @@
     },
     "widgets": [
       {
-        "uri": "widgets/eLayerList/Widget",
-        "version": "2.1",
+        "uri": "widgets/LayerList/Widget",
+        "version": "2.4",
         "id": "widgets_LayerList_Widget_17",
-        "icon": "widgets/eLayerList/images/icon.png?wab_dv=2.1",
+        "icon": "widgets/LayerList/images/icon.png?wab_dv=2.1",
         "name": "LayerList",
-        "label": "Layer List",
         "index": 2,
         "openAtStart": true
       },
       {
         "uri": "widgets/Legend/Widget",
-        "version": "2.1",
+        "version": "2.4",
         "id": "widgets_Legend_Widget_16",
         "icon": "widgets/Legend/images/icon.png?wab_dv=2.1",
         "name": "Legend",
-        "label": "Legend",
         "index": 3
-      },
-      {
-        "name": "eDraw",
-        "label": "Draw",
-        "version": "2.1.1",
-        "uri": "widgets/eDraw/Widget",
-        "config": "configs/eDraw/config_Draw.json",
-        "index": 4,
-        "id": "widgets_eDraw_Widget_45",
-        "icon": "widgets/eDraw/images/icon.png?wab_dv=2.1"
-      },
-      {
-        "name": "Measure",
-        "label": "Measure",
-        "version": "2.1",
-        "uri": "widgets/Measure/Widget",
-        "index": 5,
-        "id": "widgets_Measure_Widget_44",
-        "icon": "widgets/Measure/images/icon.png?wab_dv=2.1"
-      },
-      {
-        "name": "Print",
-        "label": "Print",
-        "version": "2.1",
-        "uri": "widgets/Print/Widget",
-        "index": 6,
-        "id": "widgets_Print_Widget_24",
-        "icon": "widgets/Print/images/icon.png?wab_dv=2.1",
-        "config": "configs/Print/config_Print.json"
-      },
-      {
-        "name": "About",
-        "label": "About",
-        "version": "2.1",
-        "uri": "widgets/About/Widget",
-        "index": 7,
-        "id": "widgets_About_Widget_18",
-        "config": "configs/About/config_About.json",
-        "icon": "widgets/About/images/icon.png?wab_dv=2.1"
       }
     ],
     "groups": []
@@ -491,7 +450,7 @@
       "height": 58
     }
   },
-  "wabVersion": "2.1",
+  "wabVersion": "2.4",
   "isTemplateApp": true,
   "isWebTier": false,
   "httpProxy": {

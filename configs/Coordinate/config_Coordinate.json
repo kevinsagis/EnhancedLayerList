@@ -1,60 +1,6 @@
 {
-  "spatialReferences": [
-    {
-      "wkid": "3857",
-      "label": "WGS_1984_Web_Mercator_Auxiliary_Sphere",
-      "outputUnit": "DECIMAL_DEGREES",
-      "transformationWkid": "",
-      "transformationLabel": "",
-      "transformForward": false,
-      "options": {
-        "sameSRWithMap": true,
-        "isGeographicCS": false,
-        "isGeographicUnit": true,
-        "isProjectedCS": true,
-        "isProjectUnit": false,
-        "spheroidCS": 4326,
-        "defaultUnit": "Meter",
-        "unitRate": 1
-      }
-    },
-    {
-      "wkid": "2239",
-      "label": "NAD_1983_StatePlane_Georgia_East_FIPS_1001_Feet",
-      "outputUnit": "DEGREE_MINUTE_SECONDS",
-      "transformationWkid": "",
-      "transformationLabel": "Transformation Name",
-      "transformForward": false,
-      "options": {
-        "sameSRWithMap": false,
-        "isGeographicCS": false,
-        "isGeographicUnit": true,
-        "isProjectedCS": true,
-        "isProjectUnit": false,
-        "spheroidCS": 4269,
-        "defaultUnit": "Foot_US",
-        "unitRate": 1
-      }
-    },
-    {
-      "wkid": "2239",
-      "label": "NAD_1983_StatePlane_Georgia_East_FIPS_1001_Feet",
-      "outputUnit": "DECIMAL_DEGREES",
-      "transformationWkid": "",
-      "transformationLabel": "Transformation Name",
-      "transformForward": false,
-      "options": {
-        "sameSRWithMap": false,
-        "isGeographicCS": false,
-        "isGeographicUnit": true,
-        "isProjectedCS": true,
-        "isProjectUnit": false,
-        "spheroidCS": 4269,
-        "defaultUnit": "Foot_US",
-        "unitRate": 1
-      }
-    }
-  ],
+  "spatialReferences": [],
   "decimalPlaces": 3,
-  "addSeparator": true
+  "addSeparator": true,
+  "displayOrderLonLat": true
 }

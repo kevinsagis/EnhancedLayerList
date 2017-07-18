@@ -23,6 +23,7 @@ define({
   "showAllRecords": "모든 레코드 보기",
   "showRelatedRecords": "릴레이트된 레코드 표시",
   "noRelatedRecords": "릴레이트된 레코드가 없음",
+  "attachmentColumn": "사진과 파일",
   "refresh": "새로고침",
   "features": "피처",
   "records": "레코드",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "속성 테이블 숨기기",
   "sortAsc": "오름차순 정렬",
   "sortDes": "내림차순 정렬",
-  "statistics": "통계"
+  "statistics": "통계",
+  "attachments": "첨부 파일",
+  "files": "파일"
 });

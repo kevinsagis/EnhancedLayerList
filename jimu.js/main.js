@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -31,7 +31,6 @@ define([
     'dojo/Deferred',
     'dojo/promise/all',
     'dojo/io-query',
-    'dojo/domReady!',
     'esri/config',
     'esri/request',
     'esri/urlUtils',
@@ -44,7 +43,7 @@ define([
   ],
   function(ConfigManager, LayoutManager, DataManager, WidgetManager, FeatureActionManager, SelectionManager,
      html, lang, array, on, mouse,
-    topic, cookie, Deferred, all, ioquery, domReady, esriConfig, esriRequest, urlUitls, IdentityManager,
+    topic, cookie, Deferred, all, ioquery, esriConfig, esriRequest, urlUitls, IdentityManager,
     portalUrlUtils, jimuUtils, require, i18n, mainBundle) {
     /* global jimuConfig:true */
     var mo = {}, appConfig;
@@ -98,9 +97,24 @@ define([
       //Detect if request conatins the queryRelatedRecords operation
       //and then change the source url for that request to the corresponding mapservice.
       if (ioArgs.url.indexOf("/queryRelatedRecords?") !== -1) {
-        if (!jimuUtils.isHostedService(ioArgs.url)) { // hosted service doesn't depend on MapServer
+        var serviceUrl = ioArgs.url;
+        var proxyUrl = esriConfig.defaults.io.proxyUrl;
+        if(proxyUrl && ioArgs.url.indexOf(proxyUrl + "?") === 0){
+          //This request uses proxy.
+          //We should remove proxyUrl to get the real service url to detect if it is a hosted service or not.
+          serviceUrl = ioArgs.url.replace(proxyUrl + "?", "");
+        }
+        if (!jimuUtils.isHostedService(serviceUrl)) { // hosted service doesn't depend on MapServer
           ioArgs.url = ioArgs.url.replace("FeatureServer", "MapServer");
         }
+      }
+
+      //For getJobStatus of gp service running in safari.
+      //The url of requests sent to getJobStatus is the same. In safari, the requests will be blocked except
+      //the first one. Here a preventCache tag is added for this kind of request.
+      var reg = /GPServer\/.+\/jobs/;
+      if (reg.test(ioArgs.url)) {
+        ioArgs.preventCache = new Date().getTime();
       }
 
       // Use proxies to replace the premium content
@@ -163,10 +177,10 @@ define([
       breakPoints: [600, 1280]
     }, jimuConfig);
 
-    window.wabVersion = '2.1';
-    // window.productVersion = 'Online 4.2';
-    window.productVersion = 'Web AppBuilder for ArcGIS (Developer Edition) 2.1';
-    // window.productVersion = 'Portal for ArcGIS 10.4 Beta2';
+    window.wabVersion = '2.4';
+    // window.productVersion = 'Online 5.1';
+    window.productVersion = 'Web AppBuilder for ArcGIS (Developer Edition) 2.4';
+    // window.productVersion = 'Portal for ArcGIS 10.5';
 
     function initApp() {
       var urlParams, configManager, layoutManager;

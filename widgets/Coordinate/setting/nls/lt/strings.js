@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Dešimtainiai laipsniai",
   "Degree_Minutes_Seconds": "Laipsniai Minutės Sekundės",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Koordinačių rodymo tvarka:",
+  "lonLatTips": "Ilguma / platuma (X, Y)",
+  "latLonTips": "Platuma / Ilguma (Y, X)"
 });

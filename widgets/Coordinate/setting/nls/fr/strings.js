@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Degrés décimaux",
   "Degree_Minutes_Seconds": "Degrés Minutes Secondes",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Ordre d'affichage des coordonnées :",
+  "lonLatTips": "Longitude / Latitude(X, Y)",
+  "latLonTips": "Latitude / Longitude(Y, X)"
 });

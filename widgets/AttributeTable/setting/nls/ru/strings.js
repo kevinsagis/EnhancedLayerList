@@ -25,5 +25,6 @@ define({
   "fieldName": "Имя",
   "fieldAlias": "Псевдоним",
   "fieldVisibility": "Видимость",
-  "fieldActions": "Действия"
+  "fieldActions": "Действия",
+  "showAttachments": "Показать вложения"
 });

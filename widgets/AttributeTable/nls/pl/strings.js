@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Pokaż wszystkie rekordy",
   "showRelatedRecords": "Pokaż powiązane rekordy",
   "noRelatedRecords": "Nie znaleziono powiązanych rekordów",
+  "attachmentColumn": "Zdjęcia i pliki",
   "refresh": "Odśwież",
   "features": "obiekty",
   "records": "rekordy",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Ukryj tabelę atrybutów",
   "sortAsc": "Sortuj rosnąco",
   "sortDes": "Sortuj malejąco",
-  "statistics": "Statystyka"
+  "statistics": "Statystyka",
+  "attachments": "Załączniki",
+  "files": "plikami"
 });

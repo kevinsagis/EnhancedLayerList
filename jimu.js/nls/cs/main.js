@@ -6,6 +6,7 @@ define({
     "yes": "Ano",
     "no": "Ne",
     "next": "Další",
+    "previous": "Předchozí",
     "back": "Zpět",
     "selected": "vybrané",
     "name": "Název",
@@ -48,11 +49,19 @@ define({
     "scene": "Scéna",
     "reset": "Obnovit",
     "icon": "Ikona",
+    "folder": "Složka",
     "share": "Sdílet",
     "view": "Zobrazit",
     "newText": "Nový",
     "edit": "Upravit",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabulka",
+    "zoomIn": "Přiblížit",
+    "zoomOut": "Oddálit",
+    "continue1": "Pokračovat",
+    "longitude": "Zeměpisná délka",
+    "latitude": "Zeměpisná šířka",
+    "custom": "Vlastní"
   },
   "errorCode": "Kód",
   "errorMessage": "Zpráva",
@@ -96,7 +105,10 @@ define({
     "dash": "Přerušovaná",
     "dot": "Tečkovaná",
     "dashDot": "Čerchovaná",
-    "dashDotDot": "Dvojčerchovaná"
+    "dashDotDot": "Dvojčerchovaná",
+    "customImage": "Vlastní obrázek",
+    "chooseFile": "Vybrat soubor",
+    "noFileChoosen": "Není vybrán žádný soubor."
   },
   "transparency": {
     "opaque": "Neprůhledná",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Rozlišovat malá a velká písmena",
     "notSupportCaseSensitiveTip": "Hostované služby nepodporují dotazy rozlišující velikost písmen.",
-    "setFilterTip": "Nastavte filtr správně."
+    "setFilterTip": "Nastavte filtr správně.",
+    "listValues": "Zobrazit hodnoty",
+    "cascadeFilterTip": "Zobrazí pouze hodnoty filtrované předchozími výrazy.",
+    "noneCascadeFilterTip": "Všechny jedinečné hodnoty tohoto pole",
+    "previousCascadeFilterTip": "Hodnoty filtrované předchozími výrazy",
+    "allCascadeFilterTip": "Hodnoty filtrované všemi ostatními výrazy"
   },
   "featureLayerSource": {
     "layer": "Vrstva",
@@ -293,7 +310,11 @@ define({
     "owner": "vlastník",
     "signInTo": "Přihlásit se do",
     "lastModified": "Naposledy upraveno",
-    "moreDetails": "Další podrobnosti"
+    "moreDetails": "Další podrobnosti",
+    "mostRecent": "Nejnovější",
+    "mostViewed": "Nejprohlíženější",
+    "highestRated": "Nejlépe hodnocené",
+    "viewItemDetails": "Zobrazit podrobnosti položky"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Tato služba nepodporuje dotazování."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Neplatný typ souboru.",
     "cropImage": "Oříznout obrázek",
     "exceed": "Velikost souboru nesmí překročit 1024 KB.",
-    "enableFlash": "ÚKOL: Povolit Flash.",
+    "enableFlash": "Před nalistováním obrázku prosím povolte modul Adobe Flash.",
     "cropWaining": "Zvolte prosím fotografii s rozměry alespoň ${width}×${height} pixelů.",
     "toolTip": "V zájmu dosažení nejlepších výsledků by měl být obrázek ${width} pixelů široký a ${height} pixelů vysoký. Obrázky jiných rozměrů budou upraveny. Lze použít následující formáty: PNG, GIF a JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Kliknutím obnovíte rozsah mapy a viditelnost vrstvy tam, kde jste skončili."
   },
   "featureActions": {
+    "featureActions": "Akce prvku",
     "ZoomTo": "Zaostřit",
     "PanTo": "Posunout k",
     "Flash": "Zablikat",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Exportovat do souboru CSV",
     "ShowSelectedFeature": "Zobrazit vybrané prvky",
     "ExportToFeatureCollection": "Exportovat do sbírky prvků",
-    "ExportToGeoJSON": "Exportovat do GeoJSON"
+    "ExportToGeoJSON": "Exportovat do GeoJSON",
+    "EditAttributes": "Editovat atributy",
+    "AddMarker": "Přidat značku",
+    "RemoveMarker": "Odstranit značku",
+    "SaveToMyContent": "Uložit do Můj obsah"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Související vrstva",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Přidat do výběru",
     "removeSelectionTip": "Odstranit z výběru",
     "selectFromCurrentSelectionTip": "Vybrat ze současného výběru",
-    "unselectAllSelectionTip": "Zruší výběr všech aktuálně vybraných prvků."
+    "unselectAllSelectionTip": "Zruší výběr všech aktuálně vybraných prvků.",
+    "selectByPolygon": "Výběr polygonem",
+    "selectByCircle": "Výběr kružnicí",
+    "selectByLine": "Výběr linií",
+    "chooseSelectingTools": "Zvolit nástroje pro výběr",
+    "darw": "Vykreslit",
+    "drawShap": "Nakreslete tvar"
   },
   "widgetManager": {
     "createWidgetError": "Došlo k chybě při vytváření widgetu.",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D webové aplikace nejsou podporovány ve vašem webovém prohlížeči."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Podkladová mapa není k dispozici.",
+    "displayDefaultBasemap": "Místo ní se zobrazuje výchozí podkladová mapa.",
+    "layerLoadedError": "Vrstvu ${layers} nelze přidat do mapy."
+  },
+  "popup": {
+    "relatedTables": "Související tabulky:",
+    "relatedRecords": "Související záznamy:",
+    "noRelatedRecotds": "Nebyly nalezeny žádné související záznamy.",
+    "chooseFieldTip": "Vyberte atribut pro zobrazení seznamu",
+    "saveAsPopupTitle": "Stejné jako název vyskakovacího okna"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Výběr obsahuje příliš mnoho prvků. Může trvat dlouho, než se získají a zobrazí na mapě.",
+    "askForContinue": "Chcete pokračovat?"
+  },
+  "colorPalette": {
+    "transparent": "Průhledná",
+    "custom": "Vlastní"
+  },
+  "temperature": {
+    "celsius": "stupně Celsia",
+    "fahrenheit": "stupně Fahrenheita"
+  },
+  "report": {
+    "printButtonLabel": "Tisk",
+    "reportDimensionsMsg": "Tato zpráva je určena k vytištění na formát ${paperSize}.",
+    "unableToPrintMapMsg": "Při tisku map došlo k chybě.",
+    "landscape": "Na šířku",
+    "portrait": "Na výšku",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Právní informace",
+    "tabloid": "Tabloid (menší novinový formát)",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Váš online účet nemá přístupová práva k vytváření nebo úpravě dat.",
+  "invalidConfiguration": "Widget není nakonfigurován nebo se vrstvy v konfiguraci již nenacházejí v mapě. Spusťte aplikaci v režimu tvorby a upravte konfiguraci widgetu."
 });

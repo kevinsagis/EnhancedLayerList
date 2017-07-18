@@ -23,6 +23,7 @@ define({
   "showAllRecords": "הצג את כל הרשומות",
   "showRelatedRecords": "הצג רשומות קשורות",
   "noRelatedRecords": "לא נמצאו רשומות מקושרות",
+  "attachmentColumn": "תמונות וקבצים",
   "refresh": "רענן",
   "features": "יישויות",
   "records": "רשומות",
@@ -32,10 +33,12 @@ define({
   "columns": "הצג/הסתר עמודות",
   "selectionSymbol": "סמל לבחירה",
   "closeMessage": "הסתר טבלה (הרחב אותה שוב מהתחתית)",
-  "dataNotAvailable": "נתונים לא זמינים!<br>לחץ [רענן] על הכפתור כדי לנסות שנית.",
+  "dataNotAvailable": "נתונים לא זמינים!<br>לחץ [רענן] על הלחצן כדי לנסות שנית.",
   "openTableTip": "פתח טבלת מאפיינים",
   "closeTableTip": "הסתר טבלת מאפיינים",
   "sortAsc": "מיין בסדר עולה",
   "sortDes": "מיין בסדר יורד",
-  "statistics": "סטטיסטיקה"
+  "statistics": "סטטיסטיקה",
+  "attachments": "קבצים מצורפים",
+  "files": "קבצים"
 });

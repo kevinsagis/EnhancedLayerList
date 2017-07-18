@@ -25,5 +25,6 @@ define({
   "fieldName": "Nimi",
   "fieldAlias": "Alias",
   "fieldVisibility": "Nähtavus",
-  "fieldActions": "Tegevused"
+  "fieldActions": "Tegevused",
+  "showAttachments": "Kuva manused"
 });

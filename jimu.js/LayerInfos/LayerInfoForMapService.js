@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -35,6 +35,7 @@ esriRequest, esriLang, LayerInfoFactory) {
     controlPopupInfo: null,
     _jsapiLayerInfos: null,
     _oldFilter: null,
+    _subLayerInfoIndex: null,
 
     constructor: function(operLayer, map) {
 
@@ -49,6 +50,12 @@ esriRequest, esriLang, LayerInfoFactory) {
 
       // init control popup
       this._initControlPopup();
+    },
+
+    init: function() {
+      this.inherited(arguments);
+      // init subLayerInfoIndex
+      this._initSubLayerInfoIndex();
     },
 
     _initOldFilter: function() {
@@ -132,6 +139,16 @@ esriRequest, esriLang, LayerInfoFactory) {
           }
         }, this);
       }
+    },
+
+    _initSubLayerInfoIndex: function() {
+      var subLayerInfoIndex = {};
+      this.traversal(function(subLayerInfo) {
+        if(subLayerInfo.originOperLayer.mapService) {
+          subLayerInfoIndex[subLayerInfo.originOperLayer.mapService.subId] = subLayerInfo;
+        }
+      });
+      this._subLayerInfoIndex = subLayerInfoIndex;
     },
 
     getExtent: function() {
@@ -256,10 +273,14 @@ esriRequest, esriLang, LayerInfoFactory) {
       //var convertVisibleLayersResult = this._converVisibleLayers(visibleLayers);
       //visibleLayers = convertVisibleLayersResult.visibleLayersForSetVisibleLayers;
 
-      // remove group layers from layerObject.visibleLayers.
+      // remove group layers from layerObject.visibleLayers,
+      // and remove layers if that parent layer is invisble.
       array.forEach(visibleLayers, function(subLayerIndex) {
         if(!this._isGroupLayerBySubId(subLayerIndex)) {
-          tempVisibleLayers.push(subLayerIndex);
+          var subLayerInfo = this._subLayerInfoIndex[subLayerIndex];
+          if(subLayerInfo && subLayerInfo.isVisbleOrInvisilbe()) {
+            tempVisibleLayers.push(subLayerIndex);
+          }
         }
       }, this);
 

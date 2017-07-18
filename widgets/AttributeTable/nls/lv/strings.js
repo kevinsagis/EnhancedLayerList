@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Rādīt visus ierakstus",
   "showRelatedRecords": "Rādīt saistītos ierakstus",
   "noRelatedRecords": "Nav atrasti saistīti ieraksti",
+  "attachmentColumn": "Fotoattēli un faili",
   "refresh": "Atjaunot",
   "features": "elementi",
   "records": "ieraksti",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Paslēpt atribūtu tabulu",
   "sortAsc": "Šķirot augošā secībā",
   "sortDes": "Šķirot dilstošā secībā",
-  "statistics": "Statistika"
+  "statistics": "Statistika",
+  "attachments": "Pielikumi",
+  "files": "faili"
 });

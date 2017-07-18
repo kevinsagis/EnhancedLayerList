@@ -6,6 +6,7 @@ define({
     "yes": "نعم",
     "no": "لا",
     "next": "التالي",
+    "previous": "السابق",
     "back": "السابق",
     "selected": "محدد",
     "name": "الاسم",
@@ -48,11 +49,19 @@ define({
     "scene": "مشهد",
     "reset": "إعادة تعيين",
     "icon": "أيقونة",
+    "folder": "مجلد",
     "share": "مشاركة",
     "view": "عرض",
     "newText": "جديد",
     "edit": "تحرير",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "جدول",
+    "zoomIn": "التكبير",
+    "zoomOut": "التصغير.",
+    "continue1": "متابعة",
+    "longitude": "خط طول",
+    "latitude": "خط عرض",
+    "custom": "تخصيص"
   },
   "errorCode": "كود",
   "errorMessage": "رسالة",
@@ -96,7 +105,10 @@ define({
     "dash": "شَرطَة",
     "dot": "نقطة",
     "dashDot": "شَرطَة ونقطة",
-    "dashDotDot": "شَرطَة ونقطتين"
+    "dashDotDot": "شَرطَة ونقطتين",
+    "customImage": "صور مخصصة",
+    "chooseFile": "اختيار ملف",
+    "noFileChoosen": "لم يتم اختيار الملف."
   },
   "transparency": {
     "opaque": "غير شفاف",
@@ -236,10 +248,15 @@ define({
     },
     "caseSensitive": "تحسس حالة الأحرف",
     "notSupportCaseSensitiveTip": "الخدمات المستضافة لا تدعم الاستعلام الحساس للحالة.",
-    "setFilterTip": "يرجى تعيين عامل التصفية بشكل صحيح."
+    "setFilterTip": "يرجى تعيين عامل التصفية بشكل صحيح.",
+    "listValues": "قيم القائمة",
+    "cascadeFilterTip": "عرض القيم التي يتم تصفيتها بواسطة التعبيرات السابقة.",
+    "noneCascadeFilterTip": "جميع القيم المميزة لهذا الحقل",
+    "previousCascadeFilterTip": "القيم التي يتم تصفيتها بواسطة التعبيرات السابقة",
+    "allCascadeFilterTip": "القيم التي يتم تصفيتها بواسطة جميع التعبيرات الأخرى"
   },
   "featureLayerSource": {
-    "layer": "الطبقة",
+    "layer": "طبقة",
     "browse": "استعراض",
     "selectFromMap": "تحديد من الخريطة",
     "selectFromPortal": "إضافة من Portal for ArcGIS",
@@ -293,7 +310,11 @@ define({
     "owner": "المالك",
     "signInTo": "تسجيل الدخول إلى",
     "lastModified": "آخر تعديل",
-    "moreDetails": "المزيد من التفاصيل"
+    "moreDetails": "المزيد من التفاصيل",
+    "mostRecent": "الأحدث",
+    "mostViewed": "الأكثر مشاهدةً",
+    "highestRated": "الأعلى تصنيفًا",
+    "viewItemDetails": "عرض تفاصيل العنصر"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "الخدمة لا تدعم الاستعلام."
@@ -322,7 +343,7 @@ define({
     "invalidType": "نوع الملف غير صحيح.",
     "cropImage": "قص الصورة",
     "exceed": "لا يجوز أن يتجاوز حجم الملف 1024 كيلوبايت",
-    "enableFlash": "قائمة المهام: يرجى تمكين الفلاش.",
+    "enableFlash": "الرجاء تمكين Adobe Flash قبل استعراض الصور.",
     "cropWaining": "يرجى اختيار صورة على الأقل ${عرض} x ${طول} بكسل.",
     "toolTip": "للحصول على أفضل نتيجة، ينبغي أن يكون حجم الصورة ${width} بيكسل وارتفاعها ${height} بيكسل. سيتم تعديل الأحجام الأخرى للملائمة. تنسيقات الصورة المقبولة هي PNG وGIF وJPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "انقر لاستعادة مدى الخريطة ورؤية الطبقات حيث توقفت."
   },
   "featureActions": {
+    "featureActions": "إجراءات المعالم",
     "ZoomTo": "تكبير/تصغير إلى",
     "PanTo": "التحريك إلى",
     "Flash": "وميض",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "تصدير لملف CSV",
     "ShowSelectedFeature": "عرض المعالم المحددة",
     "ExportToFeatureCollection": "التصدير إلى مجموعة المعالم",
-    "ExportToGeoJSON": "التصدير إلى GeoJSON"
+    "ExportToGeoJSON": "التصدير إلى GeoJSON",
+    "EditAttributes": "تحرير السمات",
+    "AddMarker": "إضافة علامة",
+    "RemoveMarker": "إزالة علامة",
+    "SaveToMyContent": "حفظ على المحتوى الخاص بي"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "الطبقات المرتبطة",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "إضافة للاختيارات",
     "removeSelectionTip": "إزالة من التحديد",
     "selectFromCurrentSelectionTip": "تحديد من التحديد الحالي",
-    "unselectAllSelectionTip": "ألغ تحديد كل المعالم المحددة حاليًا"
+    "unselectAllSelectionTip": "ألغ تحديد كل المعالم المحددة حاليًا",
+    "selectByPolygon": "تحديد بواسطة المضلع",
+    "selectByCircle": "تحديد بواسطة دائرة",
+    "selectByLine": "تحديد بواسطة خط",
+    "chooseSelectingTools": "اختر أدوات التحديد",
+    "darw": "رسم",
+    "drawShap": "رسم شكل"
   },
   "widgetManager": {
     "createWidgetError": "خطأ في إنشاء عنصر واجهة المستخدم",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "تطبيقات الويب ثلاثية الأبعاد غير مدعومة في المستعرض."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "لم تتوافر خريطة الأساس.",
+    "displayDefaultBasemap": "عرض خريطة الأساس الافتراضية بدلاً من ذلك.",
+    "layerLoadedError": "تتعذر إضافة الطبقة ${layer} إلى الخريطة."
+  },
+  "popup": {
+    "relatedTables": "الجداول ذات الصلة:",
+    "relatedRecords": "السجلات ذات الصلة:",
+    "noRelatedRecotds": "لم يتم العثور على سجلات ذات صلة.",
+    "chooseFieldTip": "اختر بيانات جدولية لإظهار القائمة",
+    "saveAsPopupTitle": "نفس الشيء مثل العنوان المنبثق"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "يوجد الكثير جدًا من المعالم في التحديد الخاص بك. قد يستغرق وقتًا طويلاً لاستعادتهم وعرضهم على الخريطة.",
+    "askForContinue": "هل تريد المتابعة؟"
+  },
+  "colorPalette": {
+    "transparent": "شفاف",
+    "custom": "تخصيص"
+  },
+  "temperature": {
+    "celsius": "سلزيوس",
+    "fahrenheit": "فهرينهايت"
+  },
+  "report": {
+    "printButtonLabel": "طباعة",
+    "reportDimensionsMsg": "يتم تصميم هذا التقرير لكي يتم طباعته على ورق ${paperSize}",
+    "unableToPrintMapMsg": "حدث خطأ أثناء طباعة الخرائط.",
+    "landscape": "أفقي",
+    "portrait": "عمودي",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "حرف ANSI A",
+    "tabloidANSIB": "صحيفة مصغرة ANSI B",
+    "letter": "حرف",
+    "legal": "قانوني",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "لا يحتوي حسابك على أذونات لإنشاء أو تعديل البيانات.",
+  "invalidConfiguration": "لم يتم تكوين عنصر واجهة المستخدم أو أن الطبقات التي توجد في التكوين لم تُعد موجودة في الخريطة. يرجى فتح التطبيق في وضع المُنشئ وإعادة تكوين عنصر واجهة المستخدم."
 });

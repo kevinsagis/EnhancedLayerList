@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Десятичные градусы",
   "Degree_Minutes_Seconds": "Градусы, минуты, секунды",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Порядок отображения координат:",
+  "lonLatTips": "Долгота / Широта (X, Y)",
+  "latLonTips": "Широта / Долгота (Y, X)"
 });

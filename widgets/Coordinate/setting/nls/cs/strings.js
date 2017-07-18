@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Desetinné stupně",
   "Degree_Minutes_Seconds": "Stupně, minuty, vteřiny",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Pořadí zobrazení souřadnic:",
+  "lonLatTips": "Zeměpisná délka / zeměpisná šířka (X, Y)",
+  "latLonTips": "Zeměpisná šířka / zeměpisná délka (Y, X)"
 });

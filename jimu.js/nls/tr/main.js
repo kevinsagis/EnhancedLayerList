@@ -6,6 +6,7 @@ define({
     "yes": "Evet",
     "no": "Hayır",
     "next": "İleri",
+    "previous": "Önceki",
     "back": "Geri",
     "selected": "seçili",
     "name": "Ad",
@@ -48,11 +49,19 @@ define({
     "scene": "Görünüm",
     "reset": "Sıfırla",
     "icon": "Simge",
+    "folder": "Klasör",
     "share": "Paylaş",
     "view": "Görüntüle",
     "newText": "Yeni",
     "edit": "Düzenle",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tablo",
+    "zoomIn": "Büyüt",
+    "zoomOut": "Küçült",
+    "continue1": "Devam",
+    "longitude": "Boylam",
+    "latitude": "Enlem",
+    "custom": "Özel"
   },
   "errorCode": "Kod",
   "errorMessage": "İleti",
@@ -96,7 +105,10 @@ define({
     "dash": "Tire",
     "dot": "Nokta",
     "dashDot": "Çizgi Nokta",
-    "dashDotDot": "Çizgi Nokta Nokta"
+    "dashDotDot": "Çizgi Nokta Nokta",
+    "customImage": "Özel Resim",
+    "chooseFile": "Dosya seç",
+    "noFileChoosen": "Seçili dosya yok."
   },
   "transparency": {
     "opaque": "Opak",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Büyük/Küçük Harf Duyarlı",
     "notSupportCaseSensitiveTip": "Barındırılan hizmetler büyük küçük harf duyarlı sorgulamayı desteklemez.",
-    "setFilterTip": "Filtreyi düzgün şekilde ayarlayın."
+    "setFilterTip": "Filtreyi düzgün şekilde ayarlayın.",
+    "listValues": "Değer Listesi",
+    "cascadeFilterTip": "Yalnızca önceki ifadeler tarafından filtrelenen değerler gösterilsin.",
+    "noneCascadeFilterTip": "Bu alana ait benzersiz değerlerin tümü",
+    "previousCascadeFilterTip": "Önceki ifadeler tarafından filtrelenen değerler",
+    "allCascadeFilterTip": "Diğer tüm ifadeler tarafından filtrelenen değerler"
   },
   "featureLayerSource": {
     "layer": "Katman",
@@ -293,7 +310,11 @@ define({
     "owner": "Sahibi",
     "signInTo": "Şurada oturum aç",
     "lastModified": "Son Değiştirme",
-    "moreDetails": "Diğer Ayrıntılar"
+    "moreDetails": "Diğer Ayrıntılar",
+    "mostRecent": "En Son",
+    "mostViewed": "En Çok Görüntülenen",
+    "highestRated": "En Yüksek Derecelendirmeli",
+    "viewItemDetails": "Öğe ayrıntılarını görüntüle"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Hizmet sorgulamayı desteklemiyor."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Geçersiz dosya türü.",
     "cropImage": "Görüntüyü Kırp",
     "exceed": "Dosya boyutu 1024 KB'yi aşamaz",
-    "enableFlash": "YAPILACAK: Flash'ı etkinleştirin.",
+    "enableFlash": "Bir resme gitmeden önce Adobe Flash uygulamasını etkinleştirin.",
     "cropWaining": "Çözünürlüğü en az ${width} x ${height} piksel olan bir fotoğraf seçin.",
     "toolTip": "En iyi sonuç için görüntü ${width} piksel genişliğinde ve ${height} piksel yüksekliğinde olmalıdır. Diğer boyutlar sığacak şekilde ayarlanır. Kabul edilen görüntü biçimleri: PNG, GIF ve JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Harita yayılımını ve katman görünürlüğünü bıraktığınız yerden geri yüklemek için tıklayın."
   },
   "featureActions": {
+    "featureActions": "Detay işlemleri",
     "ZoomTo": "Yakınlaştır",
     "PanTo": "Kaydır",
     "Flash": "Parlat",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "CSV dosyasına gönder",
     "ShowSelectedFeature": "Seçili Detayları Göster",
     "ExportToFeatureCollection": "Detay Koleksiyonuna Aktar",
-    "ExportToGeoJSON": "GeoJSON//'a Aktar"
+    "ExportToGeoJSON": "GeoJSON//'a Aktar",
+    "EditAttributes": "Öznitelikleri Düzenle",
+    "AddMarker": "İşaretleyici ekle",
+    "RemoveMarker": "İşaretleyiciyi kaldır",
+    "SaveToMyContent": "İçeriğim’e Kaydet"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "İlgili katman",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Seçime ekle",
     "removeSelectionTip": "Seçimden kaldır",
     "selectFromCurrentSelectionTip": "Aktif seçimden seç",
-    "unselectAllSelectionTip": "Geçerli durumda seçili tüm detayların seçimini kaldırın"
+    "unselectAllSelectionTip": "Geçerli durumda seçili tüm detayların seçimini kaldırın",
+    "selectByPolygon": "Alana Göre Seç",
+    "selectByCircle": "Daireyle Seç",
+    "selectByLine": "Çizgiyle Seç",
+    "chooseSelectingTools": "Seçim araçlarını belirleyin.",
+    "darw": "Çiz",
+    "drawShap": "Şekil çiz"
   },
   "widgetManager": {
     "createWidgetError": "Araç oluşturma hatası",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3B web haritaları tarayıcınızda desteklenmiyor."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Altlık harita mevcut değil.",
+    "displayDefaultBasemap": "Bunun yerine varsayılan altlık harita görüntüleniyor.",
+    "layerLoadedError": "${layers} katmanı haritaya eklenemiyor."
+  },
+  "popup": {
+    "relatedTables": "İlgili Tablolar:",
+    "relatedRecords": "İlgili Kayıtlar:",
+    "noRelatedRecotds": "İlgili kayıt bulunamadı.",
+    "chooseFieldTip": "Listeyi gösterecek bir öznitelik seçin",
+    "saveAsPopupTitle": "Açılır Menü Başlığıyla Aynı"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Seçiminizde çok fazla detay var. Bunların alınması ve harita üzerinde görüntülenmesi uzun sürebilir.",
+    "askForContinue": "Devam etmek istiyor musunuz?"
+  },
+  "colorPalette": {
+    "transparent": "Saydam",
+    "custom": "Özel"
+  },
+  "temperature": {
+    "celsius": "Santigrat",
+    "fahrenheit": "Fahrenhayt"
+  },
+  "report": {
+    "printButtonLabel": "Yazdır",
+    "reportDimensionsMsg": "Bu rapor ${paperSize} Kağıdına yazdırılacak biçimde tasarlanmıştır",
+    "unableToPrintMapMsg": "Haritalar yazdırılırken bir hata oluştu.",
+    "landscape": "Yatay",
+    "portrait": "Dikey",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Legal",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Hesabınızın veri oluşturma veya değiştirme izni yok.",
+  "invalidConfiguration": "Araç yapılandırılmamış veya yapılandırmadaki katmanlar artık haritada değil. Uygulamayı oluşturucu modda açın ve aracı yeniden yapılandırın."
 });

@@ -25,5 +25,6 @@ define({
   "fieldName": "Navn",
   "fieldAlias": "Alias",
   "fieldVisibility": "Synlighed",
-  "fieldActions": "Handlinger"
+  "fieldActions": "Handlinger",
+  "showAttachments": "Vis vedhæftninger"
 });

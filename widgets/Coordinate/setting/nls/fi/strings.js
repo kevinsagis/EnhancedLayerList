@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "desimaaliastetta",
   "Degree_Minutes_Seconds": "astetta, minuuttia, sekuntia",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Koordinaattien näyttöjärjestys:",
+  "lonLatTips": "Pituusaste/leveysaste (X, Y)",
+  "latLonTips": "Leveysaste/pituusaste(Y, X)"
 });

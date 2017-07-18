@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Afficher tous les enregistrements",
   "showRelatedRecords": "Afficher les enregistrements associés",
   "noRelatedRecords": "Aucun enregistrement associé n'a été trouvé",
+  "attachmentColumn": "Photos et fichiers",
   "refresh": "Actualiser",
   "features": "entités",
   "records": "enregistrements",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Masquer la table attributaire",
   "sortAsc": "Tri croissant",
   "sortDes": "Tri décroissant",
-  "statistics": "Statistiques"
+  "statistics": "Statistiques",
+  "attachments": "Pièces jointes",
+  "files": "fichiers"
 });

@@ -6,6 +6,7 @@ define({
     "yes": "Da",
     "no": "Nu",
     "next": "Următor",
+    "previous": "Anterior",
     "back": "Înapoi",
     "selected": "selectat",
     "name": "Nume",
@@ -48,11 +49,19 @@ define({
     "scene": "Scenă",
     "reset": "Resetare",
     "icon": "Pictogramă",
+    "folder": "Director",
     "share": "Partajare",
     "view": "Vizualizare",
     "newText": "Nou",
     "edit": "Editare",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabel",
+    "zoomIn": "Mărire",
+    "zoomOut": "Micşorare",
+    "continue1": "Continuare",
+    "longitude": "Longitudine",
+    "latitude": "Latitudine",
+    "custom": "Personalizat"
   },
   "errorCode": "Cod",
   "errorMessage": "Mesaj",
@@ -96,7 +105,10 @@ define({
     "dash": "Linie",
     "dot": "Punct",
     "dashDot": "Linie punct",
-    "dashDotDot": "Linie punct punct"
+    "dashDotDot": "Linie punct punct",
+    "customImage": "Imagine particularizată",
+    "chooseFile": "Alegere fişier",
+    "noFileChoosen": "Niciun fişier selectat."
   },
   "transparency": {
     "opaque": "Opac",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Sensibil la majuscule/minuscule",
     "notSupportCaseSensitiveTip": "Serviciile găzduite nu acceptă interogările care depind de majuscule/minuscule.",
-    "setFilterTip": "Setaţi corect filtrul."
+    "setFilterTip": "Setaţi corect filtrul.",
+    "listValues": "Valori listă",
+    "cascadeFilterTip": "Afişaţi doar valorile filtrate de expresiile anterioare.",
+    "noneCascadeFilterTip": "Toate valorile unice ale acestui câmp",
+    "previousCascadeFilterTip": "Valori filtrate de expresiile anterioare",
+    "allCascadeFilterTip": "Valori filtrate de toate celelalte expresii"
   },
   "featureLayerSource": {
     "layer": "Strat tematic",
@@ -293,7 +310,11 @@ define({
     "owner": "proprietar",
     "signInTo": "Autentificare la",
     "lastModified": "Ultima modificare",
-    "moreDetails": "Mai multe detalii"
+    "moreDetails": "Mai multe detalii",
+    "mostRecent": "Cele mai recente",
+    "mostViewed": "Cele mai vizualizate",
+    "highestRated": "Calificativul cel mai mare",
+    "viewItemDetails": "Vizualizaţi detaliile elementului"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Serviciul nu permite interogări."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Tip de fişier nevalid.",
     "cropImage": "Decupare imagine",
     "exceed": "Dimensiunea fişierului nu poate depăşi 1024 KB",
-    "enableFlash": "Acţiune: activaţi funcţia flash.",
+    "enableFlash": "Activaţi Adobe Flash înainte de a naviga la o imagine.",
     "cropWaining": "Alegeţi o fotografie cu dimensiunea de cel puţin ${width} x ${height} pixeli.",
     "toolTip": "Pentru cel mai bun rezultat, imaginea trebuie să aibă ${width} pixeli lăţime şi ${height} pixeli înălţime. Alte dimensiuni vor fi ajustate pentru a se încadra. Formatele de imagine acceptate sunt: PNG, GIF şi JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Apăsaţi pentru a restaura extinderea hărţii şi vizibilitatea straturilor tematice de unde aţi rămas."
   },
   "featureActions": {
+    "featureActions": "Acţiuni obiecte spaţiale",
     "ZoomTo": "Transfocare la",
     "PanTo": "Panoramare la",
     "Flash": "Flash",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Export în fişier CSV",
     "ShowSelectedFeature": "Afişare obiecte spaţiale selectate",
     "ExportToFeatureCollection": "Export către Colecția de obiecte spațiale",
-    "ExportToGeoJSON": "Export către GeoJSON"
+    "ExportToGeoJSON": "Export către GeoJSON",
+    "EditAttributes": "Editare atribute",
+    "AddMarker": "Adăugare marcaj",
+    "RemoveMarker": "Eliminare marcaj",
+    "SaveToMyContent": "Salvare în Resursele mele"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Strat tematic corelat",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Adăugare la selecţie",
     "removeSelectionTip": "Eliminare din selecţie",
     "selectFromCurrentSelectionTip": "Selectaţi din selecţia curentă",
-    "unselectAllSelectionTip": "Deselectaţi toate obiectele spaţiale selectate curent"
+    "unselectAllSelectionTip": "Deselectaţi toate obiectele spaţiale selectate curent",
+    "selectByPolygon": "Selectaţi prin trasare poligon",
+    "selectByCircle": "Selectaţi prin trasare cerc",
+    "selectByLine": "Selectaţi prin trasare linie",
+    "chooseSelectingTools": "Alegeţi instrumentele de selectare",
+    "darw": "Trasare",
+    "drawShap": "Trasarea unei forme"
   },
   "widgetManager": {
     "createWidgetError": "Eroare creare widget",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Aplicaţiile web 3D nu sunt acceptate în browserul dvs."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Harta fundal nu este disponibilă.",
+    "displayDefaultBasemap": "Se afişează în loc harta de fundal implicită.",
+    "layerLoadedError": "Stratul tematic, ${layers}, nu poate fi adăugat la hartă."
+  },
+  "popup": {
+    "relatedTables": "Tabele corelate:",
+    "relatedRecords": "Înregistrări corelate:",
+    "noRelatedRecotds": "Nu s-au găsit înregistrări corelate.",
+    "chooseFieldTip": "Alegeţi un atribut pentru a afişa lista",
+    "saveAsPopupTitle": "La fel ca Titlul pop-up"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "În selecţia dvs. se află prea multe obiecte spaţiale. Preluarea şi afişarea acestora pe hartă poate dura un timp mai îndelungat.",
+    "askForContinue": "Continuaţi?"
+  },
+  "colorPalette": {
+    "transparent": "Transparent",
+    "custom": "Personalizat"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Imprimare",
+    "reportDimensionsMsg": "Acest raport este conceput pentru a fi imprimat pe hârtie ${paperSize}",
+    "unableToPrintMapMsg": "A apărut o eroare la imprimarea hărţii (hărţilor).",
+    "landscape": "Peisaj",
+    "portrait": "Portret",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Legal",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Contul dumneavoastră nu are permisiunea de a crea sau modifica date.",
+  "invalidConfiguration": "Widgetul nu este configurat sau straturile tematice din configuraţie nu se mai află pe hartă.  Deschideţi aplicaţia în modul de creare şi reconfiguraţi widgetul."
 });

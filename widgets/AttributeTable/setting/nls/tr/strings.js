@@ -25,5 +25,6 @@ define({
   "fieldName": "Ad",
   "fieldAlias": "Takma Ad",
   "fieldVisibility": "Görünürlük",
-  "fieldActions": "İşlemler"
+  "fieldActions": "İşlemler",
+  "showAttachments": "Ekleri göster"
 });

@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "องศาทศนิยม",
   "Degree_Minutes_Seconds": "องศา ลิปดา ฟิลิปดา",
   "MGRS": "หน่วยอ้างอิงทางทหาร MGRS",
-  "USNG": "หน่วย USNG"
+  "USNG": "หน่วย USNG",
+  "displayOrderLonLatTips": "คู่ลำดับการแสดงผลพิกัด:",
+  "lonLatTips": "ลองจิจูด / ละติจูด (X, Y)",
+  "latLonTips": "ละติจูด / ลองจิจูด (Y, X)"
 });

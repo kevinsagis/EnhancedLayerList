@@ -66,6 +66,7 @@ define([
         this.map = map;
       },
 
+      //updateConfig: boolean.
       updateLayerInfoResources: function(updateConfig) {
         var def = new Deferred();
         attrUtils.readConfigLayerInfosFromMap(this.map, false, true)
@@ -107,6 +108,9 @@ define([
         return lang.clone(this.config.layerInfos);
       },
 
+      //e.g. When Query create a new feature layer, AT get the layerInfoChanged event,
+      //AT needs to call addLayerInfo method to update this._layerInfosFromMap.
+      //But AT doesn't open this Query-created feature layer, so it doesn't call addConfigInfo().
       addLayerInfo: function(newLayerInfo) {
         if (this._layerInfosFromMap.length === 0) {
           this._delayedLayerInfos.push(newLayerInfo);
@@ -116,6 +120,8 @@ define([
         }
       },
 
+      //When user open AT from Query result page, AT will call addConfigInfo method to
+      //update this.config.layerInfos. this.config.layerInfos syncs with ContentPanes of AT.
       addConfigInfo: function(newLayerInfo) {
         if (!this._getConfigInfoById(newLayerInfo.id)) {
           var info = attrUtils.getConfigInfoFromLayerInfo(newLayerInfo);
@@ -152,6 +158,11 @@ define([
         }
       },
 
+      // def.resolve({
+      //   isSupportQuery: tableInfo.isSupportQuery,
+      //   table: this.featureTableSet[tabId] // instance of _FeatureTable
+      // });
+      // tabId: id of layerInfo
       getQueryTable: function(tabId, enabledMatchingMap, hideExportButton) {
         var def = new Deferred();
         this._activeLayerInfoId = tabId;
@@ -302,7 +313,8 @@ define([
       _processDelayedLayerInfos: function() { // must be invoke after initialize this._layerInfos
         if (this._delayedLayerInfos.length > 0) {
           array.forEach(this._delayedLayerInfos, lang.hitch(this, function(delayedLayerInfo) {
-            if (!this._getLayerInfoById(delayedLayerInfo && delayedLayerInfo.id)) {
+            if (!this._getLayerInfoById(delayedLayerInfo && delayedLayerInfo.id) &&
+              this.map && this.map.getLayer(delayedLayerInfo.id)) {
               this._layerInfosFromMap.push(delayedLayerInfo);
             }
           }));
@@ -334,6 +346,12 @@ define([
         return null;
       },
 
+
+      // def.resolve({
+      //         layerInfo: activeLayerInfo,
+      //         layerObject: layerObject,
+      //         tableInfo: tableInfo
+      //       });
       _getQueryTableInfo: function(tabId) {
         var def = new Deferred();
         var activeLayerInfo = this._getLayerInfoById(tabId);
@@ -437,6 +455,15 @@ define([
               break;
             }
           }
+        }
+        if(validFields.length === 0 && sFields.length > 0){
+          var fieldInfos = lang.clone(rFields);
+          array.forEach(fieldInfos, lang.hitch(this, function(fieldInfo){
+            if(fieldInfo.type !== 'esriFieldTypeGeometry'){
+              fieldInfo.show = true;
+              validFields.push(fieldInfo);
+            }
+          }));
         }
         return validFields;
       }

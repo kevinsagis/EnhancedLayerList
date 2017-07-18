@@ -1,8 +1,8 @@
 define({
   root: ({
     _widgetLabel: "Zoom Prev Next",
-    zoomPrev: "Zoom to previous extent",
-    zoomNext: "Zoom to next extent",
+    zoomPrev: "Zoom to my previous location on map",
+    zoomNext: "Zoom to my next location on map",
     Help: {
       clickToOpen: "Try it now",
       mainContent: "<div>" +

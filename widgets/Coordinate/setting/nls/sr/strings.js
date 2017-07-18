@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Decimalni stepeni",
   "Degree_Minutes_Seconds": "Stepeni minuti sekunde",
   "MGRS": "Referentni sistem vojne pravougle koordinatne mreže (MGRS)",
-  "USNG": "Nacionalna koordinatna mreža SAD (USNG)"
+  "USNG": "Nacionalna koordinatna mreža SAD (USNG)",
+  "displayOrderLonLatTips": "Redosled prikaza koordinata:",
+  "lonLatTips": "Geografska dužina / širina (X, Y)",
+  "latLonTips": "Geografska dužina / širina (X, Y)"
 });

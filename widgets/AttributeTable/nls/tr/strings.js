@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Tüm Kayıtları Göster",
   "showRelatedRecords": "İlgili Kayıtları Göster",
   "noRelatedRecords": "İlgili kayıt bulunamadı",
+  "attachmentColumn": "Fotoğraflar ve Dosyalar",
   "refresh": "Yenile",
   "features": "detaylar",
   "records": "kayıtları",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Öznitelik Tablosunu Gizle",
   "sortAsc": "Artan Sıralama",
   "sortDes": "Azalan Sıralama",
-  "statistics": "İstatistikler"
+  "statistics": "İstatistikler",
+  "attachments": "Ekler",
+  "files": "dosyalar"
 });

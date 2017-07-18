@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Mostrar todos los registros",
   "showRelatedRecords": "Mostrar los registros relacionados",
   "noRelatedRecords": "No se encontraron registros relacionados",
+  "attachmentColumn": "Fotos y archivos",
   "refresh": "Actualizar",
   "features": "entidades",
   "records": "registros",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Ocultar tabla de atributos",
   "sortAsc": "Orden ascendente",
   "sortDes": "Clasificar Descendentemente",
-  "statistics": "Estadísticas"
+  "statistics": "Estadísticas",
+  "attachments": "Adjuntos",
+  "files": "archivos"
 });

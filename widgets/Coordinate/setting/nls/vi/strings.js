@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Độ thập phân",
   "Degree_Minutes_Seconds": "Độ Phút Giây",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Thứ tự hiển thị tọa độ:",
+  "lonLatTips": "Kinh độ / Vĩ độ(X, Y)",
+  "latLonTips": "Vĩ độ / Kinh độ(Y, X)"
 });

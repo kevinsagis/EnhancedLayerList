@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Grade zecimale",
   "Degree_Minutes_Seconds": "Grade Minute Secunde",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Ordine de afişare coordonate:",
+  "lonLatTips": "Longitudine/Latitudine (X, Y)",
+  "latLonTips": "Latitudine/Longitudine (Y, X)"
 });

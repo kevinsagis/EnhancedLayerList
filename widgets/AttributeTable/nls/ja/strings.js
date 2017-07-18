@@ -23,6 +23,7 @@ define({
   "showAllRecords": "すべてのレコードを表示",
   "showRelatedRecords": "関連レコードの表示",
   "noRelatedRecords": "関連するレコードが見つかりませんでした",
+  "attachmentColumn": "写真とファイル",
   "refresh": "更新",
   "features": "フィーチャ",
   "records": "レコード",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "属性テーブルの非表示",
   "sortAsc": "昇順で並べ替え",
   "sortDes": "降順で並べ替え",
-  "statistics": "統計"
+  "statistics": "統計",
+  "attachments": "添付ファイル",
+  "files": "ファイル"
 });

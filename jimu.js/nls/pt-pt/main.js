@@ -6,6 +6,7 @@ define({
     "yes": "Sim",
     "no": "Não",
     "next": "Seguinte",
+    "previous": "Anterior",
     "back": "Regressar",
     "selected": "selecionadas",
     "name": "Nome",
@@ -48,11 +49,19 @@ define({
     "scene": "Cena 3D",
     "reset": "Redefinir",
     "icon": "Ícone",
+    "folder": "Pasta",
     "share": "Partilhar",
     "view": "Ver",
     "newText": "Novo",
     "edit": "Editar",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabela",
+    "zoomIn": "Aumentar Zoom",
+    "zoomOut": "Reduzir zoom",
+    "continue1": "Continuar",
+    "longitude": "Longitude",
+    "latitude": "Latitude",
+    "custom": "Personalizar"
   },
   "errorCode": "Código",
   "errorMessage": "Mensagem",
@@ -96,7 +105,10 @@ define({
     "dash": "Traço",
     "dot": "Ponto",
     "dashDot": "Traço Ponto",
-    "dashDotDot": "Traço Ponto Ponto"
+    "dashDotDot": "Traço Ponto Ponto",
+    "customImage": "Imagem Personalizada",
+    "chooseFile": "Escolher ficheiro",
+    "noFileChoosen": "Nenhum ficheiro escolhido."
   },
   "transparency": {
     "opaque": "Opaco",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Diferencia Tamanho de Letra",
     "notSupportCaseSensitiveTip": "Os serviços alojados não suportam consultas que diferenciam maiúsculas de minúsculas.",
-    "setFilterTip": "Por favor, defina o filtro corretamente."
+    "setFilterTip": "Por favor, defina o filtro corretamente.",
+    "listValues": "Listar Valores",
+    "cascadeFilterTip": "Apenas valores filtrados por expressões anteriores.",
+    "noneCascadeFilterTip": "Todos os valores únicos deste campo",
+    "previousCascadeFilterTip": "Valores filtrados por expressões anteriores",
+    "allCascadeFilterTip": "Valores filtrados por todas as restantes expressões"
   },
   "featureLayerSource": {
     "layer": "Camada",
@@ -293,7 +310,11 @@ define({
     "owner": "proprietário",
     "signInTo": "Iniciar sessão em",
     "lastModified": "Última Modificação",
-    "moreDetails": "Mais Detalhes"
+    "moreDetails": "Mais Detalhes",
+    "mostRecent": "Mais Recente",
+    "mostViewed": "Mais Visualizado",
+    "highestRated": "Maior Classificação",
+    "viewItemDetails": "Visualizar detalhes do item"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "O serviço não suporta consultas."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Tipo de ficheiro inválido.",
     "cropImage": "Recortar Imagem",
     "exceed": "O tamanho do ficheiro não pode exceder 1024 KB",
-    "enableFlash": "TODO: por favor, ative o flash.",
+    "enableFlash": "Por favor, ative o Adobe Flash antes de navegar até uma imagem.",
     "cropWaining": "Por favor escolha uma fotografa que tenha pelo menos ${width} x ${height} pixels.",
     "toolTip": "Para obter melhores resultados, a imagem deverá ter ${width} pixéis de largura por ${height} pixéis de altura. Outros tamanhos serão ajustados para caberem. Os formatos de imagem aceitáveis são: PNG, GIF e JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Clique para restaurar a extensão de mapa e camadas de visibilidade de onde saiu."
   },
   "featureActions": {
+    "featureActions": "Acções de elementos",
     "ZoomTo": "Efectuar zoom para",
     "PanTo": "Mover para",
     "Flash": "Flash",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Exportar para ficheiro CSV",
     "ShowSelectedFeature": "Exibir Elementos Selecionados",
     "ExportToFeatureCollection": "Exportar para Coleção de Elementos",
-    "ExportToGeoJSON": "Exportar para GeoJSON"
+    "ExportToGeoJSON": "Exportar para GeoJSON",
+    "EditAttributes": "Editar Atributos",
+    "AddMarker": "Adicionar um Marcador",
+    "RemoveMarker": "Remover Marcador",
+    "SaveToMyContent": "Guardar em O Meu Conteúdo"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Camada relacionada",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Adicionar à seleção",
     "removeSelectionTip": "Remover da seleção",
     "selectFromCurrentSelectionTip": "Selecionar da seleção atual",
-    "unselectAllSelectionTip": "Desselecionar todos os elementos atualmente selecionados"
+    "unselectAllSelectionTip": "Desselecionar todos os elementos atualmente selecionados",
+    "selectByPolygon": "Seleccionar por Polígono",
+    "selectByCircle": "Seleccionar por Círculo",
+    "selectByLine": "Seleccionar por linha",
+    "chooseSelectingTools": "Escolha ferramentas de seleção",
+    "darw": "Desenhar",
+    "drawShap": "Desenhar a forma"
   },
   "widgetManager": {
     "createWidgetError": "Criar erro de widget",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "As aplicações web 3D não são suportadas no seu navegador."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "O Mapa Base não se encontra disponível.",
+    "displayDefaultBasemap": "Exibir o mapa base predefinido ao invés.",
+    "layerLoadedError": "A camada, ${layers} não pode ser adicionada ao mapa."
+  },
+  "popup": {
+    "relatedTables": "Tabelas Relacionadas:",
+    "relatedRecords": "Registos Relacionados:",
+    "noRelatedRecotds": "Nenhum registo relacionado encontrado.",
+    "chooseFieldTip": "Escolha um atributo para exibir a lista.",
+    "saveAsPopupTitle": "Igual ao Título da Janela Pop-up"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Existem demasiados elementos na sua seleção. Poderá demorar bastante a obtê-los e a exibi-los no mapa.",
+    "askForContinue": "Deseja continuar?"
+  },
+  "colorPalette": {
+    "transparent": "Transparente",
+    "custom": "Personalizar"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Imprimir",
+    "reportDimensionsMsg": "Este relatório foi concebido para ser imprimido em Papel ${paperSize}",
+    "unableToPrintMapMsg": "Ocorreu um erro ao imprimir o(s) mapa(s).",
+    "landscape": "Paisagem",
+    "portrait": "Retrato",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letra ANSI A",
+    "tabloidANSIB": "Tablóide ANSI B",
+    "letter": "Carta",
+    "legal": "Aviso Legal",
+    "tabloid": "Tablóide",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "A sua conta não tem permissão para criar ou modificar dados.",
+  "invalidConfiguration": "O widget não se encontra configurado ou as camadas da configuração já não se encontram no mapa.  Por favor, abra a aplicação no modo de builder e reconfigure o widget."
 });

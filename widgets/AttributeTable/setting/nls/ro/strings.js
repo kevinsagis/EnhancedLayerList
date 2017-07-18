@@ -25,5 +25,6 @@ define({
   "fieldName": "Nume",
   "fieldAlias": "Pseudonim",
   "fieldVisibility": "Vizibilitate",
-  "fieldActions": "Acţiuni"
+  "fieldActions": "Acţiuni",
+  "showAttachments": "Afişarea ataşărilor"
 });

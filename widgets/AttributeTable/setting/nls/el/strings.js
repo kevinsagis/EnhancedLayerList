@@ -25,5 +25,6 @@ define({
   "fieldName": "Όνομα",
   "fieldAlias": "Ψευδώνυμο",
   "fieldVisibility": "Ορατότητα",
-  "fieldActions": "Ενέργειες"
+  "fieldActions": "Ενέργειες",
+  "showAttachments": "Εμφάνιση συνημμένων"
 });

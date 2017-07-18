@@ -6,6 +6,7 @@ define({
     "yes": "Да",
     "no": "Нет",
     "next": "Далее",
+    "previous": "Предыдущий",
     "back": "Назад",
     "selected": "выбрано",
     "name": "Имя",
@@ -48,11 +49,19 @@ define({
     "scene": "Сцена",
     "reset": "Сбросить",
     "icon": "Значок",
+    "folder": "Папка",
     "share": "Опубликовать",
     "view": "Просмотреть",
     "newText": "Новый",
     "edit": "Редактировать",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Таблица",
+    "zoomIn": "Увеличить",
+    "zoomOut": "Уменьшить",
+    "continue1": "Продолжить",
+    "longitude": "Долгота",
+    "latitude": "Широта",
+    "custom": "Пользовательский"
   },
   "errorCode": "Код",
   "errorMessage": "Сообщение",
@@ -96,7 +105,10 @@ define({
     "dash": "Тире",
     "dot": "Точка",
     "dashDot": "Тире-точка",
-    "dashDotDot": "Тире-точка-точка"
+    "dashDotDot": "Тире-точка-точка",
+    "customImage": "Пользовательское изображение",
+    "chooseFile": "Выберите файл",
+    "noFileChoosen": "Файл не выбран."
   },
   "transparency": {
     "opaque": "Непрозрачный",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Учитывать регистр",
     "notSupportCaseSensitiveTip": "Опубликованные сервисы не поддерживают запрос с чувствительностью к регистру.",
-    "setFilterTip": "Задайте корректный фильтр."
+    "setFilterTip": "Задайте корректный фильтр.",
+    "listValues": "Список значений",
+    "cascadeFilterTip": "Показывать значения только для предыдущих выражений фильтра.",
+    "noneCascadeFilterTip": "Все уникальные значения этого поля",
+    "previousCascadeFilterTip": "Значения предыдущих выражений фильтра",
+    "allCascadeFilterTip": "Значения всех остальных выражений фильтра"
   },
   "featureLayerSource": {
     "layer": "Слой",
@@ -293,7 +310,11 @@ define({
     "owner": "владелец",
     "signInTo": "Войти в",
     "lastModified": "Последние изменения",
-    "moreDetails": "Подробнее"
+    "moreDetails": "Подробнее",
+    "mostRecent": "Самые новые",
+    "mostViewed": "Самые просматриваемые",
+    "highestRated": "Самые рейтинговые",
+    "viewItemDetails": "Просмотр информации об элементе"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Сервис не поддерживает запросы."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Недопустимый тип файла.",
     "cropImage": "Обрезать изображение",
     "exceed": "Размер файла не может превышать 1024 КБ",
-    "enableFlash": "TODO: включите флеш.",
+    "enableFlash": "Активируйте Adobe Flash до того, как начнете поиск изображения.",
     "cropWaining": "Выберите фото размером как минимум ${width} x ${height} пикселов.",
     "toolTip": "Для получения наилучших результатов, изображение должно быть ${width} пикселов шириной и ${height} пикселов высотой. Изображения других размеров будут настроены. Допустимые форматы изображений: PNG, GIF и JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Щелкните, чтобы сохранить заново экстент карты и видимость слоев в том виде, в котором вы их оставляете."
   },
   "featureActions": {
+    "featureActions": "Действия с объектами",
     "ZoomTo": "Приблизить к",
     "PanTo": "Переместить к",
     "Flash": "Подсветить",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Экспорт в файл CSV",
     "ShowSelectedFeature": "Показывать выбранные объекты",
     "ExportToFeatureCollection": "Экспорт в Коллекцию объектов",
-    "ExportToGeoJSON": "Экспорт в GeoJSON"
+    "ExportToGeoJSON": "Экспорт в GeoJSON",
+    "EditAttributes": "Редактировать атрибуты",
+    "AddMarker": "Добавить маркер",
+    "RemoveMarker": "Удалить маркер",
+    "SaveToMyContent": "Сохранить в Моих ресурсах"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Связанный слой",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Добавить к выборке",
     "removeSelectionTip": "Удалить из выборки",
     "selectFromCurrentSelectionTip": "Выбрать из текущей выборки",
-    "unselectAllSelectionTip": "Снять выделение со всех выбранных в данный момент объектов"
+    "unselectAllSelectionTip": "Снять выделение со всех выбранных в данный момент объектов",
+    "selectByPolygon": "Выбрать полигоном",
+    "selectByCircle": "Выбрать окружностью",
+    "selectByLine": "Выбрать линией",
+    "chooseSelectingTools": "Выбрать инструменты выборки",
+    "darw": "Нарисовать",
+    "drawShap": "Нарисовать форму"
   },
   "widgetManager": {
     "createWidgetError": "Ошибка создания виджета",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D веб-приложения не поддерживаются в вашем браузере."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Базовая карта не доступна.",
+    "displayDefaultBasemap": "Вместо нее отображается базовая карта, используемая по умолчанию.",
+    "layerLoadedError": "Слой ${layers} не может быть добавлен к карте."
+  },
+  "popup": {
+    "relatedTables": "Связанные таблицы:",
+    "relatedRecords": "Связанные записи:",
+    "noRelatedRecotds": "Связанных записей не найдено.",
+    "chooseFieldTip": "Выбрать атрибут для отображения списка",
+    "saveAsPopupTitle": "Так же, как в заголовке всплывающего окна"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Слишком много объектов в вашей выборке. Для отображения всех данных на карте может потребоваться значительное время.",
+    "askForContinue": "Хотите продолжить?"
+  },
+  "colorPalette": {
+    "transparent": "Прозрачный",
+    "custom": "Пользовательский"
+  },
+  "temperature": {
+    "celsius": "По Цельсию",
+    "fahrenheit": "По Фаренгейту"
+  },
+  "report": {
+    "printButtonLabel": "Печать",
+    "reportDimensionsMsg": "Этот отчет предназначен для печати на бумаге формата ${paperSize}",
+    "unableToPrintMapMsg": "Во время печати карты произошла ошибка.",
+    "landscape": "Альбомная",
+    "portrait": "Книжная",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Правовая информация",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "У вашей учетной записи нет прав на создание или изменение данных.",
+  "invalidConfiguration": "Виджет не настроен, или на карте больше нет слоёв из конфигурации. Откройте приложение в режиме конструктора и настройте виджет."
 });

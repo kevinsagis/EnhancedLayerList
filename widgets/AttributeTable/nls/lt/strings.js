@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Rodyti visus įrašus",
   "showRelatedRecords": "Rodyti susijusius įrašus",
   "noRelatedRecords": "Susijusių įrašų nerasta",
+  "attachmentColumn": "Nuotraukos ir failai",
   "refresh": "Atnaujinti",
   "features": "elementai",
   "records": "įrašus",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Slėpti atributų lentelę",
   "sortAsc": "Rūšiuoti didėjančiai",
   "sortDes": "Rūšiuoti mažėjančiai",
-  "statistics": "Statistika"
+  "statistics": "Statistika",
+  "attachments": "Priedai",
+  "files": "failai"
 });

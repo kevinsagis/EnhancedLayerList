@@ -23,6 +23,7 @@ define({
   "showAllRecords": "إظهار جميع السجلات",
   "showRelatedRecords": "عرض السجلات ذات الصلة",
   "noRelatedRecords": "لم يتم العثور على سجلات ذات صلة",
+  "attachmentColumn": "الصور والملفات",
   "refresh": "تحديث",
   "features": "معالم",
   "records": "تسجيلات",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "إخفاء جدول البيانات",
   "sortAsc": "فرز تصاعدي",
   "sortDes": "فرز تنازلي",
-  "statistics": "الإحصائيات"
+  "statistics": "الإحصائيات",
+  "attachments": "مرفقات",
+  "files": "ملفات"
 });

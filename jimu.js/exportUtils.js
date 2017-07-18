@@ -23,8 +23,19 @@ define([
   'dojo/Deferred',
   'esri/tasks/query',
   'esri/tasks/QueryTask',
+  'esri/tasks/FeatureSet',
+  'esri/graphic',
+  'esri/SpatialReference',
+  'esri/tasks/ProjectParameters',
+  'esri/config',
+  'esri/geometry/webMercatorUtils',
+  'jimu/LayerInfos/LayerInfos',
+  './utils',
   './jsonConverters'],
-  function(declare, lang, array, JSON, Deferred, Query, QueryTask, jsonConverters) {
+  function(declare, lang, array, JSON, Deferred, Query, QueryTask, FeatureSet, Graphic,
+  SpatialReference, ProjectParameters, esriConfig, webMercatorUtils, LayerInfos,
+  jimuUtils, jsonConverters) {
+    /* global dojo */
     var mo = {};
 
     /**
@@ -162,6 +173,75 @@ define([
         return ret;
       },
 
+      _getSpatialReference: function(featureset) {
+        if (featureset.spatialReference) {
+          return featureset.spatialReference;
+        }
+        // Get spatial refrence from graphics
+        var sf;
+        array.some(featureset.features, function(feature) {
+          if (feature.geometry && feature.geometry.spatialReference){
+            sf = feature.geometry.spatialReference;
+            return true;
+          }
+        });
+        return sf;
+      },
+
+      _projectToWGS84: function(featureset) {
+        var ret = new Deferred();
+        var sf = this._getSpatialReference(featureset);
+        if (!sf) {
+          ret.resolve([]);
+        } else {
+          var wkid = parseInt(sf.wkid, 10);
+
+          if (wkid === 4326) {
+            ret.resolve(featureset);
+          } else if (sf.isWebMercator()) {
+            var outFeatureset = new FeatureSet();
+            var features = [];
+            array.forEach(featureset.features, function(feature) {
+              var g = new Graphic();
+              g.attributes = feature.attribues;
+              g.geometry = webMercatorUtils.webMercatorToGeographic(feature.geometry);
+              features.push(g);
+            });
+            outFeatureset.features = features;
+            ret.resolve(outFeatureset);
+          } else {
+            var params = new ProjectParameters();
+            params.geometries = array.map(featureset.features, function(feature) {
+              return feature.geometry;
+            });
+            params.outSR = new SpatialReference(4326);
+
+            var gs = esriConfig && esriConfig.defaults && esriConfig.defaults.geometryService;
+            var existGS = gs && gs.declaredClass === "esri.tasks.GeometryService";
+            if (!existGS) {
+              gs = jimuUtils.getArcGISDefaultGeometryService();
+            }
+
+            gs.project(params).then(function(geometries) {
+              var outFeatureset = new FeatureSet();
+              var features = [];
+              array.forEach(featureset.features, function(feature, i) {
+                var g = new Graphic();
+                g.attributes = feature.attribues;
+                g.geometry = geometries[i];
+                features.push(g);
+              });
+              outFeatureset.features = features;
+              ret.resolve(outFeatureset);
+            }, function(err) {
+              console.error(err);
+              ret.resolve([]);
+            });
+          }
+        }
+        return ret;
+      },
+
       _getAsFeatureSetString: function(){
         return this._getFeatureSet().then(lang.hitch(this, function(fs){
           var str = '';
@@ -176,7 +256,11 @@ define([
       },
 
       _getAsGeoJsonString: function(){
-        return this._getFeatureSet().then(lang.hitch(this, function(fs){
+        return this._getFeatureSet()
+        .then(lang.hitch(this, function(fs) {
+          return this._projectToWGS84(fs);
+        }))
+        .then(lang.hitch(this, function(fs){
           var str = '';
           if(fs){
             var converter = new jsonConverters.esriConverter();
@@ -200,9 +284,33 @@ define([
       },
 
       _createCSVFromFeatureSet: function(featureSet){
-        var features = featureSet.features;
-        var fields = [], datas;
-        var item;
+        var fields = this._generateFields(featureSet);
+
+        var datas = array.map(featureSet.features, function(feature){
+          return feature.attributes;
+        });
+
+        return createCSVString(fields, datas);
+      },
+
+      _generateFields: function(featureSet) {
+        var feature = featureSet.features[0];
+        var fields, item, layerId;
+
+        if(feature._layer) {
+          fields = feature._layer.fields;
+          layerId = feature._layer.id;
+        }
+
+        fields = fields || featureSet.fields;
+        var layerInfos = LayerInfos.getInstanceSync();
+        var layerInfo = layerInfos.getLayerInfoById(layerId);
+        if (layerInfo) {
+          var popupInfo = layerInfo.getPopupInfo();
+          array.forEach(fields, lang.hitch(this, function(field) {
+            field.fieldInfo = this._findFieldInfo(popupInfo, field.name);
+          }));
+        }
 
         if(featureSet.fieldAliases){
           //Set of name-value pairs for the attribute's field and alias names.
@@ -214,8 +322,10 @@ define([
               });
             }
           }
-        }else{
-          var attributes = features[0].attributes;
+        }
+        if(!fields || fields.length === 0){
+          fields = [];
+          var attributes = feature.attributes;
           for(item in attributes){
             if(attributes.hasOwnProperty(item)){
               fields.push({
@@ -224,11 +334,21 @@ define([
             }
           }
         }
-        datas = array.map(featureSet.features, function(feature){
-          return feature.attributes;
-        });
+        return fields;
+      },
 
-        return createCSVString(fields, datas);
+      _findFieldInfo: function(popupInfo, fieldName) {
+        if (!popupInfo) {
+          return null;
+        }
+        var fieldInfo;
+        array.some(popupInfo.fieldInfos, function(info) {
+          if (info.fieldName === fieldName) {
+            fieldInfo = info;
+            return true;
+          }
+        });
+        return fieldInfo;
       }
     });
 
@@ -344,6 +464,18 @@ define([
             if (!value && typeof value !== 'number') {
               value = '';
             }
+            if (value) {
+              if(_field.type === 'esriFieldTypeDate'){
+                value = jimuUtils.localizeDateByFieldInfo(value, _field.fieldInfo);
+              }else if(_field.fieldInfo &&
+                (_field.type === 'esriFieldTypeDouble' ||
+                _field.type === 'esriFieldTypeSingle' ||
+                _field.type === 'esriFieldTypeInteger' ||
+                _field.type === 'esriFieldTypeSmallInteger')) {
+                value = jimuUtils.localizeNumberByFieldInfo(value, _field.fieldInfo);
+              }
+            }
+
             if (value && /[",\r\n]/g.test(value)) {
               value = textField + value.replace(/(")/g, '""') + textField;
             }
@@ -359,19 +491,11 @@ define([
     }
 
     function download(filename, text) {
-      if(fileSaverAvailable()){
+      if (dojo.isIE < 10) {
+        saveTextAs(text, filename, 'utf-8');
+      }else{
         var blob = new Blob([text], {type: 'text/plain;charset=utf-8'});
         saveAs(blob, filename);
-      }else{
-        saveTextAs(text, filename, 'utf-8');
-      }
-    }
-
-    function fileSaverAvailable(){
-      try {
-        return !!new Blob();
-      } catch (e) {
-        return false;
       }
     }
 

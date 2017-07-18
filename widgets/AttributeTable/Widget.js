@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -94,14 +94,14 @@ define([
         this.AttributeTableDiv = null;
 
         this._delayedLayerInfos = [];
-        this.layerTabPages = [];
+        this.layerTabPages = [];//[ContentPane]
         // one layer may be have multiple relationships, so we use key-value to store relationships
         // this.relationTabPagesSet = {};
 
-        this.tabContainer = null;
+        this.tabContainer = null;//TabContainer
 
         this.moveMode = false;
-        this.moveY = 0;
+        this.moveY = 0; //currentHeight - previousDomHeight
         this.previousDomHeight = 0;
         this.noGridHeight = 0;
         this.bottomPosition = 0;
@@ -116,7 +116,7 @@ define([
         // event handlers on draging
         this._dragingHandlers = [];
 
-        this._activeTable = null;
+        this._activeTable = null;// _FeatureTable
         this._activeTableHandles = [];
 
         this.filterManager = FilterManager.getInstance();
@@ -129,6 +129,7 @@ define([
         });
         this._resourceManager.setConfig(this.config);
 
+        //eg: TabTheme maxmize or minimize
         this.own(topic.subscribe('changeMapPosition', lang.hitch(this, this._onMapPositionChange)));
         attrUtils.readLayerInfosObj(this.map).then(lang.hitch(this, function(layerInfosObj) {
           if (!this.domNode || !layerInfosObj) {
@@ -153,12 +154,12 @@ define([
       },
 
       _createUtilitiesUI: function() {
-        this._createArrowUI();
+        this._createSwitchUI();//eg: LaunchPad Theme
 
         this._createBarUI();
       },
 
-      _createArrowUI: function() {
+      _createBarUI: function() {
         this.arrowDiv = html.create("div");
         html.addClass(this.arrowDiv, "jimu-widget-attributetable-move");
         html.create('div', {
@@ -179,7 +180,7 @@ define([
         return this.closeable || !this.isOnScreen;
       },
 
-      _createBarUI: function() {
+      _createSwitchUI: function() {
         if (!this._isOnlyTable()) {
           this.switchBtn = html.create("div", {
             className: "jimu-widget-attributetable-switch"
@@ -340,6 +341,13 @@ define([
           if (this.getExistLayerTabPage(selfId)) {
             this.layerTabPageClose(selfId, true);
           }
+
+          if (this._resourceManager.getLayerInfoById(selfId)) {
+            this._resourceManager.removeLayerInfo(selfId);
+          }
+          if (this._resourceManager.getConfigInfoById(selfId)) {
+            this._resourceManager.removeConfigInfo(selfId);
+          }
         }
       },
 
@@ -391,6 +399,7 @@ define([
 
         this.AttributeTableDiv = null;
         this._loadInfoDef = null;
+        this._activeLayerInfoId = null;
         if (this._resourceManager) {
           this._resourceManager.empty();
         }
@@ -424,8 +433,15 @@ define([
           this._activeTable.changeHeight(h - this.noGridHeight);
         }
 
+        // publish changeMapPosition to MapManager
         topic.publish('changeMapPosition', {
           bottom: h + this.bottomPosition
+        });
+        // publish changeMapPosition to other widgets
+        this.publishData({
+          'changeMapPosition': {
+            bottom: h + this.bottomPosition
+          }
         });
 
         if (h !== 0) {
@@ -579,7 +595,7 @@ define([
           if (this.noGridHeight <= 0) {
             this.noGridHeight = this._getGridTopSectionHeight() + 5;
           }
-          var params = this.tabContainer.selectedChildWidget.params;
+          var params = this.tabContainer.selectedChildWidget.params; // ContentPage.params
 
           var layerType = params.layerType;
           var infoId = params.paneId;
@@ -727,6 +743,7 @@ define([
           this._activeTable.cancelThread();
           this._activeTable.deactive();
           this._unbindActiveTableEvents();
+          this._activeTable = null;
         }
         if (table) {
           this._activeTable = table;
@@ -737,6 +754,7 @@ define([
             (this._activeTable.tableCreated &&
               !this._activeTable.matchingMap && options.featureSet) ||
             (options.layer && options.selectedIds)) {// queryRecordsByRelationship
+
             var validFeatureSet = lang.getObject('featureSet.features.length', false, options);
             if (options.layer && options.selectedIds) {
               this._activeTable.queryRecordsByRelationship(options);
@@ -766,6 +784,13 @@ define([
           style: "width: 100%;"
         }, tabDiv);
         html.setStyle(this.tabContainer.domNode, 'height', (this.normalHeight) + 'px');
+
+        //if(has("mozilla")){
+        //  this.tabContainer.tablist.containerNode.style.width = "50000px";
+        //}
+        //We need to startup tabContainer before call addChild method, or it will result in issue #8678
+        this.tabContainer.startup();
+
         var configInfos = this._resourceManager.getConfigInfos();
         var len = configInfos.length;
         for (var j = 0; j < len; j++) {
@@ -784,7 +809,7 @@ define([
             this.tabContainer.addChild(cp);
           }
         }
-        this.tabContainer.startup();
+
 
         if (len > 0) {
           // tabListWrapperHeight + tolerance
@@ -871,10 +896,11 @@ define([
           this.layerTabPages.push(page);
 
           page.set("title", json.name);
-          this.own(on(page, "close", lang.hitch(this, this.layerTabPageClose, json.paneId, true)));
+          // tabContainer will remove the page and destroy the page by itself.
+          this.own(on(page, "close", lang.hitch(this, this.layerTabPageClose, json.paneId)));
           this.tabContainer.addChild(page);
         }
-        this.tabContainer.selectChild(page);
+        this.tabContainer.selectChild(page); // goto tabChanged
       },
 
       addNewRelationTab: function(oids, relationShip, originalInfoId) {
@@ -908,11 +934,12 @@ define([
           page = new ContentPane(json);
           this.layerTabPages.push(page);
           page.set("title", json.name);
-          this.own(on(page, "close", lang.hitch(this, this.layerTabPageClose, json.paneId, true)));
+          // tabContainer will remove the page and destroy the page by itself.
+          this.own(on(page, "close", lang.hitch(this, this.layerTabPageClose, json.paneId)));
 
           this.tabContainer.addChild(page);
         }
-        this.tabContainer.selectChild(page);
+        this.tabContainer.selectChild(page); // goto tabChanged
       },
 
       onReceiveData: function(name, source, params) {
@@ -1011,20 +1038,21 @@ define([
             }
             if (isRemoveChild === true) {
               this.tabContainer.removeChild(this.layerTabPages[i]);
+              this.layerTabPages[i].destroyRecursive();
             }
             if (this.layerTabPages && this.layerTabPages[i]) {
-              this.layerTabPages[i].destroyRecursive();
-              this.layerTabPages.splice(i, 1);
+              this.layerTabPages.splice(i, 1); // removed contentpane from memory
             }
 
-            this._resourceManager.removeConfigInfo(paneId);
+            this._resourceManager.removeConfigInfo(paneId); // destroy featureTable
             this._resourceManager.removeLayerInfo(paneId);
 
             if (len === 1) {
+              this._activeLayerInfoId = null;
               this.onClose();
               return;
             }  else if(paneId === this._activeLayerInfoId) {
-              var layerIndex = len - 2;
+              var layerIndex = len - 2; // show last contentpane
               this.tabContainer.selectChild(this.layerTabPages[layerIndex]);
             }
             break;

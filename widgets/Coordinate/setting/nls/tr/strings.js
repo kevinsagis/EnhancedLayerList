@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Ondalık Derece",
   "Degree_Minutes_Seconds": "Derece Dakika Saniye",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Koordinat görüntüleme sırası:",
+  "lonLatTips": "Boylam / Enlem(X, Y)",
+  "latLonTips": "Enlem / Boylam(Y, X)"
 });

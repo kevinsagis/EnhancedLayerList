@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "מעלות עשרוניות",
   "Degree_Minutes_Seconds": "מעלות דקות שניות",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "סדר תצוגת קואורדינטות :",
+  "lonLatTips": "קו אורך / קו רוחב (Y,X)",
+  "latLonTips": "קו רוחב / קו אורך (X ,Y)"
 });

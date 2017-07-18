@@ -25,5 +25,6 @@ define({
   "fieldName": "Nombre",
   "fieldAlias": "Alias",
   "fieldVisibility": "Visibilidad",
-  "fieldActions": "Acciones"
+  "fieldActions": "Acciones",
+  "showAttachments": "Mostrar archivos adjuntos"
 });

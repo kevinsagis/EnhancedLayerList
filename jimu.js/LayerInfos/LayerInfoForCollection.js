@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,10 +17,11 @@
 define([
   'dojo/_base/declare',
   'dojo/_base/array',
+  'dojo/_base/lang',
   'esri/graphicsUtils',
   './LayerInfo',
   './LayerInfoFactory'
-], function(declare, array, graphicsUtils, LayerInfo,
+], function(declare, array, lang, graphicsUtils, LayerInfo,
 LayerInfoFactory) {
   return declare(LayerInfo, {
 
@@ -117,6 +118,11 @@ LayerInfoFactory) {
       array.forEach(operLayer.featureCollection.layers, function(layerObj) {
         var subLayerInfo;
         if (this._getLayerIndexesInMapByLayerId(layerObj.layerObject.id)) {
+          // prepare for _extraSetLayerInfos.
+          lang.setObject("_wabProperties.originOperLayer.showLegend",
+                         this.originOperLayer.featureCollection.showLegend,
+                         layerObj.layerObject);
+
           subLayerInfo = LayerInfoFactory.getInstance().create({
             layerObject: layerObj.layerObject,
             title: layerObj.layerObject.label ||
@@ -126,7 +132,7 @@ LayerInfoFactory) {
             id: layerObj.id || " ",
             collection: {"layerInfo": this},
             selfType: 'collection',
-            showLegend: layerObj.showLegend, //temporary code for support showLegend.
+            showLegend: this.originOperLayer.featureCollection.showLegend,
             parentLayerInfo: this
           });
 

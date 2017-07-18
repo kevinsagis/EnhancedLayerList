@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "十進制度",
   "Degree_Minutes_Seconds": "度分秒",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "座標顯示順序:",
+  "lonLatTips": "經度 / 緯度(X, Y)",
+  "latLonTips": "緯度 / 經度(Y, X)"
 });

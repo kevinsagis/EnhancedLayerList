@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Pokaži sve zapise",
   "showRelatedRecords": "Pokaži povezane zapise",
   "noRelatedRecords": "Nema pronađenih povezanih zapisa",
+  "attachmentColumn": "Fotografije i datoteke",
   "refresh": "Osveži",
   "features": "geoobjekti",
   "records": "podaci",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Sakrij atributnu tabelu",
   "sortAsc": "Sortiraj po rastućem redosledu",
   "sortDes": "Sortiraj po opadajućem redosledu",
-  "statistics": "Statistika"
+  "statistics": "Statistika",
+  "attachments": "Prilozi",
+  "files": "datoteke"
 });

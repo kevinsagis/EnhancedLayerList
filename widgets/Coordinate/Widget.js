@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -777,8 +777,7 @@ define([
         } else {
           // use default units
           if (options.defaultUnit === outUnit) {
-            this.coordinateInfo.innerHTML = this._toFormat(x) +
-              "  " + this._toFormat(y);
+            this._displayCoordinatesByOrder(this._toFormat(x), this._toFormat(y));
             this.coordinateInfo.innerHTML += " " + this._unitToNls(outUnit);
             return;
           }
@@ -857,10 +856,9 @@ define([
         if ("DEGREE_MINUTE_SECONDS" === outUnit) {
           lat_string = this.degToDMS(y, 'LAT');
           lon_string = this.degToDMS(x, 'LON');
-          this.coordinateInfo.innerHTML = lat_string + "  " + lon_string;
+          this._displayCoordinatesByOrder(lat_string, lon_string);
         } else {
-          this.coordinateInfo.innerHTML = this._toFormat(y) +
-            "  " + this._toFormat(x);
+          this._displayCoordinatesByOrder(this._toFormat(x), this._toFormat(y));
 
           if (isNaN(y) && isNaN(x)) {
             this.coordinateInfo.innerHTML = "";
@@ -875,13 +873,21 @@ define([
         x = x * options.unitRate;
         y = y * options.unitRate;
 
-        this.coordinateInfo.innerHTML = this._toFormat(x) +
-          "  " + this._toFormat(y);
+        this._displayCoordinatesByOrder(this._toFormat(x), this._toFormat(y));
 
         if (isNaN(y) && isNaN(x)) {
           this.coordinateInfo.innerHTML = "";
         } else {
           this.coordinateInfo.innerHTML += " " + this._unitToNls(outUnit);
+        }
+      },
+
+      _displayCoordinatesByOrder: function(x, y) {
+        var displayOrderLonLat = this.config.displayOrderLonLat;//X,Y
+        if (displayOrderLonLat) {
+          this.coordinateInfo.innerHTML = x + "  " + y;
+        } else {
+          this.coordinateInfo.innerHTML = y + "  " + x;
         }
       },
 

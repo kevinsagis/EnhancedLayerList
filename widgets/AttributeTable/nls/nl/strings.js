@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Alle records weergeven",
   "showRelatedRecords": "Gerelateerde records weergeven",
   "noRelatedRecords": "Geen verwante records gevonden",
+  "attachmentColumn": "Foto's en bestanden",
   "refresh": "Vernieuwen",
   "features": "objecten",
   "records": "records",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Attributentabel verbergen",
   "sortAsc": "Oplopend sorteren",
   "sortDes": "Aflopend sorteren",
-  "statistics": "Statistieken"
+  "statistics": "Statistieken",
+  "attachments": "Bijlagen",
+  "files": "bestanden"
 });

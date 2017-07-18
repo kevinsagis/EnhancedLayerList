@@ -6,6 +6,7 @@ define({
     "yes": "Jā",
     "no": "Nē",
     "next": "Tālāk",
+    "previous": "Iepriekšējais",
     "back": "Atpakaļ",
     "selected": "izvēlēts",
     "name": "Nosaukums",
@@ -48,11 +49,19 @@ define({
     "scene": "Scēna",
     "reset": "Atiestatīt",
     "icon": "Ikona",
+    "folder": "Mape",
     "share": "Kopīgot",
     "view": "Skats",
     "newText": "Jaunais",
     "edit": "Rediģēt",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabula",
+    "zoomIn": "Pietuvināt",
+    "zoomOut": "Attālināt",
+    "continue1": "Turpināt",
+    "longitude": "Garums",
+    "latitude": "Platums",
+    "custom": "Pielāgots"
   },
   "errorCode": "Kods",
   "errorMessage": "Ziņojums",
@@ -96,7 +105,10 @@ define({
     "dash": "Svītra",
     "dot": "Punkts",
     "dashDot": "Svītra punkts",
-    "dashDotDot": "Svītra punkts punkts"
+    "dashDotDot": "Svītra punkts punkts",
+    "customImage": "Pielāgots attēls",
+    "chooseFile": "Izvēlēties failu",
+    "noFileChoosen": "Nav izvēlēts neviens fails."
   },
   "transparency": {
     "opaque": "Necaurredzams",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Reģistrjutīgs",
     "notSupportCaseSensitiveTip": "Viesotie servisi neatbalsta reģistrjutīgu vaicājumu.",
-    "setFilterTip": "Lūdzu, pareizi iestatiet filtru."
+    "setFilterTip": "Lūdzu, pareizi iestatiet filtru.",
+    "listValues": "Vērtību saraksts",
+    "cascadeFilterTip": "Rādīt tikai iepriekšējo izteiksmju filtrētās vērtības.",
+    "noneCascadeFilterTip": "Visas šī lauka unikālās vērtības",
+    "previousCascadeFilterTip": "Iepriekšējo izteiksmju filtrētās vērtības",
+    "allCascadeFilterTip": "Visu citu izteiksmju filtrētās vērtības"
   },
   "featureLayerSource": {
     "layer": "Slānis",
@@ -293,7 +310,11 @@ define({
     "owner": "īpašnieks",
     "signInTo": "Pierakstīties",
     "lastModified": "Pēdējā modificēšana",
-    "moreDetails": "Papildu detalizētā informācija"
+    "moreDetails": "Papildu detalizētā informācija",
+    "mostRecent": "Visjaunākie",
+    "mostViewed": "Visskatītākie",
+    "highestRated": "Augstākais novērtējums",
+    "viewItemDetails": "Skatīt detalizētu informāciju par vienumu"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Pakalpojums neatbalsta vaicājumu."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Nederīgs faila tips.",
     "cropImage": "Apgriezt attēlu",
     "exceed": "Faila lielums nedrīkst pārsniegt 1024 KB",
-    "enableFlash": "TODO: lūdzu, aktivizējiet flash.",
+    "enableFlash": "Lai pārlūkotu uz attēlu, aktivizējiet Adobe Flash.",
     "cropWaining": "Lūdzu, izvēlieties fotoattēlu, kura izmēri ir vismaz ${width} x ${height} pikseļi.",
     "toolTip": "Lai sasniegtu labākos rezultātus, attēla platumam jābūt ${width} pikseļiem un tā augstumam jābūt ${height} pikseļiem. Citi izmēri tiks pielāgoti, lai atbilstu. Akceptētie attēla formāti ir: PNG, GIF un JPEG."
   },
@@ -343,10 +364,11 @@ define({
     "toGeoJSON": "Eksportēt uz GeoJSON"
   },
   "appState": {
-    "title": "Aplikācijas stāvoklis",
+    "title": "Lietotnes stāvoklis",
     "restoreMap": "Noklikšķiniet, lai atjaunotu kartes pārklājumu un slāņu redzamību kāda tā bija, kad pārtraucāt darbu."
   },
   "featureActions": {
+    "featureActions": "Elementu darbības",
     "ZoomTo": "Pietuvināt",
     "PanTo": "Pārbīdīt uz",
     "Flash": "Izgaismošana",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Eksports uz CSV failu",
     "ShowSelectedFeature": "Rādīt atlasītos elementus",
     "ExportToFeatureCollection": "Eksportēt uz elementu kolekciju",
-    "ExportToGeoJSON": "Eksportēt uz GeoJSON"
+    "ExportToGeoJSON": "Eksportēt uz GeoJSON",
+    "EditAttributes": "Atribūtu rediģēšana",
+    "AddMarker": "Pievienot marķieri",
+    "RemoveMarker": "Noņemt marķieri",
+    "SaveToMyContent": "Saglabāšana sadaļā Mans saturs"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Saistītais slānis",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Pievienot izvēlētajam",
     "removeSelectionTip": "Izņemt no izvēles",
     "selectFromCurrentSelectionTip": "Izvēlēties no pašreizējās izvēles",
-    "unselectAllSelectionTip": "Noņemt izvēli visiem pašreiz izvēlētajiem elementiem"
+    "unselectAllSelectionTip": "Noņemt izvēli visiem pašreiz izvēlētajiem elementiem",
+    "selectByPolygon": "Atlasīt pēc laukuma",
+    "selectByCircle": "Atlasīt pēc apļa",
+    "selectByLine": "Atlasīt pēc līnijas",
+    "chooseSelectingTools": "Izvēlēties atlases rīkus",
+    "darw": "Zīmēt",
+    "drawShap": "Uzzīmēt formu"
   },
   "widgetManager": {
     "createWidgetError": "Izveidot logrīka kļūdu",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Jūsu pārlūkā netiek atbalstītas 3D tīmekļa lietojumprogrammas."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Pamatkarte nav pieejama.",
+    "displayDefaultBasemap": "Tā vietā tiek rādīta noklusējuma pamatkarte.",
+    "layerLoadedError": "Slāni ${layer} nevar pievienot kartei."
+  },
+  "popup": {
+    "relatedTables": "Saistītās tabulas:",
+    "relatedRecords": "Saistītie ieraksti:",
+    "noRelatedRecotds": "Nav atrasts neviens saistīts ieraksts.",
+    "chooseFieldTip": "Izvēlieties atribūtu saraksta rādīšanai",
+    "saveAsPopupTitle": "Vienāds ar uznirstošo virsrakstu"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Jūsu izvēlē ir pārāk daudz elementu. Iespējams, būs nepieciešams ilgs laiks, lai tos izgūtu un parādītu kartē.",
+    "askForContinue": "Vai vēlaties turpināt?"
+  },
+  "colorPalette": {
+    "transparent": "Caurspīdīgs",
+    "custom": "Pielāgots"
+  },
+  "temperature": {
+    "celsius": "Celsija",
+    "fahrenheit": "Fārenheita"
+  },
+  "report": {
+    "printButtonLabel": "Drukāt",
+    "reportDimensionsMsg": "Šis pārskats ir plānots drukāšanai uz ${paperSize} formāta papīra",
+    "unableToPrintMapMsg": "Drukājot karti(-es), radās kļūda.",
+    "landscape": "Ainava",
+    "portrait": "Portrets",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Legal",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Jūsu kontam nav piešķirta atļauja izveidot vai modificēt datus.",
+  "invalidConfiguration": "Logrīks nav konfigurēts vai konfigurētie slāņi vairs nav kartē. Lūdzu, atveriet programmu veidotāja režīmā un konfigurējiet logrīku atkārtoti."
 });

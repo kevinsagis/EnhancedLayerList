@@ -5,10 +5,10 @@ define({
   "ok": "确定",
   "cancel": "取消",
   "unsupportQueryWarning": "要显示在“属性表”微件中，该图层需要支持查询操作。请确保服务中的查询功能已打开。",
-  "exportMessage": "将数据导出到 CSV 文件?",
-  "exportFiles": "导出到 CSV",
-  "exportSelected": "将所选项导出至 CSV",
-  "exportAll": "全部导出至 CSV",
+  "exportMessage": "将数据导出为 CSV 文件?",
+  "exportFiles": "导出为 CSV",
+  "exportSelected": "将所选项导出为 CSV",
+  "exportAll": "全部导出为 CSV",
   "options": "选项",
   "zoomto": "缩放至",
   "highlight": "高亮显示图形",
@@ -23,6 +23,7 @@ define({
   "showAllRecords": "显示所有记录",
   "showRelatedRecords": "显示相关记录",
   "noRelatedRecords": "未找到相关记录",
+  "attachmentColumn": "照片及文件",
   "refresh": "刷新",
   "features": "要素",
   "records": "记录",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "隐藏属性表",
   "sortAsc": "升序排列",
   "sortDes": "降序排列",
-  "statistics": "统计数据"
+  "statistics": "统计数据",
+  "attachments": "附件",
+  "files": "文件"
 });

@@ -25,5 +25,6 @@ define({
   "fieldName": "Nimi",
   "fieldAlias": "Alias",
   "fieldVisibility": "Näkyvyys",
-  "fieldActions": "Toimet"
+  "fieldActions": "Toimet",
+  "showAttachments": "Näytä liitteet"
 });

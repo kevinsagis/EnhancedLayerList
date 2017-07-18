@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -291,8 +291,24 @@ define(['dojo/_base/declare',
         if (!window.appInfo.isRunInMobile) {
           if (window.isRTL) {
             result.position.left = layoutBox.w - leftBlankWidth;
+
+            // prevent the panel out of map content
+            if ((result.position.left + this._positionInfoBox.w) > layoutBox.w) {
+              result.position.left -= this._positionInfoBox.w;
+              if (result.position.left < 0) {
+                result.position.left = layoutBox.w - this._positionInfoBox.w;
+              }
+            }
           } else {
             result.position.left = leftBlankWidth;
+            // prevent the panel out of map content
+            if ((result.position.left + this._positionInfoBox.w) > layoutBox.w) {
+              if (layoutBox.w > this._positionInfoBox.w) {
+                result.position.left = layoutBox.w - this._positionInfoBox.w;
+              } else {
+                result.position.left = 0;
+              }
+            }
           }
         } else {
           result.isRunInMobile = true;
@@ -310,12 +326,6 @@ define(['dojo/_base/declare',
         } else {
           if (bottomBlankHeight >= this._positionInfoBox.h) {
             result.position.top = this._positionInfoBox.t + 40 + 3; // preloadIcon height is 40px
-          }
-        }
-
-        if (!result.isRunInMobile) {
-          if ((result.position.left + this._positionInfoBox.w) > layoutBox.w) {
-            result.position.left -= this._positionInfoBox.w;
           }
         }
 

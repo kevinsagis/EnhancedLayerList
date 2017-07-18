@@ -6,6 +6,7 @@ define({
     "yes": "Ja",
     "no": "Nein",
     "next": "Weiter",
+    "previous": "Zurück",
     "back": "Zurück",
     "selected": "ausgewählte",
     "name": "Name",
@@ -48,11 +49,19 @@ define({
     "scene": "Szene",
     "reset": "Zurücksetzen",
     "icon": "Symbol",
+    "folder": "Ordner",
     "share": "Freigeben",
     "view": "Anzeigen",
     "newText": "Neu",
     "edit": "Bearbeiten",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabelle",
+    "zoomIn": "Vergrößern",
+    "zoomOut": "Verkleinern",
+    "continue1": "Fortfahren",
+    "longitude": "Längengrad",
+    "latitude": "Breitengrad",
+    "custom": "Benutzerdefiniert"
   },
   "errorCode": "Code",
   "errorMessage": "Meldung",
@@ -71,7 +80,7 @@ define({
   },
   "symbolChooser": {
     "preview": "Vorschau",
-    "basic": "Anfänger",
+    "basic": "Standard",
     "arrows": "Pfeile",
     "business": "Gewerbe",
     "cartographic": "Kartografisch",
@@ -96,7 +105,10 @@ define({
     "dash": "Gestrichelt",
     "dot": "Punkt",
     "dashDot": "Strich-Punkt",
-    "dashDotDot": "Strich-Punkt-Punkt"
+    "dashDotDot": "Strich-Punkt-Punkt",
+    "customImage": "Benutzerdefiniertes Bild",
+    "chooseFile": "Datei auswählen",
+    "noFileChoosen": "Keine Datei ausgewählt."
   },
   "transparency": {
     "opaque": "Nicht transparent",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Groß-/Kleinschreibung beachten",
     "notSupportCaseSensitiveTip": "Gehostete Services unterstützen keine Abfragen, bei denen zwischen Groß- und Kleinschreibung unterschieden wird.",
-    "setFilterTip": "Legen Sie den Filter ordnungsgemäß fest."
+    "setFilterTip": "Legen Sie den Filter ordnungsgemäß fest.",
+    "listValues": "Listenwerte",
+    "cascadeFilterTip": "Nur Werte anzeigen, die nach vorherigen Ausdrücken gefiltert wurden",
+    "noneCascadeFilterTip": "Alle eindeutigen Werte dieses Feldes",
+    "previousCascadeFilterTip": "Nach vorherigen Ausdrücken gefilterte Werte",
+    "allCascadeFilterTip": "Nach allen anderen Ausdrücken gefilterte Werte"
   },
   "featureLayerSource": {
     "layer": "Layer",
@@ -282,7 +299,7 @@ define({
     "noneGroups": "Keine Gruppen",
     "signInTip": "Ihre Anmeldesitzung ist abgelaufen. Aktualisieren Sie Ihren Browser, um sich erneut bei Ihrem Portal anzumelden.",
     "signIn": "Anmelden",
-    "publicMap": "Öffentlichkeit",
+    "publicMap": "Öffentlich",
     "myOrganization": "Eigene Organisation",
     "myGroup": "Eigene Gruppen",
     "myContent": "Eigene Inhalte",
@@ -293,7 +310,11 @@ define({
     "owner": "Besitzer",
     "signInTo": "Melden Sie sich an bei",
     "lastModified": "Zuletzt geändert",
-    "moreDetails": "Mehr Details"
+    "moreDetails": "Mehr Details",
+    "mostRecent": "Neueste",
+    "mostViewed": "Die meisten Aufrufe",
+    "highestRated": "Höchste Bewertung",
+    "viewItemDetails": "Elementdetails anzeigen"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Der Service unterstützt keine Abfragen."
@@ -316,13 +337,13 @@ define({
     "itemToAttributeTable": "Attributtabelle öffnen"
   },
   "imageChooser": {
-    "unsupportReaderAPI": "ZU ERLEDIGEN: Der Browser unterstützt die Datei-Reader-API nicht",
+    "unsupportReaderAPI": "Der Browser unterstützt die Datei-Reader-API nicht.",
     "readError": "Die Datei kann nicht gelesen werden.",
-    "unknowError": "Vorgänge können nicht abgeschlossen werden",
+    "unknowError": "Vorgänge können nicht abgeschlossen werden.",
     "invalidType": "Ungültiger Dateityp.",
     "cropImage": "Bild zuschneiden",
     "exceed": "Dateigröße darf 1024 KB nicht überschreiten",
-    "enableFlash": "ZU ERLEDIGEN: Flash aktivieren.",
+    "enableFlash": "Aktivieren Sie Adobe Flash, bevor Sie nach einem Bild suchen.",
     "cropWaining": "Wählen Sie ein Foto mit einem Format von mindestens ${width} x ${height} Pixel aus.",
     "toolTip": "Optimale Ergebnisse erzielen Sie mit einer Bildgröße von ${width} x ${height} Pixel (Breite x Höhe). Andere Größen werden angepasst. Zulässige Bildformate sind: PNG, GIF und JPEG."
   },
@@ -347,9 +368,10 @@ define({
     "restoreMap": "Klicken Sie, um den zuvor erreichten Status der Kartenausdehnung und der Layer-Sichtbarkeit wiederherzustellen."
   },
   "featureActions": {
+    "featureActions": "Feature-Aktionen",
     "ZoomTo": "Zoomen auf",
     "PanTo": "Schwenken auf",
-    "Flash": "Blitz",
+    "Flash": "Aufblinken lassen",
     "ShowPopup": "Popup-Text anzeigen",
     "CreateLayer": "Layer erstellen",
     "ShowStatistics": "Statistiken...",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "In CSV-Datei exportieren",
     "ShowSelectedFeature": "Ausgewählte Features anzeigen",
     "ExportToFeatureCollection": "In Feature-Sammlung exportieren",
-    "ExportToGeoJSON": "In GeoJSON exportieren"
+    "ExportToGeoJSON": "In GeoJSON exportieren",
+    "EditAttributes": "Attribute bearbeiten",
+    "AddMarker": "Marker hinzufügen",
+    "RemoveMarker": "Marker entfernen",
+    "SaveToMyContent": "Unter \"Eigene Inhalte\" speichern"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Zugehöriger Layer",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Zur Auswahl hinzufügen",
     "removeSelectionTip": "Aus Auswahl entfernen",
     "selectFromCurrentSelectionTip": "Aus der aktuellen Auswahl selektieren",
-    "unselectAllSelectionTip": "Auswahl aller aktuell ausgewählten Features aufheben"
+    "unselectAllSelectionTip": "Auswahl aller aktuell ausgewählten Features aufheben",
+    "selectByPolygon": "Mit Polygon auswählen",
+    "selectByCircle": "Mit Kreis auswählen",
+    "selectByLine": "Mit Linie auswählen",
+    "chooseSelectingTools": "Auswahlwerkzeuge auswählen",
+    "darw": "Darstellen",
+    "drawShap": "Ein Shape zeichnen"
   },
   "widgetManager": {
     "createWidgetError": "Fehler beim Erstellen des Widgets",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D-Web-Apps werden in Ihrem Browser nicht unterstützt."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Grundkarte ist nicht verfügbar",
+    "displayDefaultBasemap": "Stattdessen wird die Standardgrundkarte angezeigt",
+    "layerLoadedError": "Der Layer ${layers} kann der Karte nicht hinzugefügt werden."
+  },
+  "popup": {
+    "relatedTables": "Zugehörige Tabellen:",
+    "relatedRecords": "Zugehörige Datensätze:",
+    "noRelatedRecotds": "Keine zugehörigen Datensätze gefunden.",
+    "chooseFieldTip": "Ein Attribut auswählen, um die Liste anzuzeigen",
+    "saveAsPopupTitle": "Mit Pop-up-Titel identisch"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Die Auswahl enthält zu viele Features. Das Abrufen aller Features und deren Anzeige auf der Karte kann einige Zeit in Anspruch nehmen.",
+    "askForContinue": "Möchten Sie fortfahren?"
+  },
+  "colorPalette": {
+    "transparent": "Transparent",
+    "custom": "Benutzerdefiniert"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Drucken",
+    "reportDimensionsMsg": "Dieser Bericht ist für den Druck auf ${paperSize} Papier vorgesehen",
+    "unableToPrintMapMsg": "Beim Drucken der Karte(n) ist ein Fehler aufgetreten.",
+    "landscape": "Querformat",
+    "portrait": "Hochformat",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Legal",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Ihrem Konto sind keine Berechtigungen zum Erstellen oder Ändern von Daten zugewiesen.",
+  "invalidConfiguration": "Das Widget wurde nicht konfiguriert oder die Layer in der Konfiguration sind nicht mehr in der Karte enthalten. Öffnen Sie die App im Builder-Modus, und konfigurieren Sie das Widget neu."
 });

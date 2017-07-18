@@ -6,6 +6,7 @@ define({
     "yes": "Ja",
     "no": "Nej",
     "next": "Næste",
+    "previous": "Forrige",
     "back": "Tilbage",
     "selected": "valgt",
     "name": "Navn",
@@ -48,11 +49,19 @@ define({
     "scene": "Scene",
     "reset": "Nulstil",
     "icon": "Ikon",
+    "folder": "Mappe",
     "share": "Opdatér",
     "view": "Vis",
     "newText": "Ny",
     "edit": "Redigér",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabel",
+    "zoomIn": "Zoom ind",
+    "zoomOut": "Zoom ud",
+    "continue1": "Fortsæt",
+    "longitude": "Længde",
+    "latitude": "Bredde",
+    "custom": "Brugerdefineret"
   },
   "errorCode": "Kode",
   "errorMessage": "Meddelelse",
@@ -96,7 +105,10 @@ define({
     "dash": "Streg",
     "dot": "Punktum",
     "dashDot": "Streg-prik",
-    "dashDotDot": "Streg-prik-prik"
+    "dashDotDot": "Streg-prik-prik",
+    "customImage": "Brugerdefineret billede",
+    "chooseFile": "Vælg fil",
+    "noFileChoosen": "Der er ikke valgt nogen fil."
   },
   "transparency": {
     "opaque": "Uigennemsigtig",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Skelner mellem store og små bogstaver",
     "notSupportCaseSensitiveTip": "\"Hostede\" tjenester understøtter ikke forespørgsler, der skelner mellem store og små bogstaver.",
-    "setFilterTip": "Angiv filteret korrekt."
+    "setFilterTip": "Angiv filteret korrekt.",
+    "listValues": "Listeværdier",
+    "cascadeFilterTip": "Vis kun værdier filtreret efter de forrige udtryk.",
+    "noneCascadeFilterTip": "Alle entydige værdier i dette felt",
+    "previousCascadeFilterTip": "Værdier filtreret efter de forrige udtryk",
+    "allCascadeFilterTip": "Værdier filtreret efter alle andre udtryk"
   },
   "featureLayerSource": {
     "layer": "Lag",
@@ -293,7 +310,11 @@ define({
     "owner": "ejer",
     "signInTo": "Log ind på",
     "lastModified": "Sidst ændret",
-    "moreDetails": "Flere oplysninger"
+    "moreDetails": "Flere oplysninger",
+    "mostRecent": "Nyeste",
+    "mostViewed": "Mest sete",
+    "highestRated": "Højest klassificerede",
+    "viewItemDetails": "Vis oplysninger om element"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Tjenesten understøtter ikke forespørgsler."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Ugyldig filtype.",
     "cropImage": "Beskær billede",
     "exceed": "Filstørrelsen må ikke være over 1.024 KB",
-    "enableFlash": "OPGAVE: Aktivér flash.",
+    "enableFlash": "Aktivér Adobe Flash, før du browser til et billede.",
     "cropWaining": "Vælg et foto, der er mindst ${width} x ${height} pixels.",
     "toolTip": "For at opnå det bedste resultat bør billedet være ${width} pixels bredt x ${height} pixels højt. Andre størrelser tilpasses, så de passer. Acceptable billedformater er: PNG, GIF og JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Klik for at gendanne kortudstrækningen og lagenes synlighed dér, hvor du var nået til."
   },
   "featureActions": {
+    "featureActions": "Objekthandlinger",
     "ZoomTo": "Zoom til",
     "PanTo": "Panorér til",
     "Flash": "Blitz",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Eksportér til CSV-fil",
     "ShowSelectedFeature": "Vis udvalgte objekter",
     "ExportToFeatureCollection": "Eksportér til objektsamling",
-    "ExportToGeoJSON": "Eksportér til GeoJSON"
+    "ExportToGeoJSON": "Eksportér til GeoJSON",
+    "EditAttributes": "Rediger attributter",
+    "AddMarker": "Tilføj en markør",
+    "RemoveMarker": "Fjern markør",
+    "SaveToMyContent": "Gem til Mit indhold"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Relateret lag",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Føj til markering",
     "removeSelectionTip": "Fjern fra markeringen",
     "selectFromCurrentSelectionTip": "Vælg ud fra den aktuelle markering",
-    "unselectAllSelectionTip": "Fravælg alle aktuelt valgte objekter"
+    "unselectAllSelectionTip": "Fravælg alle aktuelt valgte objekter",
+    "selectByPolygon": "Vælg efter polygon",
+    "selectByCircle": "Vælg efter cirkel",
+    "selectByLine": "Vælg efter linje",
+    "chooseSelectingTools": "Vælg markeringsværktøjer",
+    "darw": "Tegn",
+    "drawShap": "Tegn en form"
   },
   "widgetManager": {
     "createWidgetError": "Fejl ved oprettelse af widget",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D-webapplikationer understøttes ikke i din browser."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Baggrundskortet er ikke tilgængeligt.",
+    "displayDefaultBasemap": "Viser standardbaggrundskort i stedet for.",
+    "layerLoadedError": "Laget, ${layers}, kan ikke føjes til kortet."
+  },
+  "popup": {
+    "relatedTables": "Relatereder tabeller:",
+    "relatedRecords": "Relaterede poster:",
+    "noRelatedRecotds": "Ingen relaterede poster fundet.",
+    "chooseFieldTip": "Vælg en attribut for at vise listen",
+    "saveAsPopupTitle": "Samme som pop-up-titel"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Der er for mange objekter i din markering. Det kan tage lang tid at hente og vise dem på kortet.",
+    "askForContinue": "Vil du fortsætte?"
+  },
+  "colorPalette": {
+    "transparent": "Gennemsigtig",
+    "custom": "Brugerdefineret"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Udskriv",
+    "reportDimensionsMsg": "Denne rapport er designet til udskrivning på ${paperSize} papir",
+    "unableToPrintMapMsg": "Der opstod en fejl under udskrivning af kort(ene)",
+    "landscape": "På langs",
+    "portrait": "På højkant",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Juridisk",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_A"
+  },
+  "noEditPrivileges": "Din konto har ikke rettigheder til at oprette eller redigere data.",
+  "invalidConfiguration": "Widget'en er enten ikke konfigureret, eller lagene i konfigurationen findes ikke længere i kortet. Åbn app'en i builder-tilstand, og omkonfigurér widget'en."
 });

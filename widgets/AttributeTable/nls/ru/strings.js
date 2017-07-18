@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Показать все записи",
   "showRelatedRecords": "Показать связанные записи",
   "noRelatedRecords": "Связанных записей не найдено",
+  "attachmentColumn": "Фото и файлы",
   "refresh": "Обновить",
   "features": "объекты",
   "records": "записи",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Скрыть таблицу атрибутов",
   "sortAsc": "Сортировать по возрастанию",
   "sortDes": "Сортировка по убыванию",
-  "statistics": "Статистика"
+  "statistics": "Статистика",
+  "attachments": "Вложения",
+  "files": "файлы"
 });

@@ -6,6 +6,7 @@ define({
     "yes": "Kyllä",
     "no": "Ei",
     "next": "Seuraava",
+    "previous": "Edellinen",
     "back": "Takaisin",
     "selected": "valitut",
     "name": "Nimi",
@@ -48,11 +49,19 @@ define({
     "scene": "Maisema",
     "reset": "Palauta",
     "icon": "Kuvake",
+    "folder": "Kansio",
     "share": "Jaa",
     "view": "Näytä",
     "newText": "Uusi",
     "edit": "Muokkaa",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Taulukko",
+    "zoomIn": "Lähennä",
+    "zoomOut": "Loitonna",
+    "continue1": "Jatka",
+    "longitude": "Pituusaste",
+    "latitude": "Leveysaste",
+    "custom": "Mukautettu"
   },
   "errorCode": "Koodi",
   "errorMessage": "Viesti",
@@ -96,7 +105,10 @@ define({
     "dash": "Viiva",
     "dot": "Piste",
     "dashDot": "Viiva-piste",
-    "dashDotDot": "Viiva-piste-piste"
+    "dashDotDot": "Viiva-piste-piste",
+    "customImage": "Mukautettu kuva",
+    "chooseFile": "Valitse tiedosto",
+    "noFileChoosen": "Tiedostoa ei ole valittu."
   },
   "transparency": {
     "opaque": "Läpinäkymätön",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Kirjainkoolla on merkitystä",
     "notSupportCaseSensitiveTip": "Isännöidyt palvelut eivät tue kirjainkoon tunnistavaa kyselyä.",
-    "setFilterTip": "Määritä suodatin oikein."
+    "setFilterTip": "Määritä suodatin oikein.",
+    "listValues": "Arvojen lista",
+    "cascadeFilterTip": "Näytä vain aiempien lausekkeiden suodattamat arvot.",
+    "noneCascadeFilterTip": "Kaikki tämän kentän yksilölliset arvot",
+    "previousCascadeFilterTip": "Aiempien lausekkeiden suodattamat arvot",
+    "allCascadeFilterTip": "Kaikkien muiden lausekkeiden suodattamat arvot"
   },
   "featureLayerSource": {
     "layer": "Karttataso",
@@ -293,7 +310,11 @@ define({
     "owner": "omistaja",
     "signInTo": "Kirjaudu palveluun",
     "lastModified": "Muokattu viimeksi",
-    "moreDetails": "Lisää tietoja"
+    "moreDetails": "Lisää tietoja",
+    "mostRecent": "Viimeisimmät",
+    "mostViewed": "Katsotuimmat",
+    "highestRated": "Parhaan arvioinnin saanut",
+    "viewItemDetails": "Näytä kohteen yksityiskohdat"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Palvelu ei tue kyselyä."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Invalid file type.",
     "cropImage": "Rajaa kuva",
     "exceed": "Tiedoston koko ei saa ylittää 1024 kt",
-    "enableFlash": "TODO: Ota käyttöön Flash.",
+    "enableFlash": "Ota käyttöön Adobe Flash ennen kuvaan selaamista.",
     "cropWaining": "Valitse valokuva, joka on kooltaan vähintään ${width} x ${height} pikseliä.",
     "toolTip": "Parhaan tuloksen saamiseksi kuvan tulisi olla leveydeltään ${width} pikseliä ja korkeudeltaan ${height} pikseliä. Muut koot säädetään sopivaksi. Hyväksyttyjä kuvamuotoja ovat PNG, GIF ja JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Palauta karttalaajuus ja karttatasojen näkyvyys tilaan, jossa ne olivat alun perin."
   },
   "featureActions": {
+    "featureActions": "Kohdetoiminnot",
     "ZoomTo": "Tarkenna kohteeseen",
     "PanTo": "Vieritä kohteeseen",
     "Flash": "Väläytä",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Vie CSV-tiedostoksi",
     "ShowSelectedFeature": "Näytä valitut kohteet",
     "ExportToFeatureCollection": "Vie kohdekokoelmaan",
-    "ExportToGeoJSON": "Vie GeoJSON-muotoon"
+    "ExportToGeoJSON": "Vie GeoJSON-muotoon",
+    "EditAttributes": "Muokkaa ominaisuuksia",
+    "AddMarker": "Lisää merkitsin",
+    "RemoveMarker": "Poista merkitsin",
+    "SaveToMyContent": "Tallenna omaan sisältöön"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Liittyvä karttataso",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Lisää valinta",
     "removeSelectionTip": "Remove from selection",
     "selectFromCurrentSelectionTip": "Valitse nykyisestä valinnasta",
-    "unselectAllSelectionTip": "Poista kaikkien tällä hetkellä valittujen kohteiden valinta"
+    "unselectAllSelectionTip": "Poista kaikkien tällä hetkellä valittujen kohteiden valinta",
+    "selectByPolygon": "Valitse alueella",
+    "selectByCircle": "Valitse ympyrällä",
+    "selectByLine": "Valitse viivalla",
+    "chooseSelectingTools": "Valitse valintatyökalut",
+    "darw": "Piirrä",
+    "drawShap": "Piirrä muoto"
   },
   "widgetManager": {
     "createWidgetError": "Pienoisohjelman luontivirhe",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Selaimesi ei tue 3D-web-sovelluksia."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Taustakartta ei ole käytettävissä.",
+    "displayDefaultBasemap": "Näytetään oletustaustakartta sen sijaan.",
+    "layerLoadedError": "Karttatasoa ${layers} ei voi lisätä karttaan."
+  },
+  "popup": {
+    "relatedTables": "Liittyvät taulut:",
+    "relatedRecords": "Liittyvät tietueet:",
+    "noRelatedRecotds": "Liittyviä tietueita ei löytynyt.",
+    "chooseFieldTip": "Tuo luettelo näkyviin valitsemalla ominaisuustieto",
+    "saveAsPopupTitle": "Vastaa ponnahdusikkunan otsikkoa"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Valinnassa on liikaa kohteita. Niiden noutaminen ja näyttäminen kartalla voi kestää kauan.",
+    "askForContinue": "Haluatko jatkaa?"
+  },
+  "colorPalette": {
+    "transparent": "Läpinäkyvä",
+    "custom": "Mukautettu"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Tulosta",
+    "reportDimensionsMsg": "Tämä raportti on suunniteltu koon ${paperSize} paperille tulostamista varten",
+    "unableToPrintMapMsg": "On ilmennyt virhe tulostettaessa karttaa tai karttoja.",
+    "landscape": "Maisema",
+    "portrait": "Pysty",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Legal",
+    "tabloid": "Tabloidi",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Tililläsi ei ole tietojen luonti- tai muokkausoikeuksia.",
+  "invalidConfiguration": "Pienoisohjelmaa ei ole joko määritetty tai määrityksen karttatasoja ei ole enää kartassa. Avaa sovellus luontitilassa ja määritä pienoisohjelma uudelleen."
 });

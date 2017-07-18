@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Afişare toate înregistrările",
   "showRelatedRecords": "Afişare înregistrări asociate",
   "noRelatedRecords": "Nu au fost găsite înregistrări corelate",
+  "attachmentColumn": "Fotografii şi fişiere",
   "refresh": "Reîmprospătare",
   "features": "obiecte spaţiale",
   "records": "înregistrări",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Ascundere tabel de atribute",
   "sortAsc": "Sortare ascendentă",
   "sortDes": "Sortare descendentă",
-  "statistics": "Statistică"
+  "statistics": "Statistică",
+  "attachments": "Ataşări",
+  "files": "fişiere"
 });

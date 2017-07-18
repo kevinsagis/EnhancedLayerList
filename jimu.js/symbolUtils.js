@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -173,8 +173,7 @@ define([
       if(surfaceSize){
         sWidth = surfaceSize.width;
         sHeight = surfaceSize.height;
-      }
-      else {
+      } else {
         sWidth = 80;
         sHeight = 30;
 
@@ -260,6 +259,9 @@ define([
       gfxShape.applyTransform(transform);
       // should keep node in dom tree,otherwise there are some bugs in IE8
       // document.body.removeChild(node);
+      if(node){
+        html.addClass(node, "symbol");
+      }
       return node;
     };
 

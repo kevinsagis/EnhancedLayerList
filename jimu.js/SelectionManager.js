@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -54,25 +54,39 @@ define([
 
       setSelectionSymbol: function(layer){
         var type = layer.geometryType;
-        var selectionColor = new Color("#00FFFF");
-        var defaultPointSymbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE,
-          16, null, selectionColor);
-        var defaultLineSymbol = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID,
-          selectionColor, 2);
-        var defaultFillSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_NULL,
-          defaultLineSymbol, selectionColor);
+        var markerCircleStyle = SimpleMarkerSymbol.STYLE_CIRCLE;
+        var pointSymbol = new SimpleMarkerSymbol(markerCircleStyle, 16, null, Color.fromArray([0, 255, 255]));
+
+        var lineSolidStyle = SimpleLineSymbol.STYLE_SOLID;
+        var lineSymbol = new SimpleLineSymbol(lineSolidStyle, Color.fromArray([0, 255, 255]), 2);
+
+        var fillSolidStyle = SimpleFillSymbol.STYLE_SOLID;
+        var fillSymbol = new SimpleFillSymbol(fillSolidStyle, lineSymbol, Color.fromArray([0, 255, 255, 0.3]));
 
         if (type === 'esriGeometryPoint') {
-          layer.setSelectionSymbol(defaultPointSymbol);
+          layer.setSelectionSymbol(pointSymbol);
         } else if (type === 'esriGeometryPolyline') {
-          layer.setSelectionSymbol(defaultLineSymbol);
+          layer.setSelectionSymbol(lineSymbol);
         } else if (type === 'esriGeometryPolygon') {
-          layer.setSelectionSymbol(defaultFillSymbol);
+          layer.setSelectionSymbol(fillSymbol);
         }
       },
 
       //features must have objectIdField attribute, such as OBJECTID
       updateSelectionByFeatures: function(layer, features, selectionMethod){
+        if(features.length > 0){
+          features = array.map(features, lang.hitch(this, function(feature){
+            var value = null;
+            if(layer.graphics.indexOf(feature) >= 0){
+              value = new Graphic(feature.toJson());
+            }else{
+              value = feature;
+            }
+            value.wabIsTemp = true;
+            return value;
+          }));
+        }
+
         //selectionMethod default value is SELECTION_NEW
         //def must be a dojo/_base/Deferred object, because it has callback method and API will call this method
         if(!layer.getSelectionSymbol()){
@@ -91,6 +105,11 @@ define([
           this._updateDisplayLayer(layer);
         }
         return def;
+      },
+
+      //private method
+      getDisplayLayer: function(featureLayerId){
+        return this._displayLayers[featureLayerId];
       },
 
       setSelection: function(layer, features){

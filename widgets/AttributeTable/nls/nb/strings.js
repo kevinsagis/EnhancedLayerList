@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Vis alle poster",
   "showRelatedRecords": "Vis relaterte rader",
   "noRelatedRecords": "Ingen tilknyttede oppføringer funnet",
+  "attachmentColumn": "Bilder og filer",
   "refresh": "Oppdater",
   "features": "geoobjekter",
   "records": "poster",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Skjul attributt-tabell",
   "sortAsc": "Sorter stigende",
   "sortDes": "Sorter synkende",
-  "statistics": "Statistikk"
+  "statistics": "Statistikk",
+  "attachments": "Vedlegg",
+  "files": "filer"
 });

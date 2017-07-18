@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 define([
+  'dojo/_base/array',
   'dojo/_base/declare',
   'dijit/_WidgetBase',
   'dijit/_TemplatedMixin',
@@ -26,7 +27,7 @@ define([
   'dojo/_base/html',
   'dojo/_base/lang',
   'jimu/utils',
-  'jimu/dijit/Message',
+  'jimu/Query',
   'jimu/dijit/CheckBox',
   'jimu/dijit/FeaturelayerChooserFromMap',
   'jimu/dijit/LayerChooserFromMapWithDropbox',
@@ -39,8 +40,8 @@ define([
   'esri/geometry/geometryEngine',
   'jimu/dijit/FeatureSetChooserForSingleLayer'
 ],
-function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, template, on, Evented,
-  Deferred, html, lang, jimuUtils, Message, CheckBox, FeaturelayerChooserFromMap,
+function(array, declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, template, on, Evented,
+  Deferred, html, lang, jimuUtils, JimuQuery, CheckBox, FeaturelayerChooserFromMap,
   LayerChooserFromMapWithDropbox, SearchDistance, LayerInfos, Graphic, symbolJsonUtils, GraphicsLayer, SimpleRenderer,
   geometryEngine, FeatureSetChooserForSingleLayer) {
 
@@ -53,6 +54,7 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
     selectionRadio: null,
     _selectionHandle: null,
     layerInfosObj: null,
+    _layerAllFeaturesCache: null,//{featureLayerId:features}
 
     //constructor options:
     map: null,
@@ -61,6 +63,7 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
     distance: 0,
     unit: '',
     showLoading: false,
+    ignoredFeaturelayerIds: null,//an array of ignored feature layer ids
 
     //public methods:
     //reset
@@ -70,10 +73,15 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
     //events:
     //loading
     //unloading
+    //search-distance-change
 
     postMixInProperties:function(){
       this.inherited(arguments);
       this.nls = window.jimuNls.spatialFilterByFeatures;
+      if(!this.ignoredFeaturelayerIds){
+        this.ignoredFeaturelayerIds = [];
+      }
+      this._layerAllFeaturesCache = {};
     },
 
     postCreate:function(){
@@ -91,7 +99,7 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
       //init renderer
       var bufferSymbol = symbolJsonUtils.fromJson({
         "style": "esriSFSSolid",
-        "color": [79, 129, 189, 128],
+        "color": [79, 129, 189, 77],
         "type": "esriSFS",
         "outline": {
           "style": "esriSLSSolid",
@@ -113,7 +121,8 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
         types: this.types,
         showLayerFromFeatureSet: true,
         onlyShowVisible: false,
-        updateWhenLayerInfosIsShowInMapChanged: true
+        updateWhenLayerInfosIsShowInMapChanged: true,
+        ignoredFeaturelayerIds: this.ignoredFeaturelayerIds
       });
       this.layerChooserFromMapWithDropbox = new LayerChooserFromMapWithDropbox({
         layerChooser: layerChooser
@@ -150,6 +159,30 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
         this.searchDistance.setUnit(this.unit);
       }
       this.clearAllGraphics();
+    },
+
+    hideTempLayers: function(){
+      if(this._bufferLayer){
+        this._bufferLayer.hide();
+      }
+      if(this.drawBox){
+        this.drawBox.hideLayer();
+      }
+      if(this.featureSetChooserForSingleLayer){
+        this.featureSetChooserForSingleLayer.hideMiddleFeatureLayer();
+      }
+    },
+
+    showTempLayers: function(){
+      if(this._bufferLayer){
+        this._bufferLayer.show();
+      }
+      if(this.drawBox){
+        this.drawBox.showLayer();
+      }
+      if(this.featureSetChooserForSingleLayer){
+        this.featureSetChooserForSingleLayer.showMiddleFeatureLayer();
+      }
     },
 
     disable: function(hideLayers){
@@ -196,6 +229,10 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
       if(this.selectionRadio.getValue()){
         this.selectionRadio.uncheck();
       }
+    },
+
+    isValidSearchDistance: function(){
+      return this.searchDistance.getStatus() >= 0;
     },
 
     /*
@@ -267,7 +304,7 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
 
     //return a deferred object which resolves features
     //if silent is true, it won't show message box
-    _getFeatures: function(silent){
+    _getFeatures: function(/*silent*/){
       var def = new Deferred();
       var features = [];
       var info = this._getSelectedLayerInfomation();
@@ -291,7 +328,7 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
                 features = info.layer.graphics;
                 def.resolve(features);
               }else{
-                if(!silent){
+                /*if(!silent){
                   new Message({
                     message: this.nls.selectFeaturesOrDrawShapesTip
                   });
@@ -299,12 +336,62 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
                 def.reject({
                   type: clazz.NONE_SELECTED_FEATURES_NOT_DRAW_SHAPES,
                   message: this.nls.selectFeaturesOrDrawShapesTip
-                });
+                });*/
+                //type is 1 or 2
+                def = this._getAllFeaturesFromFeaturelayer(info.layer);
               }
             }
           }
         }
       }
+      return def;
+    },
+
+    _getAllFeaturesFromFeaturelayer: function(featureLayer){
+      var def = new Deferred();
+
+      if(this._layerAllFeaturesCache[featureLayer.id]){
+        def.resolve(this._layerAllFeaturesCache[featureLayer.id]);
+      }else{
+        var layerDefinition = jimuUtils.getFeatureLayerDefinition(featureLayer);
+        if(!layerDefinition){
+          layerDefinition = {
+            currentVersion: featureLayer.currentVersion,
+            fields: lang.clone(featureLayer.fields)
+          };
+        }
+
+        var options = {};
+        options.url = featureLayer.url;
+        options.layerInfo = layerDefinition;
+        options.spatialReference = this.map.spatialReference;
+        options.where = featureLayer.getDefinitionExpression();
+        if(!options.where){
+          options.where = "1=1";
+        }
+        options.geometry = null;
+        options.outFields = [];
+
+        this.emit("loading");
+        var query = new JimuQuery(options);
+        //return a deferred object which resolves {status,count,features}
+        //if status > 0, means we get all features
+        //if status < 0, means count is big, so we can't get features
+        query.getFeatures().then(lang.hitch(this, function(result){
+          this.emit("unloading");
+          if(result.status > 0){
+            var features = result.features || [];
+            this._layerAllFeaturesCache[featureLayer.id] = features;
+            def.resolve(features);
+          }else{
+            def.reject("Can't get all features from featureLayer " + featureLayer.id);
+          }
+        }), lang.hitch(this, function(err){
+          this.emit("unloading");
+          def.reject(err);
+        }));
+      }
+
       return def;
     },
 
@@ -317,8 +404,16 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
           features = info.layer.getSelectedFeatures();
         }else{
           features = this.featureSetChooserForSingleLayer.syncGetFeatures();
-          if(features.length === 0 && type === 3){
-            features = info.layer.graphics;
+
+          if(features.length === 0){
+            if(type === 3){
+              features = info.layer.graphics;
+            }else{
+              var cachedFeatures = this._layerAllFeaturesCache[info.layer.id];
+              if(cachedFeatures){
+                features = cachedFeatures;
+              }
+            }
           }
         }
       }
@@ -451,6 +546,7 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
 
     _onSearchDistanceChange: function(){
       this._updateBuffer();
+      this.emit('search-distance-change');
     },
 
     _updateFeatureSetChooserForSingleLayerStatus: function(){
@@ -489,7 +585,24 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
       }
 
       var features = this._syncGetFeatures();
-      var combinedFeatureGeometry = jimuUtils.combineGeometriesByGraphics(features);
+
+      var combinedFeatureGeometry = null;
+      var geometries = [];
+
+      array.forEach(features, lang.hitch(this, function(feature){
+        if(feature && feature.geometry){
+          geometries.push(feature.geometry);
+        }
+      }));
+
+      if(geometries.length > 0){
+        if(geometries[0].type === 'polygon'){
+          //#7394
+          combinedFeatureGeometry = geometryEngine.union(geometries);
+        }else{
+          combinedFeatureGeometry = jimuUtils.combineGeometries(geometries);
+        }
+      }
 
       if(status === 0){
         return combinedFeatureGeometry;
@@ -497,7 +610,13 @@ function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, templat
 
       if(combinedFeatureGeometry){
         combinedFeatureGeometry = geometryEngine.simplify(combinedFeatureGeometry);
-        var bufferGeometry = geometryEngine.buffer(combinedFeatureGeometry, distance, bufferUnit, true);
+        var sr = combinedFeatureGeometry.spatialReference;
+        var bufferGeometry = null;
+        if(sr.isWebMercator() || sr.wkid === 4326){
+          bufferGeometry = geometryEngine.geodesicBuffer(combinedFeatureGeometry, distance, bufferUnit, true);
+        }else{
+          bufferGeometry = geometryEngine.buffer(combinedFeatureGeometry, distance, bufferUnit, true);
+        }
         var bufferGraphic = new Graphic(bufferGeometry);
         this._bufferLayer.add(bufferGraphic);
         return bufferGeometry;

@@ -25,5 +25,6 @@ define({
   "fieldName": "Namn",
   "fieldAlias": "Alias",
   "fieldVisibility": "Synlighet",
-  "fieldActions": "Åtgärder"
+  "fieldActions": "Åtgärder",
+  "showAttachments": "Visa bifogade filer"
 });

@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,11 +23,12 @@ define([
     'dojo/topic',
     'dojo/json',
     'esri/request',
+    './Role',
     './utils',
     './portalUrlUtils',
     './tokenUtils'
   ],
-  function(declare, lang, array, dojoConfig, Deferred, topic, dojoJson, esriRequest, jimuUtils,
+  function(declare, lang, array, dojoConfig, Deferred, topic, dojoJson, esriRequest, Role, jimuUtils,
     portalUrlUtils, tokenUtils) {
 
     //important attributes of portal relevant classes
@@ -222,18 +223,14 @@ define([
           callbackParamName: 'callback'
         };
 
-        if (this.isValidCredential()) {
-          args.content.token = this.credential.token;
-        }
+        // if (this.isValidCredential()) {
+        //   args.content.token = this.credential.token;
+        // }
 
         return esriRequest(args);
       },
 
-      getItemById: function(_itemId) {
-        var def = new Deferred();
-
-        this.updateCredential();
-
+      _getItemById: function(_itemId, /*optional*/ token) {
         var url = portalUrlUtils.getItemUrl(this.portalUrl, _itemId);
         var args = {
           url: url,
@@ -244,21 +241,29 @@ define([
           callbackParamName: 'callback'
         };
 
-        if (this.isValidCredential()) {
-          args.content.token = this.credential.token;
+        if(token){
+          args.content.token = token;
         }
 
-        esriRequest(args).then(lang.hitch(this, function(item) {
+        return esriRequest(args).then(lang.hitch(this, function(item) {
           item.portalUrl = this.portalUrl;
           item.credential = this.credential;
           item.portal = this;
           var portalItem = new PortalItem(item);
-          def.resolve(portalItem);
-        }), lang.hitch(this, function(err) {
-          console.error(err);
-          def.reject(err);
+          return portalItem;
         }));
-        return def;
+      },
+
+      getItemById: function(_itemId, /*optional*/ carryToken) {
+        this.updateCredential();
+
+        return this._getItemById(_itemId).then(lang.hitch(this, function(item){
+          if(carryToken && item.owner && this.isValidCredential() &&
+             this.credential && this.credential.userId === item.owner){
+            return this._getItemById(_itemId, this.credential.token);
+          }
+          return item;
+        }));
       },
 
       getAppById: function(appId) {
@@ -463,6 +468,19 @@ define([
         }
       },
 
+      canCreateItem: function(){
+        var userRole = new Role({
+          id: this.roleId ? this.roleId : this.role,
+          role: this.role
+        });
+
+        if (this.privileges) {
+          userRole.setPrivileges(this.privileges);
+        }
+
+        return userRole.canCreateItem();
+      },
+
       getGroups: function() {
         var groups = [];
         if (this.groups) {
@@ -604,9 +622,9 @@ define([
           callbackParamName: 'callback'
         };
 
-        if (this.isValidCredential()) {
-          args.content.token = this.credential.token;
-        }
+        // if (this.isValidCredential()) {
+        //   args.content.token = this.credential.token;
+        // }
 
         esriRequest(args).then(lang.hitch(this, function(item) {
           item.portalUrl = this.portalUrl;
@@ -674,8 +692,9 @@ define([
               content = lang.mixin(content, args);
             }
             var folder = item.ownerFolder;
+            var userName = item.owner;
             esriRequest({
-              url: portalUrlUtils.getUpdateItemUrl(this.portalUrl, this.username, itemId, folder),
+              url: portalUrlUtils.getUpdateItemUrl(this.portalUrl, userName, itemId, folder),
               handleAs: 'json',
               callbackParamName: 'callback',
               timeout: 100000,
@@ -809,6 +828,26 @@ define([
 
       getItemData: function() {
         return this.portal.getItemData(this.id);
+      },
+
+      getItemGroups: function() {
+        this.updateCredential();
+
+        var itemGroupsUrl = portalUrlUtils.getItemGroupsUrl(this.portalUrl, this.id);
+        var args = {
+          url: itemGroupsUrl,
+          handleAs: 'json',
+          content: {
+            f: 'json'
+          },
+          callbackParamName: 'callback'
+        };
+
+        if (this.isValidCredential()) {
+          args.content.token = this.credential.token;
+        }
+
+        return esriRequest(args);
       }
     });
 

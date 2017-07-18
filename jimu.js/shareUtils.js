@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -16,23 +16,162 @@
 
 define([
     'dojo/_base/lang',
-    //'jimu/portalUtils',
-    //'jimu/portalUrlUtils',
-    //'esri/urlUtils',
     'esri/request',
-    //'dojo/_base/array',
     "dojo/promise/all",
-    //"dojo/dom-attr",
     "jimu/shared/basePortalUrlUtils",
     'dojo/Deferred',
     'esri/lang',
     'jimu/portalUtils',
     'jimu/Role',
-    "jimu/utils"
+    "jimu/utils",
+    'esri/urlUtils'
   ],
-  function(lang, /*portalUtils, portalUrlUtils,esriUrlUtils, */esriRequest/*, array*/, all, /*domAttr,*/
-           basePortalUrlUtils, Deferred, esriLang, portalUtils, Role, jimuUtils) {
+  function(lang, esriRequest, all,basePortalUrlUtils, Deferred,
+    esriLang, portalUtils, Role, jimuUtils, esriUrlUtils) {
     var su = {};
+
+    su.getBaseHrefUrl = function(portalUrl) {
+      var webappviewer = window.appInfo.appType === "HTML3D" ? "webappviewer3d" : "webappviewer";
+      var href = "";
+      if (window.isXT) {
+        href = window.location.protocol + "//" + window.location.host + window.appInfo.appPath;
+      } else {
+        var urlParams = jimuUtils.urlToObject(window.location.href).query || {};
+        if (urlParams.appid) {
+          //appid for apps that be created by templates
+          href = portalUrl + 'apps/' + webappviewer + '/index.html?appid=' + urlParams.appid;
+        } else if (urlParams.id) {
+          //portal or onLine apps
+          href = portalUrl + 'apps/' + webappviewer + '/index.html?id=' + urlParams.id;
+        } else {
+          //published app: without id in url
+          href = jimuUtils.getAppHref();
+        }
+      }
+      return href;
+    };
+    //jimuUtil's method can't encodeURIComponent(or will decodeURIComponent)
+    su.addQueryParamToUrl = function(url, paramName, paramValue, isEncode) {
+      var urlObject = esriUrlUtils.urlToObject(url);
+      if (!urlObject.query) {
+        urlObject.query = {};
+      }
+      urlObject.query[paramName] = paramValue;
+      var ret = urlObject.path;
+      for (var q in urlObject.query) {
+        var val = urlObject.query[q];
+        if (true === isEncode) {
+          val = encodeURIComponent(val);
+        }
+
+        if (ret === urlObject.path) {
+          ret = ret + '?' + q + '=' + val;
+        } else {
+          ret = ret + '&' + q + '=' + val;
+        }
+      }
+      return ret;
+    };
+
+    su.removeQueryParamFromUrl = function(url, paramName, isEncode) {
+      var urlObject = esriUrlUtils.urlToObject(url);
+      if (urlObject.query) {
+        delete urlObject.query[paramName];
+      }
+      var ret = urlObject.path;
+      for (var q in urlObject.query) {
+        var val = urlObject.query[q];
+        if (true === isEncode) {
+          val = encodeURIComponent(val);
+        }
+
+        if (ret === urlObject.path) {
+          ret = ret + '?' + q + '=' + val;
+        } else {
+          ret = ret + '&' + q + '=' + val;
+        }
+      }
+      return ret;
+    };
+
+    // su.getMarkerActionContent = function(json,map){
+    //   var xyContent = su.getXyContent(json);
+    //   var url = su.getShareUrl(map, json, xyContent);
+    //   var shareUrlContent = su.getShareUrlContent(url);
+    //   return  xyContent + shareUrlContent;
+    // },
+    su.getShareUrlContent = function (url) {
+      var content = "<div class='marker-feature-action-popup'>" +
+        "<div class='item'>" +
+        "<span class='sub-title jimu-float-leading'>" + window.jimuNls.common.url + "</span>" +
+        "<input type='text' class='jimu-float-leading' readonly='readonly' value=" + url + "/>" +
+        "</div>" +
+        "</div>";
+      return content;
+    };
+
+    su.getShareUrl = function (map, geometry, content, isIncludeShareUrl) {
+      var baseUrl = su.getBaseHrefUrl(window.portalUrl);
+      var markerUrl = "";
+      if (geometry) {
+        if (geometry.x && geometry.y && geometry.spatialReference && geometry.spatialReference.wkid) {
+          markerUrl = geometry.x + "," + geometry.y + "," + geometry.spatialReference.wkid;
+        } else if (geometry.longitude && geometry.latitude) {
+          markerUrl = geometry.longitude + "," + geometry.latitude + ",";
+        }
+      }
+
+      var resultUrl = su.addQueryParamToUrl(baseUrl, "marker", markerUrl, true);
+      resultUrl += ",";
+      //resultUrl += encodeURIComponent("");//content
+      resultUrl += ",";
+      //resultUrl += encodeURIComponent(window.location.protocol + "//" + window.location.host+require.toUrl('jimu') + '/images/marker_featureaction.png',10,20);//symbolURL
+      resultUrl += ",";
+      //resultUrl += encodeURIComponent("");//title
+      resultUrl = su.addQueryParamToUrl(resultUrl, "markertemplate", encodeURIComponent(JSON.stringify({
+        title: geometry.title,
+        content: content,
+        isIncludeShareUrl: isIncludeShareUrl
+      })));
+      var level = map.getLevel();
+      if (typeof level === "number" && level !== -1) {
+        resultUrl = su.addQueryParamToUrl(resultUrl, "level", map.getLevel(), true);
+      } else {
+        //use scale if no level
+        resultUrl = su.addQueryParamToUrl(resultUrl, "scale", map.getScale(), true);
+      }
+      return resultUrl;
+    };
+
+    su.getXyContent = function (geometry) {
+      var decimal = 4;
+      var content = "<div class='marker-feature-action-popup'>";
+      // if(geometry.fieldName && geometry.title){
+      //   content += "<div class='title'>" + geometry.title + "</div><div class='hzLine'></div>";
+      // }
+      if (geometry.longitude && geometry.latitude) {
+        content +=
+          "<div class='item clearFix'>" +
+          "<span class='sub-title'>" + window.jimuNls.common.longitude + "</span>" +
+          "<span class='val'>" + parseFloat(geometry.longitude).toFixed(decimal) + "</span>" +
+          "</div>" +
+          "<div class='item clearFix'>" +
+          "<span class='sub-title'>" + window.jimuNls.common.latitude + "</span>" +
+          "<span class='val'>" + parseFloat(geometry.latitude).toFixed(decimal) + "</span>" +
+          "</div>";
+      } else if (geometry.x && geometry.y) {
+        content += "<div class='item clearFix'>" +
+          "<span class='sub-title'>x</span>" +
+          "<span class='val'>" + parseFloat(geometry.x).toFixed(decimal) + "</span>" +
+          "</div>" +
+          "<div class='item'>" +
+          "<span class='sub-title'>y</span>" +
+          "<span class='val'>" + parseFloat(geometry.y).toFixed(decimal) + "</span>" +
+          "</div>";
+      }
+      content += "</div>";
+      return content;
+    };
 
     su._isUserOwnTheApp = function(userObj) {
       if (userObj && userObj.username && userObj.username === window.appInfo.appOwner) {
@@ -282,7 +421,7 @@ define([
       if (window.isXT) {
         return def.resolve(null);
       } else {
-        var urlParams = jimuUtils.urlToObject(window.top.location.href).query || {};
+        var urlParams = jimuUtils.urlToObject(jimuUtils.getAppHref()).query || {};
         appId = urlParams.id || urlParams.appid;
       }
       if (typeof appId === "undefined" || appId === "") {
@@ -317,11 +456,11 @@ define([
       if (window.isXT) {
         return def.resolve(null);
       } else {
-        var urlParams = jimuUtils.urlToObject(window.top.location.href).query || {};
+        var urlParams = jimuUtils.urlToObject(jimuUtils.getAppHref()).query || {};
         appId = urlParams.id || urlParams.appid;
       }
 
-      if(typeof appId === "undefined" || appId === ""){
+      if (typeof appId === "undefined" || appId === "") {
         return def.resolve(null);//deployed
       }
 

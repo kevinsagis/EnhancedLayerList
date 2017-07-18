@@ -78,7 +78,7 @@ var
 
   //This version number will be appended to URL to avoid cache.
   //The reason we do not use wabVersion is to avoid force user to change wabVersion when they are customizing app.
-  deployVersion = '2.1';
+  deployVersion = '2.4';
 
 // console.time('before map');
 
@@ -91,11 +91,11 @@ var
 (function(global){
   //init API URL
   var queryObject = getQueryObject();
-  var apiVersion = '3.17';
+  var apiVersion = '3.20';
 
   ////////uncomment the following line when downloading the app
 
-  apiUrl = '//js.arcgis.com/3.17';
+  apiUrl = '//js.arcgis.com/3.20';
 
   //////////////////////////////////////////////////////////////
   allCookies = getAllCookies();
@@ -110,7 +110,7 @@ var
       if (portalUrl.indexOf('arcgis.com') > -1) {
         // if(portalUrl.indexOf('devext.arcgis.com') > -1){
         //   apiUrl = '//jsdev.arcgis.com/' + apiVersion;
-        // }else if(portalUrl.indexOf('qaext.arcgis.com') > -1){
+        // }else if(portalUrl.indexOf('qa.arcgis.com') > -1){
         //   apiUrl = '//jsqa.arcgis.com/' + apiVersion;
         // }else{
         //   apiUrl = '//js.arcgis.com/' + apiVersion;
@@ -240,6 +240,14 @@ var
       }, {
         test: typeof Blob !== 'undefined',
         failure: prePath + "libs/polyfills/FileSaver.ie9.js",
+        callback: completeCb
+      }, {
+        test: window.Blob,
+        failure: prePath + "libs/polyfills/Blob.js",
+        callback: completeCb
+      }, {
+        test: window.ArrayBuffer,
+        failure: prePath + "libs/polyfills/typedarray.js",
         callback: completeCb
       }];
 

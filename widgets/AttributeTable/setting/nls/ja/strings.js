@@ -25,5 +25,6 @@ define({
   "fieldName": "名前",
   "fieldAlias": "エイリアス",
   "fieldVisibility": "表示設定",
-  "fieldActions": "アクション"
+  "fieldActions": "アクション",
+  "showAttachments": "添付ファイルの表示"
 });

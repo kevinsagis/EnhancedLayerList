@@ -6,6 +6,7 @@ define({
     "yes": "Ja",
     "no": "Nej",
     "next": "Nästa",
+    "previous": "Föregående",
     "back": "Bakåt",
     "selected": "valt",
     "name": "Namn",
@@ -48,11 +49,19 @@ define({
     "scene": "Scen",
     "reset": "Återställ",
     "icon": "Ikon",
+    "folder": "Mapp",
     "share": "Dela",
     "view": "Visa",
     "newText": "Nytt",
     "edit": "Redigera",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabell",
+    "zoomIn": "Zooma in",
+    "zoomOut": "Zooma ut",
+    "continue1": "Fortsätt",
+    "longitude": "Longitud",
+    "latitude": "Latitud",
+    "custom": "Anpassat"
   },
   "errorCode": "Kod",
   "errorMessage": "Meddelande",
@@ -96,7 +105,10 @@ define({
     "dash": "Streck",
     "dot": "Punkt",
     "dashDot": "Streck punkt",
-    "dashDotDot": "Streck punkt punkt"
+    "dashDotDot": "Streck punkt punkt",
+    "customImage": "Anpassad bild",
+    "chooseFile": "Välj fil",
+    "noFileChoosen": "Ingen fil har valts."
   },
   "transparency": {
     "opaque": "Opak",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Skiftlägeskänsligt",
     "notSupportCaseSensitiveTip": "Värdbaserade tjänster stöder inte skiftlägeskänsliga frågor.",
-    "setFilterTip": "Ange filtret korrekt."
+    "setFilterTip": "Ange filtret korrekt.",
+    "listValues": "Listvärden",
+    "cascadeFilterTip": "Visa endast värden som filtrerats av tidigare uttryck.",
+    "noneCascadeFilterTip": "Alla unika värden för det här fältet",
+    "previousCascadeFilterTip": "Värden som filtrerats av tidigare uttryck",
+    "allCascadeFilterTip": "Värden som filtrerats av alla andra uttryck"
   },
   "featureLayerSource": {
     "layer": "Lager",
@@ -293,7 +310,11 @@ define({
     "owner": "ägare",
     "signInTo": "Logga in på",
     "lastModified": "Senast ändrad",
-    "moreDetails": "Mer information"
+    "moreDetails": "Mer information",
+    "mostRecent": "Senaste",
+    "mostViewed": "Mest visade",
+    "highestRated": "Highest Rated",
+    "viewItemDetails": "Visa objektinformation"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Tjänsten stöder inte frågor."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Ogiltig filtyp.",
     "cropImage": "Beskär bild",
     "exceed": "Filstorleken får inte överskrida 1 024 KB",
-    "enableFlash": "TODO: aktivera flash.",
+    "enableFlash": "Aktivera Adobe Flash innan du bläddrar till en bild.",
     "cropWaining": "Välj ett foto som är på minst ${width} x ${height} pixlar.",
     "toolTip": "För bästa resultat ska bilden vara ${width} bildpunkter bred och ${height} bildpunkter hög. Andra storlekar justeras för att passa in. Tillåtna bildformat är: PNG, GIF och JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Klicka om du vill återställa kartutbredningen och lagrens synlighet där du slutade."
   },
   "featureActions": {
+    "featureActions": "Geoobjektsåtgärder",
     "ZoomTo": "Zooma till",
     "PanTo": "Panorera till",
     "Flash": "Blinka",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Exportera till CSV-fil",
     "ShowSelectedFeature": "Visa valda geoobjekt",
     "ExportToFeatureCollection": "Exportera till geoobjektssamling",
-    "ExportToGeoJSON": "Exportera till GeoJSON"
+    "ExportToGeoJSON": "Exportera till GeoJSON",
+    "EditAttributes": "Redigera attribut",
+    "AddMarker": "Lägg till en markering",
+    "RemoveMarker": "Ta bort markering",
+    "SaveToMyContent": "Spara i Mitt innehåll"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Relaterat lager",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Lägg till i urval",
     "removeSelectionTip": "Remove from selection",
     "selectFromCurrentSelectionTip": "Välj från aktuellt urval",
-    "unselectAllSelectionTip": "Avmarkera alla markerade geoobjekt"
+    "unselectAllSelectionTip": "Avmarkera alla markerade geoobjekt",
+    "selectByPolygon": "Välj med polygon",
+    "selectByCircle": "Välj efter cirkel",
+    "selectByLine": "Välj efter linje",
+    "chooseSelectingTools": "Välj markeringsverktyg",
+    "darw": "Rita",
+    "drawShap": "Rita en form"
   },
   "widgetManager": {
     "createWidgetError": "Det uppstod ett fel när widgeten skapades",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D-webbappar kan inte visas i din webbläsare."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Baskartan är inte tillgänglig.",
+    "displayDefaultBasemap": "Visa standardbaskartan i stället.",
+    "layerLoadedError": "Lagret ${layers} kan inte läggas till på kartan."
+  },
+  "popup": {
+    "relatedTables": "Relaterade tabeller:",
+    "relatedRecords": "Relaterade poster:",
+    "noRelatedRecotds": "Inga relaterade poster hittades.",
+    "chooseFieldTip": "Välj ett attribut för att visa listan",
+    "saveAsPopupTitle": "Samma som Popup-rubrik"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Det finns för många geoobjekt i din markering. Det kan ta lång tid att hämta och visa dem på kartan.",
+    "askForContinue": "Vill du fortsätta?"
+  },
+  "colorPalette": {
+    "transparent": "Transparent",
+    "custom": "Anpassat"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Skriv ut",
+    "reportDimensionsMsg": "Den här rapporten är utformad för att skrivas ut på ${paperSize}-papper",
+    "unableToPrintMapMsg": "Ett fel uppstod vid kartutskriften",
+    "landscape": "Liggande",
+    "portrait": "Stående",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Juridisk information",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Ditt konto har inte behörighet att skapa eller ändra data.",
+  "invalidConfiguration": "Widgeten är antingen inte konfigurerad eller så finns lagren i konfigurationen inte längre i kartan. Öppna appen i byggläge och konfigurera om widgeten."
 });

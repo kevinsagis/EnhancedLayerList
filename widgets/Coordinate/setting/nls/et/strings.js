@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Kümnendkraadid",
   "Degree_Minutes_Seconds": "Kraadi, minutit, sekundit",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Koordinaatide kuvamise järjekord:",
+  "lonLatTips": "Pikkuskraad/laiuskraad(X, Y)",
+  "latLonTips": "Laiuskraad/pikkuskraad(Y, X)"
 });

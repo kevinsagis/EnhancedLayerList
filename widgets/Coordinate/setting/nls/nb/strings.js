@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Desimalgrader",
   "Degree_Minutes_Seconds": "Grader Minutter Sekunder",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Visningsrekkefølge for koordinater:",
+  "lonLatTips": "Lengdegrad/breddegrad (X, Y)",
+  "latLonTips": "Breddegrad/lengdegrad(Y,X)"
 });

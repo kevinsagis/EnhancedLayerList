@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "십진 도수",
   "Degree_Minutes_Seconds": "도-분-초",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "좌표 표시 순서:",
+  "lonLatTips": "경도/위도(X, Y)",
+  "latLonTips": "위도/경도(Y, X)"
 });

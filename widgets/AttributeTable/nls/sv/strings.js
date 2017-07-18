@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Visa alla poster",
   "showRelatedRecords": "Visa relaterade poster",
   "noRelatedRecords": "Inga relaterade poster hittades",
+  "attachmentColumn": "Foton och filer",
   "refresh": "Uppdatera",
   "features": "geoobjekt",
   "records": "posterna",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Dölj attributtabell",
   "sortAsc": "Sortera stigande",
   "sortDes": "Sortera fallande",
-  "statistics": "Statistik"
+  "statistics": "Statistik",
+  "attachments": "Bilagor",
+  "files": "filer"
 });

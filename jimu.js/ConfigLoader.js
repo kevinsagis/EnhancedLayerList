@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -181,6 +181,10 @@ function (declare, lang, array, html, dojoConfig, cookie,
         }
       }), lang.hitch(this, function(err){
         this.showError(err);
+        //we still return a rejected deferred
+        var def = new Deferred();
+        def.reject(err);
+        return def;
       }));
     },
 
@@ -251,7 +255,6 @@ function (declare, lang, array, html, dojoConfig, cookie,
     addNeedValues: function(appConfig){
       this._processNoUriWidgets(appConfig);
       this._addElementId(appConfig);
-      this._processWidgetJsons(appConfig);
     },
 
     showError: function(err){
@@ -277,6 +280,9 @@ function (declare, lang, array, html, dojoConfig, cookie,
           }
         }).then(lang.hitch(this, function(appConfig){
           tokenUtils.setPortalUrl(appConfig.portalUrl);
+          if(appConfig.portalUrl){
+            window.portalUrl = appConfig.portalUrl;
+          }
 
           if(this.urlParams.token){
             return tokenUtils.registerToken(this.urlParams.token).then(function(){
@@ -292,6 +298,7 @@ function (declare, lang, array, html, dojoConfig, cookie,
         var portalUrl = portalUrlUtils.getPortalUrlFromLocation();
         var def = new Deferred();
         tokenUtils.setPortalUrl(portalUrl);
+        window.portalUrl = portalUrl;
         arcgisUtils.arcgisUrl = portalUrlUtils.getBaseItemUrl(portalUrl);
 
         var tokenDef;
@@ -335,7 +342,9 @@ function (declare, lang, array, html, dojoConfig, cookie,
         this.configFile = "config.json";
         return xhr(this.configFile, {handleAs: 'json'}).then(lang.hitch(this, function(appConfig){
           tokenUtils.setPortalUrl(appConfig.portalUrl);
-
+          if(appConfig.portalUrl){
+            window.portalUrl = appConfig.portalUrl;
+          }
           if(this.urlParams.token){
             return tokenUtils.registerToken(this.urlParams.token).then(function(){
               return appConfig;
@@ -351,6 +360,9 @@ function (declare, lang, array, html, dojoConfig, cookie,
       var appVersion = window.wabVersion;
       var configVersion = appConfig.wabVersion;
       var newConfig;
+
+      //save wabVersion in app config json here
+      appConfig.configWabVersion = appConfig.wabVersion;
 
       if(appVersion === configVersion){
         return appConfig;
@@ -667,7 +679,7 @@ function (declare, lang, array, html, dojoConfig, cookie,
         }));
       }else{
         if (!tokenUtils.isInBuilderWindow() && !tokenUtils.isInConfigOrPreviewWindow() &&
-          this.portalSelf.supportsOAuth && this.rawAppConfig.appId && !isWebTier) {
+          this.portalSelf.supportsOAuth && this.rawAppConfig && this.rawAppConfig.appId && !isWebTier) {
           tokenUtils.registerOAuthInfo(portalUrl, this.rawAppConfig.appId);
         }
         //we call checkSignInStatus here because this is the first place where we can get portal url
@@ -786,7 +798,7 @@ function (declare, lang, array, html, dojoConfig, cookie,
           sharedUtils.visitElement(config, lang.hitch(this, function(e){
             if(!e.widgets && e.uri){
               if(manifests[e.uri]){
-                this._addNeedValuesForManifest(manifests[e.uri]);
+                this._addNeedValuesForManifest(manifests[e.uri], e.uri);
                 jimuUtils.widgetJson.addManifest2WidgetJson(e, manifests[e.uri]);
               }else{
                 defs.push(this.widgetManager.loadWidgetManifest(e));
@@ -800,7 +812,7 @@ function (declare, lang, array, html, dojoConfig, cookie,
       }else{
         sharedUtils.visitElement(config, lang.hitch(this, function(e){
           if(!e.widgets && e.uri){
-            defs.push(this.widgetManager.loadWidgetManifest(e));
+            defs.push(loadWidgetManifest(this.widgetManager, e));
           }
         }));
         all(defs).then(function(){
@@ -808,43 +820,73 @@ function (declare, lang, array, html, dojoConfig, cookie,
         });
       }
 
-      setTimeout(function(){
-        if(!def.isResolved()){
-          deleteUnloadedWidgets(config);
-          def.resolve(config);
-        }
+      function loadWidgetManifest(widgetManager, e){
+        return widgetManager.loadWidgetManifest(e).then(function(manifest){
+          return manifest;
+        }, function(err){
+          console.log('Widget failed to load, it is removed.', e.name);
 
-        function deleteUnloadedWidgets(config){
+          if(err.stack){
+            console.error(err.stack);
+          }else{
+            //TODO err.code === 400, err.code === 403
+            console.log(err);
+          }
+          deleteUnloadedWidgets(config, e);
+        });
+      }
+
+      function deleteUnloadedWidgets(config, e){
+          //if has e, delete a specific widget
+          //if has no e, delete all unloaded widget
           deleteInSection('widgetOnScreen');
           deleteInSection('widgetPool');
+
           function deleteInSection(section){
             if(config[section] && config[section].widgets){
               config[section].widgets = config[section].widgets.filter(function(w){
-                if(w.uri && !w.manifest){
-                  console.error('Widget is removed because it is not loaded successfully.', w.uri);
+                if(e){
+                  return w.id !== e.id;
+                }else{
+                  if(w.uri && !w.manifest){
+                    console.error('Widget is removed because it is not loaded successfully.', w.uri);
+                  }
+                  return w.manifest;
                 }
-                return w.manifest;
               });
             }
             if(config[section] && config[section].groups){
               config[section].groups.forEach(function(g){
                 if(g.widgets){
                   g.widgets = g.widgets.filter(function(w){
-                    if(w.uri && !w.manifest){
-                      console.error('Widget is removed because it is not loaded successfully.', w.uri);
+                    if(e){
+                      return w.id !== e.id;
+                    }else{
+                      if(w.uri && !w.manifest){
+                        console.error('Widget is removed because it is not loaded successfully.', w.uri);
+                      }
+                      return w.manifest;
                     }
-                    return w.manifest;
                   });
                 }
               });
             }
           }
         }
+
+      setTimeout(function(){
+        //delete problem widgets to avoid one widget crash app
+        if(!def.isResolved()){
+          deleteUnloadedWidgets(config);
+          def.resolve(config);
+        }
       }, 60 * 1000);
       return def;
     },
 
-    _addNeedValuesForManifest: function(manifest){
+    _addNeedValuesForManifest: function(manifest, uri){
+      lang.mixin(manifest, jimuUtils.getUriInfo(uri));
+
       jimuUtils.manifest.addManifestProperies(manifest);
       jimuUtils.manifest.processManifestLabel(manifest, dojoConfig.locale);
     },

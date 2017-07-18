@@ -6,6 +6,7 @@ define({
     "yes": "是",
     "no": "否",
     "next": "下一步",
+    "previous": "上一頁",
     "back": "上一步",
     "selected": "選取",
     "name": "名稱",
@@ -48,11 +49,19 @@ define({
     "scene": "場景",
     "reset": "重設",
     "icon": "圖示",
+    "folder": "文件夾",
     "share": "分享",
     "view": "檢視",
     "newText": "新建",
     "edit": "編輯",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "表",
+    "zoomIn": "放大",
+    "zoomOut": "縮小",
+    "continue1": "繼續",
+    "longitude": "經度",
+    "latitude": "緯度",
+    "custom": "自訂"
   },
   "errorCode": "代碼",
   "errorMessage": "訊息",
@@ -96,7 +105,10 @@ define({
     "dash": "虛線",
     "dot": "點",
     "dashDot": "虛線",
-    "dashDotDot": "虛線點點"
+    "dashDotDot": "虛線點點",
+    "customImage": "自訂圖片",
+    "chooseFile": "選擇檔案",
+    "noFileChoosen": "未選擇檔案。"
   },
   "transparency": {
     "opaque": "不透明",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "區分大小寫",
     "notSupportCaseSensitiveTip": "託管的服務不支援區分大小寫的查詢。",
-    "setFilterTip": "請正確設定篩選程式。"
+    "setFilterTip": "請正確設定篩選程式。",
+    "listValues": "清單值",
+    "cascadeFilterTip": "僅顯示先前的表達式所篩選的值。",
+    "noneCascadeFilterTip": "此欄位的所有唯一值",
+    "previousCascadeFilterTip": "先前的表達式所篩選的值",
+    "allCascadeFilterTip": "其他所有表達式所篩選的值"
   },
   "featureLayerSource": {
     "layer": "圖層",
@@ -293,7 +310,11 @@ define({
     "owner": "擁有者",
     "signInTo": "登入到",
     "lastModified": "上次修改時間",
-    "moreDetails": "更多詳細資訊"
+    "moreDetails": "更多詳細資訊",
+    "mostRecent": "最新",
+    "mostViewed": "最高檢視次數",
+    "highestRated": "最高評級",
+    "viewItemDetails": "查看項目的詳細資訊"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "服務不支援查詢。"
@@ -322,7 +343,7 @@ define({
     "invalidType": "無效的檔案類型。",
     "cropImage": "裁切圖像",
     "exceed": "檔案大小不得超過 1024 KB",
-    "enableFlash": "待辦：請啟用閃爍。",
+    "enableFlash": "請先啟用 Adobe Flash 再瀏覽到圖片。",
     "cropWaining": "請選擇至少擁有 ${width} x ${height} 像素的照片。",
     "toolTip": "為獲得最佳效果，圖片的寬度應為 ${width} 像素，高度應為 ${height} 像素。其他大小將調整為適應此大小。可接受的圖片格式包括: PNG、GIF 和 JPEG。"
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "按一下以還原離開時的地圖範圍和圖層可見度。"
   },
   "featureActions": {
+    "featureActions": "圖徵動作",
     "ZoomTo": "縮放至",
     "PanTo": "平移至",
     "Flash": "快閃",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "匯出到 CSV 檔案",
     "ShowSelectedFeature": "顯示所選圖徵",
     "ExportToFeatureCollection": "匯出至圖徵集合",
-    "ExportToGeoJSON": "匯出至 GeoJSON"
+    "ExportToGeoJSON": "匯出至 GeoJSON",
+    "EditAttributes": "編輯屬性",
+    "AddMarker": "新增標記",
+    "RemoveMarker": "移除標記",
+    "SaveToMyContent": "儲存到我的內容"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "相關圖層",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "增加到選擇內容",
     "removeSelectionTip": "從選取中移除",
     "selectFromCurrentSelectionTip": "從目前選擇中選擇",
-    "unselectAllSelectionTip": "取消選擇目前選擇的所有圖徵"
+    "unselectAllSelectionTip": "取消選擇目前選擇的所有圖徵",
+    "selectByPolygon": "按多邊形選擇",
+    "selectByCircle": "按圓形選擇",
+    "selectByLine": "按線條選擇",
+    "chooseSelectingTools": "選擇選擇工具",
+    "darw": "繪製",
+    "drawShap": "繪製形狀"
   },
   "widgetManager": {
     "createWidgetError": "建立 widget 錯誤",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D Web 應用程式不受您的瀏覽器支援。"
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "底圖無法使用。",
+    "displayDefaultBasemap": "正在改為顯示預設底圖。",
+    "layerLoadedError": "圖層 ${layers} 無法增加到地圖中。"
+  },
+  "popup": {
+    "relatedTables": "相關表格:",
+    "relatedRecords": "相關記錄:",
+    "noRelatedRecotds": "找不到相關記錄。",
+    "chooseFieldTip": "選擇要顯示清單的屬性",
+    "saveAsPopupTitle": "與快顯標題相同"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "您的選擇中有太多圖徵。可能需耗費冗長的時間才能在地圖上擷取和顯示它們。",
+    "askForContinue": "是否要繼續?"
+  },
+  "colorPalette": {
+    "transparent": "透明",
+    "custom": "自訂"
+  },
+  "temperature": {
+    "celsius": "攝氏",
+    "fahrenheit": "華氏"
+  },
+  "report": {
+    "printButtonLabel": "列印",
+    "reportDimensionsMsg": "這份報告是設計以 ${paperSize} 紙張列印",
+    "unableToPrintMapMsg": "列印地圖時發生錯誤。",
+    "landscape": "景觀",
+    "portrait": "縱向",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "合法",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "您的帳號沒有建立或修改資料的權限。",
+  "invalidConfiguration": "未配置 widget，或配置中的圖層已從地圖中消失。請在建構器模式中開啟應用程式，並重新配置 widget。"
 });

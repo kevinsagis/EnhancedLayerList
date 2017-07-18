@@ -25,5 +25,6 @@ define({
   "fieldName": "Tên",
   "fieldAlias": "Bí danh",
   "fieldVisibility": "Khả năng hiển thị",
-  "fieldActions": "Các hành động"
+  "fieldActions": "Các hành động",
+  "showAttachments": "Hiển thị tệp đính kèm"
 });

@@ -25,5 +25,6 @@ define({
   "fieldName": "이름",
   "fieldAlias": "별칭",
   "fieldVisibility": "가시성",
-  "fieldActions": "작업"
+  "fieldActions": "작업",
+  "showAttachments": "첨부 파일 표시"
 });

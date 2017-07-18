@@ -25,5 +25,6 @@ define({
   "fieldName": "Název",
   "fieldAlias": "Přezdívka",
   "fieldVisibility": "Viditelnost",
-  "fieldActions": "Akce"
+  "fieldActions": "Akce",
+  "showAttachments": "Zobrazit přílohy"
 });

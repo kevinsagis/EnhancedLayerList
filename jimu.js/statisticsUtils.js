@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -142,7 +142,7 @@ define([
           if(typeof attributes.maxField === 'undefined'){
             attributes.maxField = val;
           }else{
-            attributes.maxField = Math.max(attributes.minField, val);
+            attributes.maxField = Math.max(attributes.maxField, val);
           }
           break;
         case 'avg':
@@ -209,7 +209,7 @@ define([
   function getFieldInfos(params){
     var layerInfos = LayerInfos.getInstanceSync();
     if(params.layer){
-      return layerInfos.getLayerInfoById(params.layer.id).loadInfoTemplate()
+      return layerInfos.getLayerOrTableInfoById(params.layer.id).loadInfoTemplate()
       .then(function(infoTemplate){
         var fieldInfos = {};
         if(infoTemplate.info && infoTemplate.info.fieldInfos){

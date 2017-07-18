@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@ define(['dojo/_base/declare',
     'dojo/topic',
     "dojo/query",
     "jimu/utils",
+    "jimu/shareUtils",
     'dojo/_base/config',
     "dojo/cookie",
-    'esri/urlUtils',
     'dojo/text!./templates/ShareLink.html',
     "dojo/string",
     "dijit/form/Select",
@@ -52,7 +52,7 @@ define(['dojo/_base/declare',
     "dijit/form/ValidationTextBox"
   ],
   function(declare, _WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin, lang, array, dojoClass,
-           on, topic, dojoQuery, jimuUtils, dojoConfig, dojoCookie, esriUrlUtils,
+           on, topic, dojoQuery, jimuUtils, shareUtils, dojoConfig, dojoCookie,
            template, dojoString, Select, NumberTextBox, domAttr, Deferred, esriRequest, EsriQuery, QueryTask,
            PictureMarkerSymbol, Graphic, GraphicsLayer, FeaturelayerChooserFromMap, LayerChooserFromMapWithDropbox) {
     /*global escape*/
@@ -107,7 +107,7 @@ define(['dojo/_base/declare',
         this._config = options.config;
       },
       startup: function() {
-        this.baseHrefUrl = this.getBaseHrefUrl(this._portalUrl);
+        this.baseHrefUrl = shareUtils.getBaseHrefUrl(this._portalUrl);
         if (typeof this.optionSrc === "undefined") {
           this.optionSrc = "currentMapExtent";
         }
@@ -137,11 +137,9 @@ define(['dojo/_base/declare',
 
       //for parent Plugin, set "_isSharedToPublic"
       onShareToPublicChanged: function(isEveryoneChecked) {
-        //change loaclhost to arcgis href, onLine only
         this._isSharedToPublic = isEveryoneChecked;
-        if (this._isOnline) {
-          this.updateUrl(null);
-        }
+        this.updateUrl(null);
+
         if (this._isSharedToPublic) {
           dojoClass.add(this.shareTips, "displaynone");
         } else {
@@ -444,7 +442,7 @@ define(['dojo/_base/declare',
           layerChooser: layerChooser
         });
         this.layerChooserFromMapWithDropbox.placeAt(this.queryFeature_layer);
-        this.own(on(this.layerChooserFromMapWithDropbox,  'selection-change',
+        this.own(on(this.layerChooserFromMapWithDropbox, 'selection-change',
           lang.hitch(this, this._updateQueryFeature_Layer)));
 
         //addMarker
@@ -563,10 +561,10 @@ define(['dojo/_base/declare',
 
         if (this.optionSrc === "currentMapExtent") {
           var gcsExtStr = this.getMapExtent(this.map);
-          this.resultUrl = this._addQueryParamToUrl(this.baseHrefUrl, "extent", gcsExtStr, true);
+          this.resultUrl = shareUtils.addQueryParamToUrl(this.baseHrefUrl, "extent", gcsExtStr, true);
         } else if (this.optionSrc === "chooseCenterWithLevel") {
           if (false === this._hasZoomLevelMarkerAdded) {
-            this.resultUrl = this._addQueryParamToUrl(this.baseHrefUrl, "center",
+            this.resultUrl = shareUtils.addQueryParamToUrl(this.baseHrefUrl, "center",
               this.getMapCenter(this.map, paramObj), true);
 
             if (paramObj && paramObj.x && paramObj.y) {
@@ -574,35 +572,35 @@ define(['dojo/_base/declare',
             }
           }
 
-          this.resultUrl = this._addQueryParamToUrl(this.resultUrl, "level", this._getMapLevel(), true);
+          this.resultUrl = shareUtils.addQueryParamToUrl(this.resultUrl, "level", this._getMapLevel(), true);
         } else if (this.optionSrc === "chooseCenterWithScale") {
           if (false === this._hasMapScaleMarkerAdded) {
-            this.resultUrl = this._addQueryParamToUrl(this.baseHrefUrl, "center",
+            this.resultUrl = shareUtils.addQueryParamToUrl(this.baseHrefUrl, "center",
               this.getMapCenter(this.map, paramObj), true);
 
-            if(paramObj && paramObj.x && paramObj.y) {
+            if (paramObj && paramObj.x && paramObj.y) {
               this._hasMapScaleMarkerAdded = true;
             }
           }
 
-          this.resultUrl = this._addQueryParamToUrl(this.resultUrl, "scale", this._getMapScale(), true);
+          this.resultUrl = shareUtils.addQueryParamToUrl(this.resultUrl, "scale", this._getMapScale(), true);
         } else if (this.optionSrc === "findLocation") {
           var locate = this.findLocation_input.get("value");
-          this.resultUrl = this._addQueryParamToUrl(this.baseHrefUrl, "find", locate, true);
+          this.resultUrl = shareUtils.addQueryParamToUrl(this.baseHrefUrl, "find", locate, true);
         } else if (this.optionSrc === "queryFeature") {
           this._updateUrlByQueryFeatures();//update
         } else if (this.optionSrc === "addMarker") {
-          if (false === this._hasAddMarkerMarkerAdded){
-            this.resultUrl = this._addQueryParamToUrl(this.baseHrefUrl, "marker",
+          if (false === this._hasAddMarkerMarkerAdded) {
+            this.resultUrl = shareUtils.addQueryParamToUrl(this.baseHrefUrl, "marker",
               this.getMapCenter(this.map, paramObj, null, this._getWkid()), true);
             this.resultUrl += ",";
 
-            if(paramObj && paramObj.x && paramObj.y) {
+            if (paramObj && paramObj.x && paramObj.y) {
               this._hasAddMarkerMarkerAdded = true;
               this._lastAddMarkerParamObj = paramObj;//cache
             }
           } else {
-            this.resultUrl = this._addQueryParamToUrl(this.baseHrefUrl, "marker",
+            this.resultUrl = shareUtils.addQueryParamToUrl(this.baseHrefUrl, "marker",
               this.getMapCenter(this.map, this._lastAddMarkerParamObj, null, this._getWkid()), true);
             this.resultUrl += ",";
           }
@@ -614,27 +612,27 @@ define(['dojo/_base/declare',
           this.resultUrl += encodeURIComponent(this.addMarker_label.get("value") || "");
           var level = this._getMapLevel();
           if (typeof level === "number" && level !== -1) {
-            this.resultUrl = this._addQueryParamToUrl(this.resultUrl, "level", this._getMapLevel(), true);
+            this.resultUrl = shareUtils.addQueryParamToUrl(this.resultUrl, "level", this._getMapLevel(), true);
           } else {
             //use scale if no level
-            this.resultUrl = this._addQueryParamToUrl(this.resultUrl, "scale", this._getMapScale(), true);
+            this.resultUrl = shareUtils.addQueryParamToUrl(this.resultUrl, "scale", this._getMapScale(), true);
           }
         }
 
         //checkbox
-        this.resultUrl = this._removeQueryParamFromUrl(this.resultUrl, "mobileBreakPoint", true);
-        this.resultUrl = this._removeQueryParamFromUrl(this.resultUrl, "locale", true);
-        this.resultUrl = this._removeQueryParamFromUrl(this.resultUrl, "token", true);
+        this.resultUrl = shareUtils.removeQueryParamFromUrl(this.resultUrl, "mobileBreakPoint", true);
+        this.resultUrl = shareUtils.removeQueryParamFromUrl(this.resultUrl, "locale", true);
+        this.resultUrl = shareUtils.removeQueryParamFromUrl(this.resultUrl, "token", true);
         if (this.overwirteMobileLayout.checked) {
-          this.resultUrl = this._addQueryParamToUrl(this.resultUrl, "mobileBreakPoint",
+          this.resultUrl = shareUtils.addQueryParamToUrl(this.resultUrl, "mobileBreakPoint",
             this.mobileLayout.getValue(), true);
         }
         if (this.setlanguage.checked) {
-          this.resultUrl = this._addQueryParamToUrl(this.resultUrl, "locale",
+          this.resultUrl = shareUtils.addQueryParamToUrl(this.resultUrl, "locale",
             this.setlanguage_languages.getValue(), true);
         }
         if (this.auth.checked) {
-          this.resultUrl = this._addQueryParamToUrl(this.resultUrl, "token",
+          this.resultUrl = shareUtils.addQueryParamToUrl(this.resultUrl, "token",
             this.authtoken.getValue(), true);
         }
       },
@@ -645,7 +643,7 @@ define(['dojo/_base/declare',
         var field = this.queryFeature_field.get("value");
         var value = this.queryFeature_value.get("value");
         //if (layer) {
-        this.resultUrl = this._addQueryParamToUrl(this.baseHrefUrl, "query", layer, true);
+        this.resultUrl = shareUtils.addQueryParamToUrl(this.baseHrefUrl, "query", layer, true);
         if (field) {
           this.resultUrl += ",";
           this.resultUrl += field;
@@ -671,8 +669,8 @@ define(['dojo/_base/declare',
         var options = [];
         this.queryFeature_field.removeOption(this.queryFeature_field.getOptions());
         array.forEach(fields, lang.hitch(this, function(field) {
-          if (["esriFieldTypeSmallInteger", "esriFieldTypeInteger", "esriFieldTypeSingle",
-              "esriFieldTypeDouble"].indexOf(field.type) > -1) {
+          if (["esriFieldTypeString", "esriFieldTypeOID", "esriFieldTypeSmallInteger", "esriFieldTypeInteger",
+              "esriFieldTypeSingle", "esriFieldTypeDouble"].indexOf(field.type) > -1) {
             var opt = {label: field.name, value: field.name};
             options.push(opt);
           }
@@ -704,7 +702,7 @@ define(['dojo/_base/declare',
         }
         return id;
       },
-      _getFieldsFromLayerChoose: function(){
+      _getFieldsFromLayerChoose: function() {
         var fields = [];
         var item = this.layerChooserFromMapWithDropbox.getSelectedItem();
         if (item && item.layerInfo && item.layerInfo.layerObject && item.layerInfo.layerObject.fields) {
@@ -712,7 +710,7 @@ define(['dojo/_base/declare',
         }
         return fields;
       },
-      _getUrlFromLayerChoose: function(){
+      _getUrlFromLayerChoose: function() {
         var url = "";
         var item = this.layerChooserFromMapWithDropbox.getSelectedItem();
         if (item && item.url) {
@@ -739,7 +737,13 @@ define(['dojo/_base/declare',
       _fixUrlIfIsOnline: function(url) {
         //if online && shared to public , url need to change to www.arcgis.com/***
         if (this._isOnline && this._isSharedToPublic) {
-          var protocol = window.top.location.protocol;
+          var protocol = "";
+          if (window.isBuilder) {
+            protocol = window.top.location.protocol;
+          } else {
+            protocol = window.location.protocol;
+          }
+
           // var pathname = window.top.location.pathname;
           // if (typeof pathname === "string" && pathname.indexOf("webappbuilder")) {
           //   pathname = pathname.replace("webappbuilder", "webappviewer")
@@ -964,27 +968,6 @@ define(['dojo/_base/declare',
         return options;
       },
 
-      getBaseHrefUrl: function(portalUrl) {
-        var webappviewer = window.appInfo.appType === "HTML3D" ? "webappviewer3d" : "webappviewer";
-        var href = "";
-        if (window.isXT) {
-          href = window.location.protocol + "//" + window.location.host + window.appInfo.appPath;
-        } else {
-          var urlParams = jimuUtils.urlToObject(window.location.href).query || {};
-          if (urlParams.appid) {
-            //appid for apps that be created by templates
-            href = portalUrl + 'apps/' + webappviewer + '/index.html?appid=' + urlParams.appid;
-          } else if (urlParams.id) {
-            //portal or onLine apps
-            href = portalUrl + 'apps/' + webappviewer + '/index.html?id=' + urlParams.id;
-          } else {
-            //published app: without id in url
-            href = window.top.location.href;
-          }
-        }
-        return href;
-      },
-
       //add and remove marker ,when click marker icon in linkOptions
       _addGraphicsLayer: function() {
         if (!window.isBuilder && typeof this._graphicsLayer === "undefined") {
@@ -1021,11 +1004,11 @@ define(['dojo/_base/declare',
           dojoClass.remove(markerBtn, "selected");
         }
       },
-      _selectMarkerBtn: function(results){
+      _selectMarkerBtn: function(results) {
         var src = results.srcElement || results.target;
         dojoClass.add(src, "selected");
       },
-      _cleanMarkerStatus: function(){
+      _cleanMarkerStatus: function() {
         if (this._mapClickHandler && this._mapClickHandler.remove) {
           this._mapClickHandler.remove();
         }
@@ -1057,48 +1040,6 @@ define(['dojo/_base/declare',
         }
 
         return url;
-      },
-      //jimuUtil's method can't encodeURIComponent(or will decodeURIComponent)
-      _addQueryParamToUrl: function(url, paramName, paramValue, isEncode) {
-        var urlObject = esriUrlUtils.urlToObject(url);
-        if (!urlObject.query) {
-          urlObject.query = {};
-        }
-        urlObject.query[paramName] = paramValue;
-        var ret = urlObject.path;
-        for (var q in urlObject.query) {
-          var val = urlObject.query[q];
-          if (true === isEncode) {
-            val = encodeURIComponent(val);
-          }
-
-          if (ret === urlObject.path) {
-            ret = ret + '?' + q + '=' + val;
-          } else {
-            ret = ret + '&' + q + '=' + val;
-          }
-        }
-        return ret;
-      },
-      _removeQueryParamFromUrl: function(url, paramName, isEncode) {
-        var urlObject = esriUrlUtils.urlToObject(url);
-        if (urlObject.query) {
-          delete urlObject.query[paramName];
-        }
-        var ret = urlObject.path;
-        for (var q in urlObject.query) {
-          var val = urlObject.query[q];
-          if (true === isEncode) {
-            val = encodeURIComponent(val);
-          }
-
-          if (ret === urlObject.path) {
-            ret = ret + '?' + q + '=' + val;
-          } else {
-            ret = ret + '&' + q + '=' + val;
-          }
-        }
-        return ret;
       }
     });
     return so;

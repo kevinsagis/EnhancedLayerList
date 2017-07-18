@@ -6,6 +6,7 @@ define({
     "yes": "Ja",
     "no": "Nei",
     "next": "Neste",
+    "previous": "Forrige",
     "back": "Bak",
     "selected": "valgte",
     "name": "Navn",
@@ -48,11 +49,19 @@ define({
     "scene": "Scene",
     "reset": "Tilbakestill",
     "icon": "Ikon",
+    "folder": "Mappe",
     "share": "Dele",
     "view": "Vis",
     "newText": "Ny",
     "edit": "Rediger",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Tabell",
+    "zoomIn": "Zoom inn",
+    "zoomOut": "Zoom ut",
+    "continue1": "Fortsett",
+    "longitude": "Lengdegrad",
+    "latitude": "Breddegrad",
+    "custom": "Tilpasset"
   },
   "errorCode": "Kode",
   "errorMessage": "Melding",
@@ -96,7 +105,10 @@ define({
     "dash": "Strek",
     "dot": "Prikk",
     "dashDot": "Strek prikk",
-    "dashDotDot": "Strek prikk prikk"
+    "dashDotDot": "Strek prikk prikk",
+    "customImage": "Egendefinert bilde",
+    "chooseFile": "Velg fil",
+    "noFileChoosen": "Ingen fil er valgt."
   },
   "transparency": {
     "opaque": "Ugjennomsiktig",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Skille mellom store og små bokstaver",
     "notSupportCaseSensitiveTip": "Administrerte tjenester støtter ikke spørringer som skiller mellom små og store bokstaver.",
-    "setFilterTip": "Angi filteret på riktig måte."
+    "setFilterTip": "Angi filteret på riktig måte.",
+    "listValues": "Listeverdier",
+    "cascadeFilterTip": "Vis kun verdier filtrert av tidligere uttrykk.",
+    "noneCascadeFilterTip": "Alle unike verdier i dette feltet",
+    "previousCascadeFilterTip": "Verdier filtrert etter tidligere uttrykk",
+    "allCascadeFilterTip": "Verdier filtrert etter alle andre uttrykk"
   },
   "featureLayerSource": {
     "layer": "Lag",
@@ -293,7 +310,11 @@ define({
     "owner": "owner",
     "signInTo": "Logg inn på",
     "lastModified": "Sist endret",
-    "moreDetails": "Flere detaljer"
+    "moreDetails": "Flere detaljer",
+    "mostRecent": "De nyeste",
+    "mostViewed": "De mest sette",
+    "highestRated": "Høyest vurderte",
+    "viewItemDetails": "Vis elementdetaljer"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Tjenesten støtter ikke spørringer."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Ugyldig filtype.",
     "cropImage": "Beskjær bilde",
     "exceed": "Filstørrelsen må ikke overskride 1 024 kB",
-    "enableFlash": "TODO: aktiver flash.",
+    "enableFlash": "Aktiver Adobe Flash før du blar til et bilde.",
     "cropWaining": "Velg et bilde som er minst ${width} x ${height} piksler.",
     "toolTip": "Resultatet blir best hvis bildet er ${width} piksler bredt og ${height} piksler høyt. Andre størrelser må justeres for at de skal passe. Godkjente bildeformater er: PNG, GIF og JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Klikk for å gjenopprette kartutstrekningen og synligheten for lagene der du slapp."
   },
   "featureActions": {
+    "featureActions": "Geoobjekthandlinger",
     "ZoomTo": "Zoom til",
     "PanTo": "Panorer til",
     "Flash": "Blits",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Eksporter til CSV-fil",
     "ShowSelectedFeature": "Vis geoobjektene som er valgt",
     "ExportToFeatureCollection": "Eksporter til geoobjektssamling",
-    "ExportToGeoJSON": "Eksporter til GeoJSON"
+    "ExportToGeoJSON": "Eksporter til GeoJSON",
+    "EditAttributes": "Rediger attributter",
+    "AddMarker": "Legg til en markør",
+    "RemoveMarker": "Fjern markør",
+    "SaveToMyContent": "Lagre i Mitt innhold"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Relatert lag",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Legg til utvalg",
     "removeSelectionTip": "Fjern fra utvalg",
     "selectFromCurrentSelectionTip": "Velg fra gjeldende utvalg",
-    "unselectAllSelectionTip": "Opphev valget av alle valgte geoobjekter"
+    "unselectAllSelectionTip": "Opphev valget av alle valgte geoobjekter",
+    "selectByPolygon": "Select By Polygon",
+    "selectByCircle": "Select By Circle",
+    "selectByLine": "Select By Line",
+    "chooseSelectingTools": "Velg utvalgsverktøy",
+    "darw": "Tegn",
+    "drawShap": "Tegne en form"
   },
   "widgetManager": {
     "createWidgetError": "Feil ved oppretting av miniprogram",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Nettleseren støtter ikke 3D-webapper."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Bakgrunnskart ikke tilgjengelig.",
+    "displayDefaultBasemap": "Viser i stedet standardbakgrunnskartet.",
+    "layerLoadedError": "Laget ${layers} kan ikke legges til i kartet."
+  },
+  "popup": {
+    "relatedTables": "Relaterte tabeller:",
+    "relatedRecords": "Relaterte poster:",
+    "noRelatedRecotds": "Fant ingen tilknyttede oppføringer.",
+    "chooseFieldTip": "Velg et attributt for å vise listen",
+    "saveAsPopupTitle": "Samme som tittel på popup"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Det er for mange geoobjekter i utvalget. Det kan ta lang tid å hente og vise dem i kartet.",
+    "askForContinue": "Vil du fortsette?"
+  },
+  "colorPalette": {
+    "transparent": "Gjennomsiktig",
+    "custom": "Tilpasset"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Skriv ut",
+    "reportDimensionsMsg": "Denne rapporten er beregnet på utskrift på ${paperSize}-papir",
+    "unableToPrintMapMsg": "Det oppstod en feil under utskrift av kartet/kartene.",
+    "landscape": "Landskap",
+    "portrait": "Stående",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Juridisk",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Kontoen har ikke rettigheter til å opprette eller endre data.",
+  "invalidConfiguration": "Widgeten er ikke konfigurert eller lagene i konfigurasjonen finnes ikke i kartet lenger. Åpne appen i byggemodus, og konfigurer widgeten på nytt."
 });

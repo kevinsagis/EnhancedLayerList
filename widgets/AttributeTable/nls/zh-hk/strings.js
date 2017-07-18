@@ -23,6 +23,7 @@ define({
   "showAllRecords": "顯示所有記錄",
   "showRelatedRecords": "顯示相關記錄",
   "noRelatedRecords": "找不到相關記錄",
+  "attachmentColumn": "相片和檔案",
   "refresh": "重新整理",
   "features": "圖徵",
   "records": "個記錄",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "隱藏屬性表",
   "sortAsc": "升冪排列",
   "sortDes": "降冪排列",
-  "statistics": "統計資料"
+  "statistics": "統計資料",
+  "attachments": "附件",
+  "files": "檔案"
 });

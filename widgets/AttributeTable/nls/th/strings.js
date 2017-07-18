@@ -23,6 +23,7 @@ define({
   "showAllRecords": "แสดงรายการที่บันทึกไว้ทั้งหมด",
   "showRelatedRecords": "แสดงเรคคอร์ดที่สัมพันธ์กัน",
   "noRelatedRecords": "ไม่พบค่าที่เกี่ยวข้อง",
+  "attachmentColumn": "รูปและไฟล์",
   "refresh": "รีเฟรช",
   "features": "ฟีเจอร์",
   "records": "บันทึก",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "ซ่อนตารางเชิงบรรยาย",
   "sortAsc": "เรียงลำดับจากน้อยไปมาก",
   "sortDes": "เรียงลำดับจากมากไปน้อย",
-  "statistics": "สถิติ"
+  "statistics": "สถิติ",
+  "attachments": "แนบ",
+  "files": "ไฟล์"
 });

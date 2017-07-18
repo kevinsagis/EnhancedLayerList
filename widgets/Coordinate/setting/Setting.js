@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@ define([
     'jimu/portalUtils',
     './Edit',
     "jimu/SpatialReference/srUtils",
+    'jimu/dijit/RadioBtn',
     'dojo/NodeList-dom',
     'dijit/form/NumberSpinner',
     'dijit/form/NumberTextBox'
@@ -160,6 +161,8 @@ define([
 
         this.own(on(this.outputCoordinateTable, 'actions-edit', lang.hitch(this, 'onEditClick')));
         this.setConfig(this.config);
+
+        this._initOrderLonLatRadioBtns();
 
         this._getGeometryServiceVersion();
       },
@@ -379,6 +382,27 @@ define([
         this.config.addSeparator = this.separator.getValue();
 
         return this.config;
+      },
+      _initOrderLonLatRadioBtns: function() {
+        this.own(on(this.lonLat, 'click', lang.hitch(this, function() {
+          this.config.displayOrderLonLat = true;
+        })));
+        this.own(on(this.latLon, 'click', lang.hitch(this, function() {
+          this.config.displayOrderLonLat = false;
+        })));
+        if (this.config.displayOrderLonLat) {
+          this._selectRadioBtnItem("lonLat");
+          this.config.displayOrderLonLat = true;
+        } else {
+          this._selectRadioBtnItem("latLon");
+          this.config.displayOrderLonLat = false;
+        }
+      },
+      _selectRadioBtnItem: function(name) {
+        var _radio = this[name];
+        if (_radio && _radio.check) {
+          _radio.check(true);
+        }
       }
     });
   });

@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Vis alle poster",
   "showRelatedRecords": "Vis relaterede poster",
   "noRelatedRecords": "Ingen relaterede poster fundet",
+  "attachmentColumn": "Fotos og filer",
   "refresh": "Opdatér",
   "features": "objekter",
   "records": "poster",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Skjul attributtabel",
   "sortAsc": "Sortér stigende",
   "sortDes": "Sortér faldende",
-  "statistics": "Statistik"
+  "statistics": "Statistik",
+  "attachments": "Vedhæftninger",
+  "files": "filer"
 });

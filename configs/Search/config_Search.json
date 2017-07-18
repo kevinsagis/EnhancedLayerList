@@ -12,7 +12,10 @@
       "maxSuggestions": 6,
       "maxResults": 6,
       "searchInCurrentMapExtent": true,
-      "type": "locator"
+      "type": "locator",
+      "enableLocalSearch": true,
+      "localSearchMinScale": 300000,
+      "localSearchDistance": 50000
     },
     {
       "name": "SAGIS Centerlines",
@@ -21,7 +24,10 @@
       "placeholder": "110 E State St",
       "maxResults": 6,
       "searchInCurrentMapExtent": false,
-      "type": "locator"
+      "type": "locator",
+      "enableLocalSearch": false,
+      "localSearchMinScale": 300000,
+      "localSearchDistance": 50000
     },
     {
       "name": "SAGIS Address Points",
@@ -30,7 +36,10 @@
       "placeholder": "110 E State St",
       "maxResults": 6,
       "searchInCurrentMapExtent": false,
-      "type": "locator"
+      "type": "locator",
+      "enableLocalSearch": false,
+      "localSearchMinScale": 300000,
+      "localSearchDistance": 50000
     }
   ]
 }

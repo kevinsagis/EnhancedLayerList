@@ -25,5 +25,6 @@ define({
   "fieldName": "Nosaukums",
   "fieldAlias": "Aizstājvārds",
   "fieldVisibility": "Redzamība",
-  "fieldActions": "Darbības"
+  "fieldActions": "Darbības",
+  "showAttachments": "Rādīt pielikumus"
 });

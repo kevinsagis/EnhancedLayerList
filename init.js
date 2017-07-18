@@ -115,6 +115,12 @@ var ie = (function() {
         name: "dgrid",
         location: window.apiUrl + "dgrid"
       }, {
+        name: "dgrid1",
+        location: window.apiUrl + "dgrid1"
+      }, {
+        name: "dstore",
+        location: window.apiUrl + "dstore"
+      }, {
         name: "moment",
         location: window.apiUrl + "moment"
       }, {

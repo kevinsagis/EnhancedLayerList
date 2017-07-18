@@ -6,7 +6,8 @@ define({
     "yes": "是",
     "no": "否",
     "next": "下一步",
-    "back": "返回",
+    "previous": "上一个",
+    "back": "上一步",
     "selected": "选定",
     "name": "名称",
     "usage": "用法",
@@ -24,13 +25,13 @@ define({
     "input": "输入",
     "output": "输出",
     "type": "类型",
-    "required": "必选",
+    "required": "必填项",
     "options": "选项",
     "label": "标注",
     "tooltip": "工具提示",
     "visible": "可见",
     "symbol": "符号",
-    "popup": "弹出菜单",
+    "popup": "弹出窗口",
     "upload": "上传",
     "execute": "执行",
     "help": "帮助",
@@ -48,11 +49,19 @@ define({
     "scene": "场景",
     "reset": "重置",
     "icon": "图标",
+    "folder": "文件夹",
     "share": "共享",
     "view": "查看",
     "newText": "新建",
     "edit": "编辑",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "表格",
+    "zoomIn": "放大",
+    "zoomOut": "缩小",
+    "continue1": "继续",
+    "longitude": "经度",
+    "latitude": "纬度",
+    "custom": "自定义"
   },
   "errorCode": "代码",
   "errorMessage": "消息",
@@ -83,7 +92,7 @@ define({
     "transportation": "交通运输",
     "symbolSize": "符号大小",
     "color": "颜色",
-    "alpha": "透明度",
+    "alpha": "Alpha",
     "outlineColor": "轮廓颜色",
     "outlineWidth": "轮廓宽度",
     "style": "样式",
@@ -96,14 +105,17 @@ define({
     "dash": "虚线",
     "dot": "点",
     "dashDot": "点划线",
-    "dashDotDot": "双点划线"
+    "dashDotDot": "双点划线",
+    "customImage": "自定义影像",
+    "chooseFile": "选择文件",
+    "noFileChoosen": "未选择任何文件。"
   },
   "transparency": {
     "opaque": "不透明",
     "transparent": "透明"
   },
   "rendererChooser": {
-    "domain": "属性域",
+    "domain": "域",
     "use": "使用",
     "singleSymbol": "单一符号",
     "uniqueSymbol": "唯一符号",
@@ -167,7 +179,7 @@ define({
   "basicServiceChooser": {
     "validate": "验证",
     "example": "示例",
-    "set": "集合"
+    "set": "设置"
   },
   "urlInput": {
     "invalidUrl": "URL 无效。"
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "区分大小写",
     "notSupportCaseSensitiveTip": "托管的服务不支持区分大小写的查询。",
-    "setFilterTip": "请正确设置过滤器。"
+    "setFilterTip": "请正确设置过滤器。",
+    "listValues": "列出值",
+    "cascadeFilterTip": "仅显示由上一表达式过滤的值。",
+    "noneCascadeFilterTip": "此字段的所有唯一值",
+    "previousCascadeFilterTip": "按上一表达式过滤的值",
+    "allCascadeFilterTip": "按所有其他表达式过滤的值"
   },
   "featureLayerSource": {
     "layer": "图层",
@@ -284,7 +301,7 @@ define({
     "signIn": "登录",
     "publicMap": "公共",
     "myOrganization": "我的组织",
-    "myGroup": "我的组",
+    "myGroup": "我的群组",
     "myContent": "我的内容",
     "count": "计数",
     "fromPortal": "从 Portal",
@@ -293,7 +310,11 @@ define({
     "owner": "所有者",
     "signInTo": "登录到",
     "lastModified": "上次修改时间",
-    "moreDetails": "更多详细信息"
+    "moreDetails": "更多详细信息",
+    "mostRecent": "最近",
+    "mostViewed": "最多访问量",
+    "highestRated": "最高评级",
+    "viewItemDetails": "查看项目详细信息"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "服务不支持查询。"
@@ -322,7 +343,7 @@ define({
     "invalidType": "无效的文件类型。",
     "cropImage": "裁剪图像",
     "exceed": "文件大小不得超过 1024 KB",
-    "enableFlash": "需执行的操作: 请启用闪烁。",
+    "enableFlash": "浏览影像前请先启用 Adobe Flash。",
     "cropWaining": "请选择至少拥有 ${width} x ${height} 像素的照片。",
     "toolTip": "为获得最佳效果，图像的宽度应为 ${width} 像素，高度应为 ${height} 像素。其他大小将调整为适应此大小。可接受的图像格式包括: PNG、GIF 和 JPEG。"
   },
@@ -338,15 +359,16 @@ define({
   },
   "exportTo": {
     "exportTo": "导出",
-    "toCSV": "导出到 CSV 文件",
+    "toCSV": "导出为 CSV 文件",
     "toFeatureCollection": "导出至要素集合",
     "toGeoJSON": "导出至 GeoJSON"
   },
   "appState": {
     "title": "应用程序状态",
-    "restoreMap": "单击以恢复之前停止的地图范围和图层可见性。"
+    "restoreMap": "单击以恢复之前的地图范围和图层可见性。"
   },
   "featureActions": {
+    "featureActions": "要素操作",
     "ZoomTo": "缩放至",
     "PanTo": "平移至",
     "Flash": "闪烁",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "导出到 CSV 文件",
     "ShowSelectedFeature": "显示所选要素",
     "ExportToFeatureCollection": "导出至要素集合",
-    "ExportToGeoJSON": "导出至 GeoJSON"
+    "ExportToGeoJSON": "导出至 GeoJSON",
+    "EditAttributes": "编辑属性",
+    "AddMarker": "添加标记",
+    "RemoveMarker": "移除标记",
+    "SaveToMyContent": "保存到“我的内容”"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "相关图层",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "添加到选择内容",
     "removeSelectionTip": "从选择内容中移除",
     "selectFromCurrentSelectionTip": "从当前选择内容中选择",
-    "unselectAllSelectionTip": "取消选择所有当前选择的要素"
+    "unselectAllSelectionTip": "取消选择所有当前选择的要素",
+    "selectByPolygon": "按多边形选择",
+    "selectByCircle": "按圆选择",
+    "selectByLine": "按线选择",
+    "chooseSelectingTools": "选取选择工具",
+    "darw": "绘制",
+    "drawShap": "绘制形状"
   },
   "widgetManager": {
     "createWidgetError": "创建微件出错",
@@ -412,7 +444,7 @@ define({
     "googlePlus": "google+",
     "shareGooglePlus": "Google+",
     "EmbedTips": "将此应用程序嵌入到网站中",
-    "shareEmailSubject": "正在共享 Web 应用程序:",
+    "shareEmailSubject": "共享 Web 应用程序：",
     "shareEmailTxt1": "这是通过使用 Web AppBuilder for ArcGIS 与您共享的 Web 应用程序。",
     "shareEmailTxt2": "可以使用 Esri Web AppBuilder for ArcGIS 创建和共享自己的 Web 应用程序。",
     "shareEmailTxt3": "详细信息请访问 http://www.esri.com/software/web-appbuilder。",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "您的浏览器不支持 3D Web 应用程序。"
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "底图不可用。",
+    "displayDefaultBasemap": "显示默认底图。",
+    "layerLoadedError": "图层 ${layers} 无法添加到地图中。"
+  },
+  "popup": {
+    "relatedTables": "相关表：",
+    "relatedRecords": "相关记录：",
+    "noRelatedRecotds": "未找到相关记录。",
+    "chooseFieldTip": "选择要显示列表的属性",
+    "saveAsPopupTitle": "与弹出标题相同"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "您选择的要素过多。检索这些要素并将其显示在地图上可能需要很长时间。",
+    "askForContinue": "是否要继续?"
+  },
+  "colorPalette": {
+    "transparent": "透明",
+    "custom": "自定义"
+  },
+  "temperature": {
+    "celsius": "摄氏温度",
+    "fahrenheit": "华氏温度"
+  },
+  "report": {
+    "printButtonLabel": "打印",
+    "reportDimensionsMsg": "此报告专门在 ${paperSize} 纸张上打印。",
+    "unableToPrintMapMsg": "打印地图时出错。",
+    "landscape": "横向",
+    "portrait": "纵向",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "信纸 ANSI A",
+    "tabloidANSIB": "文摘 ANSI B",
+    "letter": "信纸",
+    "legal": "法律专用纸",
+    "tabloid": "报纸",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "您的帐户不具备创建或修改数据的权限。",
+  "invalidConfiguration": "微件尚未配置或配置中的图层已不在地图中。请在构建器模式下打开应用程序，然后重新配置微件。"
 });

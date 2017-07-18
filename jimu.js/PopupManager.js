@@ -22,8 +22,10 @@ define([
   'dojo/query',
   './FeatureActionManager',
   './utils',
-  './dijit/PopupMenu'
-  ], function(declare, lang, html, topic, on, query, FeatureActionManager, jimuUtils, PopupMenu) {
+  './dijit/FeatureActionPopupMenu',
+  './RelatedRecordsPopupProjector'
+  ], function(declare, lang, html, topic, on, query, FeatureActionManager, jimuUtils, PopupMenu,
+  RelatedRecordsPopupProjector) {
     var instance = null;
     var clazz = declare(null, {
       mapManager: null,
@@ -32,6 +34,7 @@ define([
       //   bigScreen: is popup of map
       // };
       popupUnion: null,
+      _relatedRecordsPopupProjector: null,
 
       constructor: function(options) {
         lang.mixin(this, options);
@@ -60,11 +63,18 @@ define([
       },
 
       _createPopupMenuButton: function(){
+        if(this.popupMenuButtonDesktop) {
+          html.destroy(this.popupMenuButtonDesktop);
+        }
+        if(this.popupMenuButtonMobile) {
+          html.destroy(this.popupMenuButtonMobile);
+        }
         this.popupMenuButtonDesktop = html.create('span', {
           'class': 'popup-menu-button'
         }, query(".actionList", this.popupUnion.bigScreen.domNode)[0]);
 
-        var mobileActionListNode = query(".esriMobilePopupInfoView .esriMobileInfoViewItem").parent()[0];
+        var mobileActionListNode =
+          query("div.esriMobileInfoView.esriMobilePopupInfoView .esriMobileInfoViewItem").parent()[0];
         var mobileViewItem = html.create('div', {
             'class': 'esriMobileInfoViewItem'
           }, mobileActionListNode);
@@ -89,28 +99,52 @@ define([
       _onSelectionChange: function(evt){
         this.selectedFeature = evt.target.getSelectedFeature();
         if(!this.selectedFeature){
-          html.addClass(this.popupMenuButtonDesktop, 'disabled');
-          html.addClass(this.popupMenuButtonMobile, 'disabled');
+          this._disablePopupMenu();
           return;
         }
-        this._initPopupMenu();
+        this.initPopupMenu([this.selectedFeature]);
+
+        var selectedFeatureLayer = this.selectedFeature.getLayer();
+        var hasInfoTemplate = this.selectedFeature.infoTempalte ||
+                              (selectedFeatureLayer && selectedFeatureLayer.infoTemplate);
+        if(hasInfoTemplate) {
+          this._createRelatedRecordsPopupProjector(this.selectedFeature);
+        }
       },
 
-      _initPopupMenu: function(){
-        this.featureActionManager.getSupportedActions(this.selectedFeature).then(lang.hitch(this, function(actions){
+      _disablePopupMenu: function() {
+        html.addClass(this.popupMenuButtonDesktop, 'disabled');
+        html.addClass(this.popupMenuButtonMobile, 'disabled');
+      },
+
+      _enablePopupMenu: function() {
+        html.removeClass(this.popupMenuButtonDesktop, 'disabled');
+        html.removeClass(this.popupMenuButtonMobile, 'disabled');
+      },
+
+      // public method, can be called from outside.
+      initPopupMenu: function(features){
+        if(!features) {
+          this._disablePopupMenu();
+          this.popupMenu.setActions([]);
+          return;
+        }
+        var featureSet = jimuUtils.toFeatureSet(features);
+        this.featureActionManager.getSupportedActions(featureSet).then(lang.hitch(this, function(actions){
+          var excludeActions = ['ZoomTo', 'ShowPopup', 'Flash', 'ExportToCSV',
+            'ExportToFeatureCollection', 'ExportToGeoJSON', 'ShowRelatedRecords', 'SaveToMyContent'];
           var popupActions = actions.filter(lang.hitch(this, function(action){
-            return ['ZoomTo', 'ShowPopup', 'Flash'].indexOf(action.name) < 0 ;
+            return excludeActions.indexOf(action.name) < 0 ;
           }));
 
           if(popupActions.length === 0){
-            html.addClass(this.popupMenuButtonDesktop, 'disabled');
-            html.addClass(this.popupMenuButtonMobile, 'disabled');
+            this._disablePopupMenu();
           }else{
-            html.removeClass(this.popupMenuButtonDesktop, 'disabled');
-            html.removeClass(this.popupMenuButtonMobile, 'disabled');
+            this._enablePopupMenu();
           }
           var menuActions = popupActions.map(lang.hitch(this, function(action){
-            action.data = jimuUtils.toFeatureSet(this.selectedFeature);
+            //action.data = jimuUtils.toFeatureSet(feature);
+            action.data = featureSet;
             return action;
           }));
           this.popupMenu.setActions(menuActions);
@@ -141,7 +175,31 @@ define([
       _onWidgetsActionsRegistered: function(){
         //to init actions
         this.init();
+      },
+
+      /**********************************
+       * Methods for show related records
+       **********************************/
+
+      _createRelatedRecordsPopupProjector: function(selectedFeature) {
+        try {
+          if(this._relatedRecordsPopupProjector &&
+             this._relatedRecordsPopupProjector.domNode) {
+            this._relatedRecordsPopupProjector.destroy();
+            this._relatedRecordsPopupProjector = null;
+          }
+          //var refDomNode = query(".esriViewPopup", this.popupUnion.bigScreen.domNode)[0];
+          this._relatedRecordsPopupProjector = new RelatedRecordsPopupProjector({
+            originalFeature: selectedFeature,
+            //refDomNode: refDomNode,
+            popup: this.mapManager.map.infoWindow,
+            popupManager: this
+          });
+        } catch(err) {
+          console.warn(err.message);
+        }
       }
+
 
     });
 

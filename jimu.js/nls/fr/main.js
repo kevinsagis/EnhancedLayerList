@@ -6,6 +6,7 @@ define({
     "yes": "Oui",
     "no": "Non",
     "next": "Suivant",
+    "previous": "Précédent",
     "back": "Retour",
     "selected": "Les entités sélectionnées",
     "name": "Nom",
@@ -48,11 +49,19 @@ define({
     "scene": "Scène",
     "reset": "Réinitialiser",
     "icon": "Icône",
+    "folder": "Dossier",
     "share": "Partager",
     "view": "Afficher",
     "newText": "Nouveau",
     "edit": "Modifier",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Table",
+    "zoomIn": "Zoom avant",
+    "zoomOut": "Zoom arrière",
+    "continue1": "Poursuivre",
+    "longitude": "Longitude",
+    "latitude": "Latitude",
+    "custom": "Personnalisé"
   },
   "errorCode": "Code",
   "errorMessage": "Message",
@@ -96,7 +105,10 @@ define({
     "dash": "Tiret",
     "dot": "Point",
     "dashDot": "Tiret-point",
-    "dashDotDot": "Tiret-point-point"
+    "dashDotDot": "Tiret-point-point",
+    "customImage": "Image personnalisée",
+    "chooseFile": "Choisir le fichier",
+    "noFileChoosen": "Aucun fichier sélectionné."
   },
   "transparency": {
     "opaque": "Opaque",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Respecter la casse",
     "notSupportCaseSensitiveTip": "Les services hébergés ne prennent pas en charge les requêtes respectant la casse.",
-    "setFilterTip": "Définissez le filtre correctement."
+    "setFilterTip": "Définissez le filtre correctement.",
+    "listValues": "Valeurs de liste",
+    "cascadeFilterTip": "Afficher uniquement les valeurs filtrées par les expressions précédentes.",
+    "noneCascadeFilterTip": "Toutes les valeurs uniques de ce champ",
+    "previousCascadeFilterTip": "Valeurs filtrées selon des expressions précédentes",
+    "allCascadeFilterTip": "Valeurs filtrées selon toutes les autres expressions"
   },
   "featureLayerSource": {
     "layer": "Couche",
@@ -285,7 +302,7 @@ define({
     "publicMap": "Public",
     "myOrganization": "Organisation",
     "myGroup": "Mes groupes",
-    "myContent": "Contenus",
+    "myContent": "Mon contenu",
     "count": "Effectif",
     "fromPortal": "depuis le portail",
     "fromOnline": "depuis ArcGIS.com",
@@ -293,7 +310,11 @@ define({
     "owner": "propriétaire",
     "signInTo": "Se connecter à",
     "lastModified": "Dernière modification",
-    "moreDetails": "Plus de détails"
+    "moreDetails": "Plus de détails",
+    "mostRecent": "La plus récente",
+    "mostViewed": "Les plus consultées",
+    "highestRated": "Les mieux évaluées",
+    "viewItemDetails": "Afficher les détails de l'élément"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Le service ne prend pas en charge l'interrogation."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Type de fichier non valide.",
     "cropImage": "Rogner l'image",
     "exceed": "La taille du fichier ne peut pas dépasser 1 024 Ko",
-    "enableFlash": "A FAIRE : activez Flash.",
+    "enableFlash": "Activez Adobe Flash avant de naviguer vers une image.",
     "cropWaining": "Choisissez une photo d'au moins ${width} x ${height} pixels.",
     "toolTip": "Pour optimiser les résultats, l'image doit être de ${width} pixels en largeur sur ${height} pixels en hauteur. Les autres tailles sont ajustées en conséquence. Les formats d'image acceptables sont : PNG, GIF et JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Cliquez pour restaurer l’étendue de la carte et la visibilité des couches là où vous en étiez resté."
   },
   "featureActions": {
+    "featureActions": "Actions des entités",
     "ZoomTo": "Zoom",
     "PanTo": "Déplacer sur",
     "Flash": "Clignoter",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Exporter vers un fichier CSV",
     "ShowSelectedFeature": "Afficher les entités sélectionnées",
     "ExportToFeatureCollection": "Exporter vers la collection d'entités",
-    "ExportToGeoJSON": "Exporter vers GeoJSON"
+    "ExportToGeoJSON": "Exporter vers GeoJSON",
+    "EditAttributes": "Modifier des attributs",
+    "AddMarker": "Ajouter un symbole ponctuel",
+    "RemoveMarker": "Supprimer un symbole ponctuel",
+    "SaveToMyContent": "Enregistrer dans Mon contenu"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Couche associée",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Ajouter à la sélection",
     "removeSelectionTip": "Supprimer de la sélection",
     "selectFromCurrentSelectionTip": "Sélectionner dans la sélection actuelle",
-    "unselectAllSelectionTip": "Permet de désélectionner toutes les entités actuellement sélectionnées"
+    "unselectAllSelectionTip": "Permet de désélectionner toutes les entités actuellement sélectionnées",
+    "selectByPolygon": "Sélectionner par polygone",
+    "selectByCircle": "Sélectionner par cercle",
+    "selectByLine": "Sélectionner par ligne",
+    "chooseSelectingTools": "Choisir des outils de sélection",
+    "darw": "Dessin",
+    "drawShap": "Dessiner une forme"
   },
   "widgetManager": {
     "createWidgetError": "Erreur de création du widget",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Les applications Web 3D ne sont pas prises en charge dans votre navigateur."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Ce fond de carte n'est pas disponible.",
+    "displayDefaultBasemap": "Affichage du fond de carte par défaut.",
+    "layerLoadedError": "Impossible d'ajouter la couche ${layers} à la carte."
+  },
+  "popup": {
+    "relatedTables": "Tables associées :",
+    "relatedRecords": "Enregistrements associés :",
+    "noRelatedRecotds": "Aucun enregistrement associé trouvé.",
+    "chooseFieldTip": "Choisir un attribut pour afficher la liste",
+    "saveAsPopupTitle": "Identique au titre de l'élément contextuel"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Votre sélection comporte trop d'entités. La récupération et l'affichage des données sur la carte risque de prendre beaucoup de temps.",
+    "askForContinue": "Souhaitez-vous continuer ?"
+  },
+  "colorPalette": {
+    "transparent": "Transparent",
+    "custom": "Personnalisé"
+  },
+  "temperature": {
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "Imprimer",
+    "reportDimensionsMsg": "Ce rapport est conçu pour une impression sur papier ${paperSize}",
+    "unableToPrintMapMsg": "Une erreur s'est produite lors de l'impression des cartes.",
+    "landscape": "Paysage",
+    "portrait": "Portrait",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Lettre ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Lettre US",
+    "legal": "Légal",
+    "tabloid": "Tabloid US",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Votre compte ne dispose pas des autorisations de création ou de modification des données.",
+  "invalidConfiguration": "Le widget n'est pas configuré ou les couches de la configuration ne figurent plus sur la carte. Ouvrez l'application en mode de générateur et reconfigurez le widget."
 });

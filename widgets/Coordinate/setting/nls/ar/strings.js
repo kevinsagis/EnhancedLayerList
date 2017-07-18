@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "درجات عشرية",
   "Degree_Minutes_Seconds": "درجات دقائق ثوان",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "ترتيب عرض الإحداثيات:",
+  "lonLatTips": "خطوط الطول / دوائر العرض (X، Y)",
+  "latLonTips": "دوائر العرض / خطوط الطول (X، Y)"
 });

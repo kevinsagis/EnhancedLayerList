@@ -6,6 +6,7 @@ define({
     "yes": "はい",
     "no": "いいえ",
     "next": "次へ",
+    "previous": "前へ",
     "back": "戻る",
     "selected": "選択",
     "name": "名前",
@@ -48,11 +49,19 @@ define({
     "scene": "シーン",
     "reset": "リセット",
     "icon": "アイコン",
+    "folder": "フォルダー",
     "share": "共有",
     "view": "表示",
     "newText": "新規",
     "edit": "編集",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "テーブル",
+    "zoomIn": "拡大",
+    "zoomOut": "縮小",
+    "continue1": "継続",
+    "longitude": "経度",
+    "latitude": "緯度",
+    "custom": "カスタム"
   },
   "errorCode": "コード",
   "errorMessage": "メッセージ",
@@ -96,7 +105,10 @@ define({
     "dash": "破線",
     "dot": "点線",
     "dashDot": "1 点鎖線",
-    "dashDotDot": "2 点鎖線"
+    "dashDotDot": "2 点鎖線",
+    "customImage": "カスタム画像",
+    "chooseFile": "ファイルの選択",
+    "noFileChoosen": "ファイルが選択されていません。"
   },
   "transparency": {
     "opaque": "不透明",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "大文字/小文字を区別します",
     "notSupportCaseSensitiveTip": "ホスト サービスでは、大文字/小文字を区別するクエリはサポートされていません。",
-    "setFilterTip": "フィルターを正しく設定してください。"
+    "setFilterTip": "フィルターを正しく設定してください。",
+    "listValues": "リスト値",
+    "cascadeFilterTip": "前の条件式でフィルター処理した値のみを表示",
+    "noneCascadeFilterTip": "このフィールドのすべての個別値",
+    "previousCascadeFilterTip": "前の条件式でフィルター処理した値",
+    "allCascadeFilterTip": "他のすべての条件式でフィルター処理した値"
   },
   "featureLayerSource": {
     "layer": "レイヤー",
@@ -293,7 +310,11 @@ define({
     "owner": "所有者",
     "signInTo": "サイン イン",
     "lastModified": "最終更新日",
-    "moreDetails": "詳細"
+    "moreDetails": "詳細",
+    "mostRecent": "新しい順",
+    "mostViewed": "ビュー数が多い順",
+    "highestRated": "評価の高い順",
+    "viewItemDetails": "アイテム詳細の表示"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "サービスはクエリをサポートしていません。"
@@ -322,7 +343,7 @@ define({
     "invalidType": "無効なファイル タイプです。",
     "cropImage": "画像のトリミング",
     "exceed": "ファイル サイズが 1024 KB を超えてはいけません。",
-    "enableFlash": "TODO: フラッシュを有効にしてください。",
+    "enableFlash": "画像を参照する前に、Adobe Flash を有効化してください。",
     "cropWaining": "少なくとも ${width} x ${height} ピクセルの写真を選択してください。",
     "toolTip": "一番見やすい画像サイズは、幅 ${width} ピクセル、高さ ${height} ピクセルです。その他のサイズでは自動的にサイズが調整されます。使用できる画像形式は、PNG、GIF、JPEG です。"
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "クリックすると、マップ範囲およびオフにしていたレイヤーの表示設定を復元します。"
   },
   "featureActions": {
+    "featureActions": "フィーチャ アクション",
     "ZoomTo": "ズーム",
     "PanTo": "画面移動",
     "Flash": "フラッシュ",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "CSV ファイルにエクスポート",
     "ShowSelectedFeature": "選択フィーチャの表示",
     "ExportToFeatureCollection": "フィーチャ コレクションにエクスポート",
-    "ExportToGeoJSON": "GeoJSON にエクスポート"
+    "ExportToGeoJSON": "GeoJSON にエクスポート",
+    "EditAttributes": "属性編集",
+    "AddMarker": "マーカーの追加",
+    "RemoveMarker": "マーカーの削除",
+    "SaveToMyContent": "マイ コンテンツに保存"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "関連レイヤー",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "選択に追加",
     "removeSelectionTip": "選択セットから削除",
     "selectFromCurrentSelectionTip": "現在の選択セットから絞込選択",
-    "unselectAllSelectionTip": "現在選択されているすべてのフィーチャを選択解除します"
+    "unselectAllSelectionTip": "現在選択されているすべてのフィーチャを選択解除します",
+    "selectByPolygon": "ポリゴンによる選択",
+    "selectByCircle": "円による選択",
+    "selectByLine": "ラインによる選択",
+    "chooseSelectingTools": "選択ツールの選択",
+    "darw": "描画",
+    "drawShap": "図形の描画"
   },
   "widgetManager": {
     "createWidgetError": "ウィジェットの作成エラー",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D Web アプリは、使用中のブラウザーではサポートされていません。"
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "ベースマップは利用できません。",
+    "displayDefaultBasemap": "代わりにデフォルトのベースマップを表示しています。",
+    "layerLoadedError": "レイヤー ${layers} をマップに追加できません。"
+  },
+  "popup": {
+    "relatedTables": "関連テーブル:",
+    "relatedRecords": "関連レコード:",
+    "noRelatedRecotds": "関連するレコードが見つかりませんでした。",
+    "chooseFieldTip": "リストを表示する属性を選択",
+    "saveAsPopupTitle": "ポップアップ タイトルと同じ"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "選択セット内のフィーチャが多すぎます。これらを取得してマップ上に表示するのに時間がかかる可能性があります。",
+    "askForContinue": "続行しますか？"
+  },
+  "colorPalette": {
+    "transparent": "透明",
+    "custom": "カスタム"
+  },
+  "temperature": {
+    "celsius": "摂氏",
+    "fahrenheit": "華氏"
+  },
+  "report": {
+    "printButtonLabel": "印刷",
+    "reportDimensionsMsg": "このレポートは ${paperSize} の紙に印刷するように設計されています",
+    "unableToPrintMapMsg": "マップの印刷中にエラーが発生しました。",
+    "landscape": "横",
+    "portrait": "縦",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "レター ANSI A",
+    "tabloidANSIB": "タブロイド ANSI B",
+    "letter": "レター",
+    "legal": "リーガル",
+    "tabloid": "タブロイド",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "ご使用のアカウントには、データを作成/変更する権限がありません。",
+  "invalidConfiguration": "ウィジェットが構成されていないか、構成で指定されたレイヤーがマップ内に存在しません。アプリをビルダー モードで開き、ウィジェットを再構成してください。"
 });

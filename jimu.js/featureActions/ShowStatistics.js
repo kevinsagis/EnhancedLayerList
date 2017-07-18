@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,7 +23,8 @@ define([
     iconClass: 'icon-statistics',
 
     isFeatureSupported: function(featureSet, layer){
-      return featureSet.features.length > 1 && layer && this.getNumbericFields(layer).length > 0;
+      return featureSet.features.length > 1 && layer && layer.declaredClass !== "esri.layers.GraphicsLayer" &&
+        this.getNumbericFields(layer).length > 0;
     },
 
     onExecute: function(featureSet, layer){
@@ -44,7 +45,7 @@ define([
         return ['esriFieldTypeSmallInteger',
               'esriFieldTypeInteger',
               'esriFieldTypeSingle',
-              'esriFieldTypeDouble'].indexOf(f.type) > 0;
+              'esriFieldTypeDouble'].indexOf(f.type) > -1;
       });
     }
 

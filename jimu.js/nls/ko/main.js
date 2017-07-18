@@ -6,6 +6,7 @@ define({
     "yes": "예",
     "no": "아니요",
     "next": "다음",
+    "previous": "이전",
     "back": "뒤로",
     "selected": "선택함",
     "name": "이름",
@@ -48,11 +49,19 @@ define({
     "scene": "씬",
     "reset": "재설정",
     "icon": "아이콘",
+    "folder": "폴더",
     "share": "공유",
     "view": "보기",
     "newText": "새로 만들기",
     "edit": "편집",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "테이블",
+    "zoomIn": "확대",
+    "zoomOut": "축소",
+    "continue1": "계속",
+    "longitude": "경도",
+    "latitude": "위도",
+    "custom": "사용자 정의"
   },
   "errorCode": "코드",
   "errorMessage": "메시지",
@@ -96,7 +105,10 @@ define({
     "dash": "대시",
     "dot": "점",
     "dashDot": "대시 점",
-    "dashDotDot": "대시 점 점"
+    "dashDotDot": "대시 점 점",
+    "customImage": "사용자 정의 이미지",
+    "chooseFile": "파일 선택",
+    "noFileChoosen": "선택한 파일이 없습니다."
   },
   "transparency": {
     "opaque": "불투명",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "대소문자 구분",
     "notSupportCaseSensitiveTip": "호스팅된 서비스는 대소문자 구분 쿼리를 지원하지 않습니다.",
-    "setFilterTip": "필터를 올바르게 설정하세요."
+    "setFilterTip": "필터를 올바르게 설정하세요.",
+    "listValues": "목록 값",
+    "cascadeFilterTip": "이전 식으로 필터링된 값만 보여 줍니다.",
+    "noneCascadeFilterTip": "이 필드의 모든 고유값",
+    "previousCascadeFilterTip": "이전 식으로 필터링된 값",
+    "allCascadeFilterTip": "다른 모든 식으로 필터링된 값"
   },
   "featureLayerSource": {
     "layer": "레이어",
@@ -293,7 +310,11 @@ define({
     "owner": "소유자",
     "signInTo": "로그인:",
     "lastModified": "마지막으로 수정한 날짜",
-    "moreDetails": "자세한 정보"
+    "moreDetails": "자세한 정보",
+    "mostRecent": "가장 최근",
+    "mostViewed": "인기순",
+    "highestRated": "평점순",
+    "viewItemDetails": "항목 세부정보 보기"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "서비스가 쿼리를 지원하지 않습니다."
@@ -322,8 +343,8 @@ define({
     "invalidType": "잘못된 파일 유형입니다.",
     "cropImage": "이미지 자르기",
     "exceed": "파일 크기는 1024KB를 넘을 수 없습니다.",
-    "enableFlash": "TODO: 깜박이기를 활성화하세요.",
-    "cropWaining": "${width} x ${height} 픽셀 이상의 사진을 선택하세요.",
+    "enableFlash": "이미지를 찾아보려면 먼저 Adobe Flash를 활성화하세요.",
+    "cropWaining": "${가로} x ${세로} 픽셀 이상의 사진을 선택하세요.",
     "toolTip": "최상의 결과를 얻으려면 이미지의 폭은 ${width}픽셀, 높이는 ${height}픽셀이어야 합니다. 그 밖의 다른 크기는 맞게 조정됩니다. PNG, GIF 및 JPEG 형식의 이미지를 사용할 수 있습니다."
   },
   "simpleTable": {
@@ -347,6 +368,7 @@ define({
     "restoreMap": "작업을 중지한 지점의 맵 범위와 레이어 가시성을 복원하려면 클릭하세요."
   },
   "featureActions": {
+    "featureActions": "피처 동작",
     "ZoomTo": "확대/축소",
     "PanTo": "이동",
     "Flash": "깜박이기",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "CSV 파일로 내보내기",
     "ShowSelectedFeature": "선택한 피처 표시",
     "ExportToFeatureCollection": "피처 컬렉션으로 내보내기",
-    "ExportToGeoJSON": "GeoJSON으로 내보내기"
+    "ExportToGeoJSON": "GeoJSON으로 내보내기",
+    "EditAttributes": "속성 편집",
+    "AddMarker": "표시 추가",
+    "RemoveMarker": "표시 제거",
+    "SaveToMyContent": "내 콘텐츠에 저장"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "릴레이트된 레이어",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "선택에 추가",
     "removeSelectionTip": "선택 영역에서 제거",
     "selectFromCurrentSelectionTip": "현재 선택에서 다시 선택",
-    "unselectAllSelectionTip": "현재 선택한 모든 피처 선택 해제"
+    "unselectAllSelectionTip": "현재 선택한 모든 피처 선택 해제",
+    "selectByPolygon": "폴리곤으로 선택",
+    "selectByCircle": "원으로 선택",
+    "selectByLine": "라인으로 선택",
+    "chooseSelectingTools": "선택 도구 선택",
+    "darw": "그리기",
+    "drawShap": "도형 그리기"
   },
   "widgetManager": {
     "createWidgetError": "위젯 생성 오류",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "3D 웹 앱이 브라우저에서 지원되지 않습니다."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "베이스맵을 사용할 수 없습니다.",
+    "displayDefaultBasemap": "기본 베이스맵을 대신 표시합니다.",
+    "layerLoadedError": "${layers} 레이어를 맵에 추가할 수 없습니다."
+  },
+  "popup": {
+    "relatedTables": "릴레이트된 테이블:",
+    "relatedRecords": "릴레이트된 레코드:",
+    "noRelatedRecotds": "릴레이트된 레코드가 없습니다.",
+    "chooseFieldTip": "목록에 표시할 속성을 선택합니다.",
+    "saveAsPopupTitle": "팝업 제목과 동일"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "선택 항목에 피처가 너무 많습니다. 맵에서 이러한 피처를 검색하고 나타나는 데 시간이 오래 걸릴 수 있습니다.",
+    "askForContinue": "계속하시겠습니까?"
+  },
+  "colorPalette": {
+    "transparent": "투명",
+    "custom": "사용자 정의"
+  },
+  "temperature": {
+    "celsius": "섭씨",
+    "fahrenheit": "화씨"
+  },
+  "report": {
+    "printButtonLabel": "인쇄",
+    "reportDimensionsMsg": "이 보고서는 ${paperSize} 용지에 인쇄되도록 만들어졌습니다.",
+    "unableToPrintMapMsg": "맵을 인쇄하는 중 오류가 발생했습니다.",
+    "landscape": "가로",
+    "portrait": "세로",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Letter ANSI A",
+    "tabloidANSIB": "Tabloid ANSI B",
+    "letter": "Letter",
+    "legal": "Legal",
+    "tabloid": "Tabloid",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "내 계정에 데이터를 만들거나 수정할 권한이 없습니다.",
+  "invalidConfiguration": "위젯이 구성되지 않았거나 구성의 레이어가 더 이상 맵에 없습니다. 빌더 모드에서 앱을 열고 위젯을 다시 구성하세요."
 });

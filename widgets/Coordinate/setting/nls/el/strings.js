@@ -41,5 +41,8 @@ define({
   "Decimal_Degrees": "Δεκαδικές Μοίρες",
   "Degree_Minutes_Seconds": "Μοίρες Λεπτά Δευτερόλεπτα",
   "MGRS": "MGRS",
-  "USNG": "USNG"
+  "USNG": "USNG",
+  "displayOrderLonLatTips": "Σειρά εμφάνισης συντεταγμένων:",
+  "lonLatTips": "Γεωγραφικό πλάτος / Γεωγραφικό μήκος(X, Y)",
+  "latLonTips": "Γεωγραφικό πλάτος / Γεωγραφικό μήκος(Y, X)"
 });

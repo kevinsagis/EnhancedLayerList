@@ -6,6 +6,7 @@ define({
     "yes": "Có",
     "no": "Không",
     "next": "Tiếp",
+    "previous": "Trước",
     "back": "Quay lại",
     "selected": "đã chọn",
     "name": "Tên",
@@ -48,11 +49,19 @@ define({
     "scene": "Scene",
     "reset": "Thiết lập lại",
     "icon": "Biểu tượng",
+    "folder": "Thư mục",
     "share": "Chia sẻ",
     "view": "Xem",
     "newText": "Mới",
     "edit": "Chỉnh sửa",
-    "wkid": "WKID"
+    "wkid": "WKID",
+    "table": "Bảng",
+    "zoomIn": "Thu nhỏ",
+    "zoomOut": "Phóng to",
+    "continue1": "Tiếp",
+    "longitude": "Kinh độ",
+    "latitude": "Vĩ độ",
+    "custom": "Tùy chỉnh"
   },
   "errorCode": "Mã",
   "errorMessage": "Thông báo",
@@ -96,7 +105,10 @@ define({
     "dash": "Gạch",
     "dot": "Chấm",
     "dashDot": "Chấm Gạch",
-    "dashDotDot": "Gạch Chấm Chấm"
+    "dashDotDot": "Gạch Chấm Chấm",
+    "customImage": "Hình ảnh Tùy chỉnh",
+    "chooseFile": "Chọn tệp",
+    "noFileChoosen": "Không có tệp được chọn."
   },
   "transparency": {
     "opaque": "Độ mờ",
@@ -236,7 +248,12 @@ define({
     },
     "caseSensitive": "Phân biệt chữ hoa chữ thường",
     "notSupportCaseSensitiveTip": "Dịch vụ được lưu trữ không hỗ trợ truy vấn phân biệt chữ hoa chữ thường.",
-    "setFilterTip": "Vui lòng thiết lập bộ lọc chính xác."
+    "setFilterTip": "Vui lòng thiết lập bộ lọc chính xác.",
+    "listValues": "Liệt kê Giá trị",
+    "cascadeFilterTip": "Chỉ hiện các giá trị được lọc bởi các biểu thức trước đó.",
+    "noneCascadeFilterTip": "Tất cả các giá trị riêng của trường này",
+    "previousCascadeFilterTip": "Các giá trị được lọc bởi các biểu thức trước đó",
+    "allCascadeFilterTip": "Các giá trị được lọc bởi tất cả các biểu thức khác"
   },
   "featureLayerSource": {
     "layer": "Lớp",
@@ -293,7 +310,11 @@ define({
     "owner": "chủ sở hữu",
     "signInTo": "Đăng nhập vào",
     "lastModified": "Chỉnh sửa lần cuối",
-    "moreDetails": "Thêm chi tiết"
+    "moreDetails": "Thêm chi tiết",
+    "mostRecent": "Gần đây nhất",
+    "mostViewed": "Xem Nhiều nhất",
+    "highestRated": "Đánh giá cao nhất",
+    "viewItemDetails": "Xem chi tiết mục"
   },
   "featureLayerChooserFromPortal": {
     "notSupportQuery": "Dịch vụ không hỗ trợ truy vấn."
@@ -322,7 +343,7 @@ define({
     "invalidType": "Loại tệp không hợp lệ.",
     "cropImage": "Xén Ảnh",
     "exceed": "Kích cỡ tệp không được vượt quá 1024 KB",
-    "enableFlash": "CẦN LÀM: vui lòng bật flash.",
+    "enableFlash": "Vui lòng kích hoạt Adobe Flash trước khi duyệt tìm hình ảnh.",
     "cropWaining": "Vui lòng chọn ảnh có kích thước tối thiểu ${width} x ${height} pixel.",
     "toolTip": "Để có kết quả tốt nhất, hình ảnh phải rộng ${width} pixel và cao ${height} pixel. Các kích cỡ khác sẽ được điều chỉnh cho phù hợp. Các định dạng hình ảnh được chấp nhận là: PNG, GIF và JPEG."
   },
@@ -347,6 +368,7 @@ define({
     "restoreMap": "Bấm vào để khôi phục khả năng hiển thị của phạm vi bản đồ và các lớp khi bạn rời đi."
   },
   "featureActions": {
+    "featureActions": "Các hoạt động cho đối tượng",
     "ZoomTo": "Phóng tới",
     "PanTo": "Quay để",
     "Flash": "Đèn flash",
@@ -357,7 +379,11 @@ define({
     "ExportToCSV": "Xuất ra tệp CSV",
     "ShowSelectedFeature": "Hiện Đối tượng được Chọn",
     "ExportToFeatureCollection": "Xuất ra Bộ sưu tập Đối tượng",
-    "ExportToGeoJSON": "Xuất ra GeoJSON"
+    "ExportToGeoJSON": "Xuất ra GeoJSON",
+    "EditAttributes": "Sửa Thuộc tính",
+    "AddMarker": "Thêm Điểm đánh dấu",
+    "RemoveMarker": "Xóa Điểm đánh dấu",
+    "SaveToMyContent": "Lưu vào Nội dung của Tôi"
   },
   "spatialFilterByFeatures": {
     "relatedLayer": "Lớp có liên quan",
@@ -389,7 +415,13 @@ define({
     "addSelectionTip": "Thêm vào lựa chọn",
     "removeSelectionTip": "Gỡ bỏ khỏi lựa chọn",
     "selectFromCurrentSelectionTip": "Chọn từ lựa chọn hiện tại",
-    "unselectAllSelectionTip": "Bỏ chọn tất cả đối tượng được chọn hiện tại"
+    "unselectAllSelectionTip": "Bỏ chọn tất cả đối tượng được chọn hiện tại",
+    "selectByPolygon": "Chọn theo Hình đa giác",
+    "selectByCircle": "Chọn theo Hình tròn",
+    "selectByLine": "Chọn theo Đường thẳng",
+    "chooseSelectingTools": "Chọn các công cụ lựa chọn",
+    "darw": "Vẽ",
+    "drawShap": "Vẽ một hình"
   },
   "widgetManager": {
     "createWidgetError": "Lỗi tạo tiện ích",
@@ -448,5 +480,55 @@ define({
   },
   "webSceneLoader": {
     "webglSupportTip": "Trình duyệt của bạn không hỗ trợ ứng dụng web 3D."
-  }
+  },
+  "map": {
+    "basemapNotAvailable": "Bản đồ nền không khả dụng.",
+    "displayDefaultBasemap": "Thay vào đó hiển thị bản đồ nền mặc định.",
+    "layerLoadedError": "Lớp, ${layers} không thể thêm vào bản đồ."
+  },
+  "popup": {
+    "relatedTables": "Bảng Liên quan:",
+    "relatedRecords": "Bản ghi Liên quan:",
+    "noRelatedRecotds": "Không tìm thấy bản ghi liên quan.",
+    "chooseFieldTip": "Chọn thuộc tính để hiển thị danh sách",
+    "saveAsPopupTitle": "Giống như Tiêu đề Pop-up"
+  },
+  "queryFeatures": {
+    "tooManyFeaturesTip": "Có quá nhiều tính năng trong phần lựa chọn của bạn. Có thể sẽ mất nhiều thời gian để truy xuất và hiển thị chúng lên bản đồ.",
+    "askForContinue": "Bạn có muốn tiếp tục không?"
+  },
+  "colorPalette": {
+    "transparent": "Độ trong suốt",
+    "custom": "Tùy chỉnh"
+  },
+  "temperature": {
+    "celsius": "Độ Celsius",
+    "fahrenheit": "Độ Fahrenheit"
+  },
+  "report": {
+    "printButtonLabel": "In",
+    "reportDimensionsMsg": "Báo cáo này được thiết kế để in trên Giấy ${paperSize}",
+    "unableToPrintMapMsg": "Đã xảy ra lỗi trong khi in (các) bản đồ.",
+    "landscape": "Cảnh quan",
+    "portrait": "Hướng dọc",
+    "mapOnly": "MAP_ONLY",
+    "a0": "A0",
+    "a1": "A1",
+    "a2": "A2",
+    "a3": "A3",
+    "a4": "A4",
+    "a5": "A5",
+    "letterANSIA": "Thư ANSI A",
+    "tabloidANSIB": "Báo khổ nhỏ ANSI B",
+    "letter": "Thư",
+    "legal": "Pháp lý",
+    "tabloid": "Báo khổ nhỏ",
+    "ansi_a": "ANSI_A",
+    "ansi_b": "ANSI_B",
+    "ansi_c": "ANSI_C",
+    "ansi_d": "ANSI_D",
+    "ansi_e": "ANSI_E"
+  },
+  "noEditPrivileges": "Tài khoản của bạn không có quyền tạo hoặc sửa đổi dữ liệu.",
+  "invalidConfiguration": "Tiện ích chưa được cấu hình hoặc lớp trong cấu hình không còn trong bản đồ. Vui lòng mở ứng dụng trong chế độ bộ thiết lập và cấu hình lại tiện ích."
 });

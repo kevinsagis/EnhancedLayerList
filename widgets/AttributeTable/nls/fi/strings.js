@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Näytä kaikki tietueet",
   "showRelatedRecords": "Näytä liittyvät tietueet",
   "noRelatedRecords": "Liittyviä tietueita ei löytynyt",
+  "attachmentColumn": "Valokuvat ja tiedostot",
   "refresh": "Päivitä",
   "features": "kohteet",
   "records": "tietueet",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Piilota ominaisuustietotaulukko",
   "sortAsc": "Lajittele nousevasti",
   "sortDes": "Lajittele laskevasti",
-  "statistics": "Tilastotiedot"
+  "statistics": "Tilastotiedot",
+  "attachments": "Liitteet",
+  "files": "tiedostot"
 });

@@ -23,6 +23,7 @@ define({
   "showAllRecords": "Zobrazit všechny záznamy",
   "showRelatedRecords": "Zobrazit související záznamy",
   "noRelatedRecords": "Nebyly nalezeny žádné související záznamy.",
+  "attachmentColumn": "Fotografie a soubory",
   "refresh": "Obnovit",
   "features": "prvků",
   "records": "záznamy",
@@ -37,5 +38,7 @@ define({
   "closeTableTip": "Skrýt atributovou tabulku",
   "sortAsc": "Setřídit vzestupně",
   "sortDes": "Seřadit sestupně",
-  "statistics": "Statistika"
+  "statistics": "Statistika",
+  "attachments": "Přílohy",
+  "files": "soubory"
 });

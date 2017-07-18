@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -277,9 +277,13 @@ define([
         }
         this.openedId = ids[0];
         if (config.widgets && config.openType === 'openAll') {
-          this._showIconContent(config);
+          this._switchNodeToOpen(config.id);
         } else if (!config.widgets) {
-          this._showIconContent(config);
+          if(this._getIconNodeById(config.id)){
+            this._switchNodeToOpen(config.id);
+          }else{
+            this._showIconContent(config);
+          }
         }
       },
 
@@ -389,6 +393,7 @@ define([
           html.create('a', {
             href: link.url,
             target: '_blank',
+            rel: 'noopener noreferrer',
             innerHTML: utils.sanitizeHTML(link.label),
             'class': "jimu-link jimu-align-leading jimu-leading-margin1",
             style: {
@@ -595,6 +600,7 @@ define([
           href: link.url,
           'class': 'jimu-ellipsis',
           target: '_blank',
+          rel: "noopener noreferrer",
           innerHTML: utils.sanitizeHTML(link.label),
           title: link.label,
           style: {
@@ -767,7 +773,7 @@ define([
         }
 
         node = html.create('div', {
-          'class': 'icon-node jimu-float-trailing',
+          'class': 'icon-node jimu-float-trailing' + ((this.openedId === iconConfig.id)? ' jimu-state-selected': ''),
           title: iconConfig.label,
           settingId: iconConfig.id,
           style: {

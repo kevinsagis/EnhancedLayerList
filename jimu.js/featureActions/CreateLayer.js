@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// Copyright © 2014 Esri. All Rights Reserved.
+// Copyright © 2014 - 2016 Esri. All Rights Reserved.
 //
 // Licensed under the Apache License Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -36,7 +36,7 @@ define([
     iconClass: 'icon-create-layer',
 
     isFeatureSupported: function(featureSet){
-      return featureSet.features.length > 1;
+      return featureSet.features.length > 1 && featureSet.features[0].geometry;
     },
 
     // Must provide objectIdField option if feature does not has 'objectid' field.
@@ -127,11 +127,8 @@ define([
           'layerInfosChanged',
           lang.hitch(this, function(changedLayerInfo) {
             if(featureLayer.id === changedLayerInfo.id) {
-              //todo...
-              changedLayerInfo.loadInfoTemplate().then(lang.hitch(this, function(){
-                changedLayerInfo.enablePopup();
-                addLayerHandle.remove();
-              }));
+              changedLayerInfo.enablePopup();
+              addLayerHandle.remove();
             }
           }));
       this.map.addLayer(featureLayer);
