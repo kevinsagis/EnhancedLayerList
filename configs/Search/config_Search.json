@@ -1,0 +1,45 @@
+{
+  "allPlaceholder": "",
+  "showInfoWindowOnSelect": true,
+  "sources": [
+    {
+      "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer",
+      "name": "Esri World Geocoder",
+      "singleLineFieldName": "SingleLine",
+      "placeholder": "Esri World Geocoder",
+      "countryCode": "Georgia, USA",
+      "zoomScale": 50000,
+      "maxSuggestions": 6,
+      "maxResults": 6,
+      "searchInCurrentMapExtent": true,
+      "type": "locator",
+      "enableLocalSearch": true,
+      "localSearchMinScale": 300000,
+      "localSearchDistance": 50000
+    },
+    {
+      "name": "SAGIS Centerlines",
+      "url": "http://sagisservices.thempc.org/saint/rest/services/Locator/CENTERLINES/GeocodeServer",
+      "singleLineFieldName": "Single Line Input",
+      "placeholder": "110 E State St",
+      "maxResults": 6,
+      "searchInCurrentMapExtent": false,
+      "type": "locator",
+      "enableLocalSearch": false,
+      "localSearchMinScale": 300000,
+      "localSearchDistance": 50000
+    },
+    {
+      "name": "SAGIS Address Points",
+      "url": "http://sagisservices.thempc.org/saint/rest/services/Locator/MAD/GeocodeServer",
+      "singleLineFieldName": "Single Line Input",
+      "placeholder": "110 E State St",
+      "maxResults": 6,
+      "searchInCurrentMapExtent": false,
+      "type": "locator",
+      "enableLocalSearch": false,
+      "localSearchMinScale": 300000,
+      "localSearchDistance": 50000
+    }
+  ]
+}
