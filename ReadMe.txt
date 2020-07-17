@@ -1,6 +1,6 @@
 Built with Web App Builder 2.4
 
-Example demo site of widget is posted here: http://sagiscloud.thempc.org/elayerlist/
+Example demo site of widget is posted here: http://cloud.sagis.org/elayerlist/
 
 The Enhanced Layer List widget is located in eLayerList folder of this WAB site. The Enhanced Layer List is updated to WAB 2.4.  The rest of the website merely serves as a demonstration and it is intended for users to copy the eLayerList folder to their own WAB Application folder. The widget and this demo site will be upgraded to WAB 2.3 or newer in the future as well.  
 
